@@ -1,0 +1,1419 @@
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x446 .
+[SE]  u4SampleAverage to app = 0xa4 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x446
+[LID] pv_get_info  ave= 0xa4
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:426
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x44f .
+[SE]  u4SampleAverage to app = 0xae .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x44f
+[LID] pv_get_info  ave= 0xae
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:427
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gainctrl.gainlog
+# mw.aud.gainctrl.gainlog
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_GainControl1_param_setting_usage: start here     *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudGainctrl;
+[vizio_param_setting] INT32 i4_retgain;
+[vizio_param_setting] /*****Set Gain Control 01 L Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /*****Set Gain Control 01 R Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /*****Set Gain Control 01 Ls Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /*****Set Gain Control 01 Rs Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /*****Set Gain Control 01 C Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_CENTER;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /*****Set Gain Control 01 LFE Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+[vizio_param_setting] tSccAudGainctrl.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_GainControl1_param_setting_usage: end here     *
+[vizio_param_setting] ****************************************************************/
+Command>[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x497 .
+[SE]  u4SampleAverage to app = 0xae .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x497
+[LID] pv_get_info  ave= 0xae
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:428
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gainctrl.gainlog02
+# mw.aud.gainctrl.gainlog02
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_GainControl2_param_setting_usage: start here     *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudGainctrl2;
+[vizio_param_setting] INT32 i4_retgain2;
+[vizio_param_setting] /*****Set Gain Control 02 L Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /*****Set Gain Control 02 R Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /*****Set Gain Control 02 Ls Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /*****Set Gain Control 02 Rs Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /*****Set Gain Control 02 C Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_CENTER;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /*****Set Gain Control 02 LFE Channel*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL2_CHANNEL_GAIN
+[vizio_param_setting] tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+[vizio_param_setting] tSccAudGainctrl2.i4ChMute = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4ChInvert = 0;
+[vizio_param_setting] tSccAudGainctrl2.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain2);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_GainControl2_param_setting_usage: end here       *
+[vizio_param_setting] ****************************************************************/
+Command>[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3c5 .
+[SE]  u4SampleAverage to app = 0xa2 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3c5
+[LID] pv_get_info  ave= 0xa2
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:429
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gainctrl.gainlog03
+# mw.aud.gainctrl.gainlog03
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_MasterVolume_param_setting_usage: start here     *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] /*****Set Matser Volume*****/
+[_AudGet]AUD_DEC_GET_GAINCTRL3_CHANNEL_GAIN
+[AUD][GAINCTRL][vAdspChannelGainGet3]prChannelGainctrl->e_ls=0,i4GainByDBStep=0,i4ChInvert=0,i4ChMute=0,u4ChGainSmoothOrder=11
+[vizio_param_setting] INT32 i4GainByDBStep;
+[vizio_param_setting] INT32 i4_retgain3;
+[vizio_param_setting] i4GainByDBStep = 0;
+[vizio_param_setting] i4_retgain3=c_scc_aud_set_gainctrl_master_volume_gain(h_g_acfg_scc_main_aud, i4GainByDBStep);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retgain3);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_MasterVolume_param_setting_usage: end here       *
+[vizio_param_setting] ****************************************************************/
+Command>[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x466 .
+[SE]  u4SampleAverage to app = 0xb0 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x466
+[LID] pv_get_info  ave= 0xb0
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:430
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gainctrl.headroomlogs
+# [AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+mw.aud.gainctrl.headroomlogs
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_HeadRoomStart_param_setting_usage: start here    *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudHeadRoomStart;
+[vizio_param_setting] INT32 i4_retHRoom;
+[vizio_param_setting] /*****Set HeadRoom Start L Channel*****/
+[SE]  u4SampleMaxVlaue to app = 0x39e .
+[SE]  u4SampleAverage to app = 0xa8 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x39e
+[LID] pv_get_info  ave= 0xa8
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:431
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=0 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /*****Set HeadRoom Start R Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=1 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /*****Set HeadRoom Start Ls Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=2 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /*****Set HeadRoom Start Rs Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=3 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /*****Set HeadRoom Start C Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=4 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_CENTER;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /*****Set HeadRoom Start LFE Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_START
+[AUD][HeadRoom][vAdspChannelHeadRoomStartGet]prChannelHeadRoom->e_ls=5 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_retHRoom);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_HeadRoomStart_param_setting_usage: end here      *
+[vizio_param_setting] ****************************************************************/
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gainctrl.headroomloge
+# [AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x370 .
+[SE]  u4SampleAverage to app = 0xa0 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x370
+[LID] pv_get_info  ave= 0xa0
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:432
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+mw.aud.gainctrl.headroomloge
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_HeadRoomEnd_param_setting_usage: start here      *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudHeadRoomEnd;
+[vizio_param_setting] INT32 i4_ret_HREnd;
+[vizio_param_setting] /*****Set HeadRoom End L Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=0 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /*****Set HeadRoom End R Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=1 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /*****Set HeadRoom End Ls Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=2 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /*****Set HeadRoom End Rs Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=3 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /*****Set HeadRoom End C Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=4 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_CENTER;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /*****Set HeadRoom End LFE Channel*****/
+[_AudGet]AUD_DEC_GET_CHANNEL_HEADROOM_END
+[AUD][HeadRoom][vAdspChannelHeadRoomEndGet]prChannelHeadRoom->e_ls=5 prChannelHeadRoom->i4GainByDBStep=0
+[vizio_param_setting] tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChMute = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4ChInvert = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+[vizio_param_setting] tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+[vizio_param_setting] i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_HeadRoomEnd_param_setting_usage: end here        *
+[vizio_param_setting] ****************************************************************/
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.gettonelog
+# [AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x455 .
+[SE]  u4SampleAverage to app = 0xb8 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x455
+[LID] pv_get_info  ave= 0xb8
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:433
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+mw.aud.gettonelog
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: start here*****/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]SCC_AUD_SE_BIQUAD_INFO_T    scc_biquad_info; 
+[vizio_param_setting]/*****CH:0, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=4;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:0, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=5;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****CH:1, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=8;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:1, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=9;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****CH:2, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=12;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:2, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=13;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****CH:3, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=16;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:3, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=17;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****CH:4, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=20;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:4, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=21;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****CH:5, Set:0 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=24;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/*****CH:5, Set:1 disable*****/ 
+[vizio_param_setting]scc_biquad_info.u4_Off=25;
+[vizio_param_setting]c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+cli mw.aud.getbasslog
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+# [SE]  u4SampleMaxVlaue to app = 0x3c4 .
+[SE]  u4SampleAverage to app = 0xa3 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3c4
+[LID] pv_get_info  ave= 0xa3
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:434
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+mw.aud.getbasslog
+[vizio_param_setting]/*************************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_Bass_para_setting_usage: start here*****/ 
+[vizio_param_setting]/*************************************************************/ 
+[vizio_param_setting]/*****Bass on/off*****/ 
+[vizio_param_setting]INT32 i4_ret_bass;
+[vizio_param_setting]i4_ret_bass = c_scc_aud_set_bmanagement_mode(h_g_acfg_scc_main_aud, SCC_AUD_SE_BMANAGEMENT_OFF); 
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_bass);
+[vizio_param_setting]/*****Bass cutoff frequency*****/ 
+[vizio_param_setting]UINT32 i4CutoffFreq; 
+[vizio_param_setting]i4CutoffFreq = 100; 
+[vizio_param_setting]_i4Cli_AudLoadBassmTbl(i4CutoffFreq); 
+[vizio_param_setting]/*****Bass speaker setting*****/ 
+[vizio_param_setting]UINT8 pui1_value[5]; 
+[vizio_param_setting]pui1_value[0] = 2; 
+[vizio_param_setting]pui1_value[1] = 2; 
+[vizio_param_setting]pui1_value[2] = 2; 
+[vizio_param_setting]pui1_value[3] = 2; 
+[vizio_param_setting]pui1_value[4] = 1; 
+[vizio_param_setting]_set_audio_spk_connection(pui1_value); 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_Bass_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+cli mw.aud.getfilterlog
+# [SE]  u4SampleMaxVlaue to app = 0x433 .
+[SE]  u4SampleAverage to app = 0xa2 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x433
+[LID] pv_get_info  ave= 0xa2
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:435
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+mw.aud.getfilterlog
+[vizio_param_setting]/*************************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_HPF/LPF_para_setting_usage: start here*****/ 
+[vizio_param_setting]/*************************************************************/ 
+[vizio_param_setting]SCC_AUD_SE_HLPF_INFO_T  r_IIR; 
+[vizio_param_setting] INT32 i4_ret_hlpf;
+[vizio_param_setting]/*****[HPF Part]CH: [1]*****/ 
+[vizio_param_setting]r_IIR.u4Off = 1;
+[vizio_param_setting]r_IIR.u4Type = 3;
+[vizio_param_setting]r_IIR.u4Ch = 1;
+[vizio_param_setting]r_IIR.u4Gain = 131072;
+[vizio_param_setting]r_IIR.u4Order = 1;
+[vizio_param_setting]r_IIR.u4Fc = 70;
+[vizio_param_setting]r_IIR.u4Q = 707;
+[vizio_param_setting]i4_ret_hlpf = c_scc_aud_set_se_hlpf(h_g_acfg_scc_main_aud, &r_IIR);
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret_hlpf);
+[vizio_param_setting]/*****[HPF Part]CH: [2]*****/ 
+[vizio_param_setting]r_IIR.u4Off = 1;
+[vizio_param_setting]r_IIR.u4Type = 3;
+[vizio_param_setting]r_IIR.u4Ch = 2;
+[vizio_param_setting]r_IIR.u4Gain = 131072;
+[vizio_param_setting]r_IIR.u4Order = 1;
+[vizio_param_setting]r_IIR.u4Fc = 70;
+[vizio_param_setting]r_IIR.u4Q = 707;
+[vizio_param_setting]i4_ret_hlpf = c_scc_aud_set_se_hlpf(h_g_acfg_scc_main_aud, &r_IIR);
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret_hlpf);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_HPF/LPF_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+cli mw.aud.se.tv[SE]  u4SampleMaxVlaue to app = 0x35b .
+[SE]  u4SampleAverage to app = 0x9f .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x35b
+[LID] pv_get_info  ave= 0x9f
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:436
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+ol getlog
+# 
+mw.aud.se.tvol getlog
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tvol_param_setting_usage: start here*****/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****open TVolHDMC *****/
+[vizio_param_setting]UINT32 i4_ret;
+[vizio_param_setting]UINT32 _u4APPDTSSS1EXTPPControl = 0x0;
+[vizio_param_setting]SCC_AUD_SE_OPCMD_T rOpCmd;
+[vizio_param_setting]SCC_AUD_SE_EXT_PP_CTRL_INFO_T rExtPPInfo;
+[vizio_param_setting]rOpCmd.u4OpCode = 0;
+[vizio_param_setting]rOpCmd.u1Type = SCC_AUD_SE_EXT_PP;
+[vizio_param_setting]rOpCmd.pvData = (VOID*)(&rExtPPInfo);
+[vizio_param_setting]rOpCmd.u4DataSize = sizeof(rExtPPInfo);
+[vizio_param_setting]rOpCmd.u4OpCode = SCC_AUD_SE_OPCODE_CTRL;
+[vizio_param_setting]rExtPPInfo.eCtrlID = SCC_AUD_SE_EXT_PP_TYPE;
+[vizio_param_setting]_u4APPDTSSS1EXTPPControl= _u4APPDTSSS1EXTPPControl| (1<<3);
+[vizio_param_setting]rExtPPInfo.u_value.u4ProcType = _u4APPDTSSS1EXTPPControl;
+[vizio_param_setting]i4_ret=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmd);
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret);
+[vizio_param_setting]rOpCmd.u4OpCode = SCC_AUD_SE_OPCODE_ON;
+[vizio_param_setting]i4_ret=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmd);
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret);
+[vizio_param_setting]/*****Set TVolHDMC Enable parameter*****/
+[vizio_param_setting]SCC_AUD_DEC_DTSTVOL_PARAM_T tDtsTvolParam; 
+[vizio_param_setting]tDtsTvolParam.eAudTvolParaType = SCC_SRSTvol_Enable; 
+[vizio_param_setting]tDtsTvolParam.u_Paramval.u4Enable = TRUE; 
+[vizio_param_setting]i4_ret=c_scc_aud_set_Tvol_Param(h_g_acfg_scc_main_aud,&tDtsTvolParam);
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret);
+[vizio_param_setting]/*****Set TVolHDMC LKFS parameter*****/
+[vizio_param_setting]tDtsTvolParam.eAudTvolParaType = SCC_SRSTvol_Reflevel; 
+[vizio_param_setting]tDtsTvolParam.u_Paramval.u4Reflevel = 0.110000; 
+[vizio_param_setting]i4_ret=c_scc_aud_set_Tvol_Param(h_g_acfg_scc_main_aud,&tDtsTvolParam); 
+[vizio_param_setting]ACFG_LOG_ON_FAIL(i4_ret);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_tvol_param_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x349 .
+[SE]  u4SampleAverage to app = 0xa0 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x349
+[LID] pv_get_info  ave= 0xa0
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:437
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.aud.getcsdeclog
+# 
+mw.aud.getcsdeclog
+[vizio_param_setting]/*************************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_CSDecoder_para_setting_usage: start here*****/ 
+[vizio_param_setting]/*************************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3d0 .
+[SE]  u4SampleAverage to app = 0xa7 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3d0
+[LID] pv_get_info  ave= 0xa7
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:438
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.aud.se.tshd gettshdlog
+# mw.aud.se.tshd gettshdlog
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_TSHD_param_setting_usage: start here             *
+[vizio_param_setting] ****************************************************************/
+[vizio_param_setting] INT32 i4_ret_TruS;
+[vizio_param_setting] INT32 _u4DTSSS1EXTPPControlTshd;
+[vizio_param_setting] /*****Set TruSurround HD Enable parameter*****/
+[vizio_param_setting] /*****TruSurround HD on*****/
+[vizio_param_setting] SM_COMMAND_T at_scc_cmds_Tshd[4];
+[vizio_param_setting] SCC_AUD_SE_OPCMD_T rOpCmdTshd;
+[vizio_param_setting] SCC_AUD_SE_EXT_PP_CTRL_INFO_T rExtPPInfoTshd;
+[vizio_param_setting] rOpCmdTshd.u4OpCode = 0;
+[vizio_param_setting] rOpCmdTshd.u1Type = SCC_AUD_SE_EXT_PP;
+[vizio_param_setting] rOpCmdTshd.pvData = (VOID*)(&rExtPPInfoTshd);
+[vizio_param_setting] rOpCmdTshd.u4DataSize = sizeof(rExtPPInfoTshd);
+[vizio_param_setting] rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_CTRL;
+[vizio_param_setting] rExtPPInfoTshd.eCtrlID = SCC_AUD_SE_EXT_PP_TYPE;
+[vizio_param_setting] _u4DTSSS1EXTPPControlTshd= 40;
+[vizio_param_setting] rExtPPInfoTshd.u_value.u4ProcType = _u4DTSSS1EXTPPControlTshd;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmdTshd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_ON;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmdTshd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] SCC_AUD_DEC_DTSTSHD_PARAM_T tDtsTshdParam;
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_Enable;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_get_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Input Gain parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_InGain;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.400000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Output Gain parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_OutGain;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 1.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Bypass Gain parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_BypassGain;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 1.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Out Mode parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_OutMode;
+[vizio_param_setting] tDtsTshdParam.n_un.eParamIOMode = 3;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Surround Effects Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_SurEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Surround Level Control parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_SurLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Control parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.280000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Split Analysis Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBSplitAnalysisEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Compressor Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBCompLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.320000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Speaker Size parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBSpkSize;
+[vizio_param_setting] tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_60HZ;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBAnalysisSpkSize;
+[vizio_param_setting] tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_100HZ;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front TruBass HD Mode parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBMode;
+[vizio_param_setting] tDtsTshdParam.n_un.eTBHDMode = SCC_SRS_TBHD_MODE_MONO;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer TruBass HD Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer TruBass HD Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer TruBass HD Split Analysis Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBSplitAnalysisEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer TruBass HD Compressor Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDSubTBCompLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer TruBass HD Speaker Size parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBSpkSize;
+[vizio_param_setting] tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBAnalysisSpkSize;
+[vizio_param_setting] tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Subwoofer CrossOver Frequency parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_SubwooferCxOverFc;
+[vizio_param_setting] tDtsTshdParam.n_un.eTruSurHDCxOverFreq = SCC_SRS_TSHD_CXOVER_80Hz;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front Definition Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontDefEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Front Definition Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDFrontDefLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.100000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Center Definition Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDCenterDefEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Center Definition Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDCenterDefLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Dialog Clarity Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_DiaClarityEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set Dialog Clarity Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_DiaClarityLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.200000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD SRS 3D Mode parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdSrs3dMode;
+[vizio_param_setting] tDtsTshdParam.n_un.eSrs3DMode = SCC_SRS_SRS3D_STEREO;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD High Bit Rate parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdHighBitEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD SRS 3D Space Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdSpaceLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD SRS 3D Center Control parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdCenterLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD Focus Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdFocusEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD Focus Level parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdFocusLevel;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD Limiter Enable parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdLimiterEn;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set WOW HD Limiter Minimal Gain parameter*****/
+[vizio_param_setting] tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdLimiterMinimalGain;
+[vizio_param_setting] tDtsTshdParam.n_un.u4ParamFloat32 = 0.250000;
+[vizio_param_setting] i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /*****Set BSDigital flag parameter*****/
+[vizio_param_setting] rExtPPInfoTshd.u_value.tUserParm.u4ProcId = 5;
+[vizio_param_setting] rExtPPInfoTshd.u_value.tUserParm.u4ParmId = 1;
+[vizio_param_setting] rExtPPInfoTshd.u_value.tUserParm.u4ParmValue = 0;
+[vizio_param_setting] rExtPPInfoTshd.eCtrlID = SCC_AUD_SE_EXT_PP_USER_PARM;
+[vizio_param_setting] rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_CTRL;
+[vizio_param_setting] rOpCmdTshd.pvData = &rExtPPInfoTshd;
+[vizio_param_setting] rOpCmdTshd.u4DataSize = sizeof(SCC_AUD_SE_EXT_PP_CTRL_INFO_T);
+[vizio_param_setting] rOpCmdTshd.u1Type = SCC_AUD_SE_EXT_PP;
+[vizio_param_setting] at_scc_cmds_Tshd[0].e_code = SCC_CMD_CODE_GRP_TYPE;
+[vizio_param_setting] at_scc_cmds_Tshd[0].u.ui4_data = SCC_CMD_TYPE_AUDIO;
+[vizio_param_setting] at_scc_cmds_Tshd[1].e_code = SCC_CMD_CODE_NAME;
+[vizio_param_setting] at_scc_cmds_Tshd[1].u.ps_text = SN_PRES_MAIN_DISPLAY;
+[vizio_param_setting] at_scc_cmds_Tshd[2].e_code = SCC_CMD_CODE_AUDIO_SE_OPCMD;
+[vizio_param_setting] at_scc_cmds_Tshd[2].u.pv_data  = &rOpCmdTshd;
+[vizio_param_setting] at_scc_cmds_Tshd[3].e_code = SM_CMD_CODE_END;
+[vizio_param_setting] i4_ret_TruS = x_scc_comp_grp_set(at_scc_cmds_Tshd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_ret_TruS);
+[vizio_param_setting] /****************************************************************
+[vizio_param_setting] * vizio_amtran_TSHD_param_setting_usage: end here               *
+[vizio_param_setting] ****************************************************************/
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x57f .
+[SE]  u4SampleAverage to app = 0xbb .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x57f
+[LID] pv_get_info  ave= 0xbb
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:439
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.aud.hdlmt.log
+# mw.aud.hdlmt.log
+[AUD_MW] Get AUD_DEC_GET_TYPE_SE_TRIM.
+[AUD_MW]!!!Get HardLimiter SCC paremeter log!!!
+[vizio_param_setting]/****************************************************************
+[vizio_param_setting]*   visio_amtran_hardlimiter_param_setting_usage: start here    *
+[vizio_param_setting]*                                                               *
+[vizio_param_setting]****************************************************************/
+[vizio_param_setting]SCC_AUD_SE_HLIMTER_INFO_T  scc_hlimter_on;
+[vizio_param_setting]SCC_AUD_SE_HLIMTER_CH_INFO_T  scc_hlimter_info;
+[vizio_param_setting]/***hardlimiter on or off***/
+[vizio_param_setting]scc_hlimter_on.u4On = 1;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_on_off(h_g_acfg_scc_main_aud, &scc_hlimter_on);
+[vizio_param_setting]/***hardlimiter L channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 849;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 40;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 2480;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_lr(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/***hardlimiter C channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 1000;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 14;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 250;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_c(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/***hardlimiter LFE channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 1000;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 14;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 250;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_lfe(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/***hardlimiter Ls channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 1000;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 14;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 250;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_lsrs(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/***hardlimiter R channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 849;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 40;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 2480;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_lr_r(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/***hardlimiter Rs channel parameter***/
+[vizio_param_setting]scc_hlimter_info.u4InputGain = 100;
+[vizio_param_setting]scc_hlimter_info.u4OutputGain = 1000;
+[vizio_param_setting]scc_hlimter_info.u4Delaylen = 14;
+[vizio_param_setting]scc_hlimter_info.u4Boost = 250;
+[vizio_param_setting]scc_hlimter_info.u4Level = 1000;
+[vizio_param_setting]c_scc_aud_set_se_hlmt_lsrs_rs(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+[vizio_param_setting]/****************************************************************
+[vizio_param_setting]*   visio_amtran_hardlimiter_param_setting_usage: end here      *
+[vizio_param_setting]*                                                               *
+[vizio_param_setting]****************************************************************/
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3ca .
+[SE]  u4SampleAverage to app = 0xa6 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3ca
+[LID] pv_get_info  ave= 0xa6
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:440
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.aud.getpreslog
+# mw.aud.getpreslog
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_presence_para_setting_usage: start here*****/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]SCC_AUD_SE_PRESENCE_T r_Presence; 
+[vizio_param_setting]/***************presence is disable**************************/ 
+[vizio_param_setting]r_Presence.u4_enable=0;
+[vizio_param_setting]c_scc_aud_set_se_presence(h_g_acfg_scc_main_aud,&r_Presence);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_presence_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3bb .
+[SE]  u4SampleAverage to app = 0xab .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3bb
+[LID] pv_get_info  ave= 0xab
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:441
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.aud.getdelaylog
+# mw.aud.getdelaylog
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: start here*****/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]SCC_AUD_SE_DELAY_T  scc_delay; 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_FRONT_LEFT;
+[vizio_param_setting]scc_delay.ui2_time =0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_FRONT_RIGHT;
+[vizio_param_setting]scc_delay.ui2_time =0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_CENTER;
+[vizio_param_setting]scc_delay.ui2_time = 0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_REAR_LEFT;
+[vizio_param_setting]scc_delay.ui2_time = 0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_REAR_RIGHT;
+[vizio_param_setting]scc_delay.ui2_time =0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]scc_delay.e_mode = 0;
+[vizio_param_setting]scc_delay.e_channel = SCC_AUD_CHANNEL_SUB_WOOFER;
+[vizio_param_setting]scc_delay.ui2_time =0;
+[vizio_param_setting]c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+[vizio_param_setting]/**********************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+[vizio_param_setting]/**********************************************************/ 
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3b4 .
+[SE]  u4SampleAverage to app = 0xa3 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3b4
+[LID] pv_get_info  ave= 0xa3
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:442
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+cli mw.se.11beq print
+# mw.se.11beq print
+[vizio_param_setting]/***************************************************************/ 
+[vizio_param_setting]/*****vizio_amtran_PEQ_para_setting_usage: start here***********/ 
+[vizio_param_setting]/***************************************************************/ 
+ 
+[vizio_param_setting] SCC_AUD_SE_OPCMD_T rEqOpCmd;
+[vizio_param_setting] INT32 i4_reteq;
+[vizio_param_setting] SCC_AUD_SE_11BEQ_COEF_T EqCoef = 
+[vizio_param_setting]{
+[vizio_param_setting]{ 
+[vizio_param_setting]  { 
+[vizio_param_setting]    0x00200000, 0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000, 
+[vizio_param_setting]0xFFE25123, 0x003D8654, 0x001D3485, 0xFFC279AC, 0x00207A58, 
+[vizio_param_setting]0xFFE03611, 0x003FC7A9, 0x001FBA1F, 0xFFC03857, 0x00200FCF, 
+[vizio_param_setting]0xFFE92B6D, 0x003543C5, 0x00191E09, 0xFFCABC3B, 0x001DB689, 
+[vizio_param_setting]0xFFE0C155, 0x003F0A3B, 0x001F5AE6, 0xFFC0F5C5, 0x001FE3C4, 
+[vizio_param_setting]0xFFE06C0A, 0x003F8575, 0x001FA7E5, 0xFFC07A8B, 0x001FEC10, 
+[vizio_param_setting]0xFFF3485A, 0x00283C00, 0x0012853A, 0xFFD7C400, 0x001A326C, 
+[vizio_param_setting]0xFFEE351E, 0x002282B4, 0x00161176, 0xFFDD7D4C, 0x001BB96C, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE010B9, 0x003FEE10, 0x001FF4AC, 0xFFC011F0, 0x001FFA9B, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE30283, 0xFFC36EBD, 0x001C5E8E, 0x003C9143, 0x00209EEE, 
+[vizio_param_setting]
+[vizio_param_setting]0xFFE08D8D, 0x003F71AA, 0x001F601F, 0xFFC08E56, 0x00201253, 
+[vizio_param_setting]0xFFE03611, 0x003FC7A9, 0x001FBA1F, 0xFFC03857, 0x00200FCF, 
+[vizio_param_setting][HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+0xFFE92B6D, 0x003543C5, 0x00191E09, 0xFFCABC3B, 0x001DB689, 
+[vizio_param_setting]0xFFE0C155, 0x003F0A3B, 0x001F5AE6, 0xFFC0F5C5, 0x001FE3C4, 
+[vizio_param_setting]0xFFE06C0A, 0x003F8575, 0x001FA7E5, 0xFFC07A8B, 0x001FEC10, 
+[vizio_param_setting]0xFFF3485A, 0x00283C00, 0x0012853A, 0xFFD7C400, 0x001A326C, 
+[vizio_param_setting]0xFFEE351E, 0x002282B4, 0x00161176, 0xFFDD7D4C, 0x001BB96C, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE010B9, 0x003FEE10, 0x001FF4AC, 0xFFC011F0, 0x001FFA9B, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE30283, 0xFFC36EBD, 0x001C5E8E, 0x003C9143, 0x00209EEE, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]  },
+[vizio_param_setting]  { 
+[vizio_param_setting]    0x00200000, 0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000, 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[vizio_param_setting]0xFFE066F6, 0x003F98A1, 0x001F8BB6, 0xFFC0675F, 0x00200D54, 
+[vizio_param_setting]0xFFE02745, 0x003FD788, 0x001FCD3F, 0xFFC02878, 0x00200B7B, 
+[vizio_param_setting]0xFFE6F43E, 0x00382FB2, 0x001AC7C3, 0xFFC7D04E, 0x001E43FF, 
+[vizio_param_setting]0xFFE08CD1, 0x003F577B, 0x001F87BF, 0xFFC0A885, 0x001FEB70, 
+[vizio_param_setting]0xFFE04E8D, 0x003FA9CD, 0x001FBFF2, 0xFFC05633, 0x001FF181, 
+[vizio_param_setting]0xFFEF714D, 0x002DF939, 0x0015346E, 0xFFD206C7, 0x001B5A44, 
+[vizio_param_setting]0xFFEB77B4, 0x002BD24F, 0x0017FBC9, 0xFFD42DB1, 0x001C8C82, 
+[SE]  u4SampleMaxVlaue to app = 0x3cb .
+[SE]  u4SampleAverage to app = 0xa9 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3cb
+[LID] pv_get_info  ave= 0xa9
+[vizio_param_setting][AMT_SB] _signal_detect_proc(), input 1 has no signal! count:443
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE00C24, 0x003FF339, 0x001FF7C7, 0xFFC00CC7, 0x001FFC15, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFF04554, 0xFFE4236E, 0x000C5F7E, 0x001BDC92, 0x00235B2D, 
+[vizio_param_setting]
+[vizio_param_setting]0xFFE066F6, 0x003F98A1, 0x001F8BB6, 0xFFC0675F, 0x00200D54, 
+[vizio_param_setting]0xFFE02745, 0x003FD788, 0x001FCD3F, 0xFFC02878, 0x00200B7B, 
+[vizio_param_setting]0xFFE6F43E, 0x00382FB2, 0x001AC7C3, 0xFFC7D04E, 0x001E43FF, 
+[vizio_param_setting]0xFFE08CD1, 0x003F577B, 0x001F87BF, 0xFFC0A885, 0x001FEB70, 
+[vizio_param_setting]0xFFE04E8D, 0x003FA9CD, 0x001FBFF2, 0xFFC05633, 0x001FF181, 
+[vizio_param_setting]0xFFEF714D, 0x002DF939, 0x0015346E, 0xFFD206C7, 0x001B5A44, 
+[vizio_param_setting]0xFFEB77B4, 0x002BD24F, 0x0017FBC9, 0xFFD42DB1, 0x001C8C82, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE00C24, 0x003FF339, 0x001FF7C7, 0xFFC00CC7, 0x001FFC15, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFF04554, 0xFFE4236E, 0x000C5F7E, 0x001BDC92, 0x00235B2D, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting][HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]  },
+[vizio_param_setting]  { 
+[vizio_param_setting]    0x00200000, 0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000,0x00200000, 
+[vizio_param_setting]0xFFE05EA4, 0x003FA102, 0x001F951B, 0xFFC05EFE, 0x00200C40, 
+[vizio_param_setting]0xFFE02416, 0x003FDAE7, 0x001FD15C, 0xFFC02519, 0x00200A8D, 
+[vizio_param_setting]0xFFE67356, 0x0038D133, 0x001B2885, 0xFFC72ECD, 0x001E6425, 
+[vizio_param_setting]0xFFE0817A, 0x003F671F, 0x001F916E, 0xFFC098E1, 0x001FED17, 
+[vizio_param_setting]0xFFE04833, 0x003FB158, 0x001FC520, 0xFFC04EA8, 0x001FF2AD, 
+[vizio_param_setting]0xFFEE80C9, 0x002F4543, 0x0015DC90, 0xFFD0BABD, 0x001BA2A6, 
+[vizio_param_setting]0xFFEAC5BD, 0x002DBE7F, 0x00187831, 0xFFD24181, 0x001CC211, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE00B27, 0x003FF44F, 0x001FF872, 0xFFC00BB1, 0x001FFC67, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFF19690, 0xFFEC04E9, 0x000AC8B3, 0x0013FB17, 0x0023A0BC, 
+[vizio_param_setting]
+[vizio_param_setting]0xFFE05EA4, 0x003FA102, 0x001F951B, 0xFFC05EFE, 0x00200C40, 
+[vizio_param_setting]0xFFE02416, 0x003FDAE7, 0x001FD15C, 0xFFC02519, 0x00200A8D, 
+[vizio_param_setting]0xFFE67356, 0x0038D133, 0x001B2885, 0xFFC72ECD, 0x001E6425, 
+[vizio_param_setting]0xFFE0817A, 0x003F671F, 0x001F916E, 0xFFC098E1, 0x001FED17, 
+[vizio_param_setting]0xFFE04833, 0x003FB158, 0x001FC520, 0xFFC04EA8, 0x001FF2AD, 
+[vizio_param_setting]0xFFEE80C9, 0x002F4543, 0x0015DC90, 0xFFD0BABD, 0x001BA2A6, 
+[vizio_param_setting]0xFFEAC5BD, 0x002DBE7F, 0x00187831, 0xFFD24181, 0x001CC211, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFE00B27, 0x003FF44F, 0x001FF872, 0xFFC00BB1, 0x001FFC67, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0xFFF19690, 0xFFEC04E9, 0x000AC8B3, 0x0013FB17, 0x0023A0BC, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[SE]  u4SampleMaxVlaue to app = 0x3cf .
+[SE]  u4SampleAverage to app = 0xa5 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3cf
+[LID] pv_get_info  ave= 0xa5
+[vizio_param_setting][AMT_SB] _signal_detect_proc(), input 1 has no signal! count:444
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00200000, 
+[vizio_param_setting]
+[vizio_param_setting]  }
+[vizio_param_setting]}
+[vizio_param_setting]};
+[vizio_param_setting]rEqOpCmd.u4OpCode = SCC_AUD_SE_OPCODE_ON | SCC_AUD_SE_OPCODE_UPG_COEF;
+[vizio_param_setting]rEqOpCmd.pvData = (VOID*)(&EqCoef);
+[vizio_param_setting]rEqOpCmd.u4DataSize = sizeof(EqCoef);
+[vizio_param_setting]rEqOpCmd.u1Type = SCC_AUD_SE_11BEQ;
+ 
+[vizio_param_setting]i4_reteq = c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rEqOpCmd);
+[vizio_param_setting] ACFG_LOG_ON_FAIL(i4_reteq);
+[vizio_param_setting]/******************************************************/ 
+[vizio_param_setting]/***********  [vizio_param_setting] end   *************/ 
+[vizio_param_setting]/******************************************************/ 
+[AUD][SE] copy opcmd 
+u4DataSize = 0x1500
+==Sound effect u1Type = 0x23 
+get the object.
+get the process opcmd function.
+Sound se setting OK
+Command>[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3d4 .
+[SE]  u4SampleAverage to app = 0xa7 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3d4
+[LID] pv_get_info  ave= 0xa7
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:445
+[AMT_SB] _signal_detect_proc(), sleep timer = 0
+[HEART BEAT] Signal ------------ > mtk8507 Alive Pulse !!!!
+src/driver/amt_sb/amt_sb_irlearn.c(1967) _Amt_Sb_Compare_Ir_Data = 0 / ffffffff / 0 
+[AUD][SE] copy opcmd 
+==Sound effect u1Type = 0x1c 
+get the object.
+get the process opcmd function.
+[SE] LID START to GET Sample Value RW_FLAG =[0x100].
+[SE]  u4SampleMaxVlaue to app = 0x3ae .
+[SE]  u4SampleAverage to app = 0xa6 .
+[SE] LID Current Audio RESET =[0x100].
+Sound se setting OK
+[LID] pv_get_info  max= 0x3ae
+[LID] pv_get_info  ave= 0xa6
+[AMT_SB] _signal_detect_proc(), input 1 has no signal! count:446
+[AMT_SB] _signal_detect_proc(), sleep timer = 0

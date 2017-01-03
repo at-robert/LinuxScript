@@ -1,0 +1,1 @@
+adb push /Volumes/robert.lo/msd8830/kernel/3.1.10_Napoli_tvos/mstar/mstar/ir/mdrv-ir.ko /system/lib/modules/mdrv-ir_tw.ko

@@ -1,0 +1,695 @@
+/****************************************************************
+* vizio_amtran_GainControl1_param_setting_usage: start here     *
+****************************************************************/
+SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudGainctrl;
+INT32 i4_retgain;
+/*****Set Gain Control 01 L Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/*****Set Gain Control 01 R Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/*****Set Gain Control 01 Ls Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/*****Set Gain Control 01 Rs Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/*****Set Gain Control 01 C Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_CENTER;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/*****Set Gain Control 01 LFE Channel*****/
+tSccAudGainctrl.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+tSccAudGainctrl.i4ChMute = 0;
+tSccAudGainctrl.i4ChInvert = 0;
+tSccAudGainctrl.i4GainByDBStep = 0;
+tSccAudGainctrl.u4ChGainSmoothOrder = 0;
+i4_retgain=c_scc_aud_set_gainctrl_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl);
+ACFG_LOG_ON_FAIL(i4_retgain);
+/****************************************************************
+* vizio_amtran_GainControl1_param_setting_usage: end here     *
+****************************************************************/
+/****************************************************************
+* vizio_amtran_GainControl2_param_setting_usage: start here     *
+****************************************************************/
+SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudGainctrl2;
+INT32 i4_retgain2;
+/*****Set Gain Control 02 L Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/*****Set Gain Control 02 R Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/*****Set Gain Control 02 Ls Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/*****Set Gain Control 02 Rs Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/*****Set Gain Control 02 C Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_CENTER;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/*****Set Gain Control 02 LFE Channel*****/
+tSccAudGainctrl2.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+tSccAudGainctrl2.i4ChMute = 0;
+tSccAudGainctrl2.i4ChInvert = 0;
+tSccAudGainctrl2.i4GainByDBStep = 0;
+tSccAudGainctrl2.u4ChGainSmoothOrder = 0;
+i4_retgain2=c_scc_aud_set_gainctrl2_ch_gain(h_g_acfg_scc_main_aud, &tSccAudGainctrl2);
+ACFG_LOG_ON_FAIL(i4_retgain2);
+/****************************************************************
+* vizio_amtran_GainControl2_param_setting_usage: end here       *
+****************************************************************/
+/****************************************************************
+* vizio_amtran_MasterVolume_param_setting_usage: start here     *
+****************************************************************/
+/*****Set Matser Volume*****/
+INT32 i4GainByDBStep;
+INT32 i4_retgain3;
+i4GainByDBStep = 0;
+i4_retgain3=c_scc_aud_set_gainctrl_master_volume_gain(h_g_acfg_scc_main_aud, i4GainByDBStep);
+ACFG_LOG_ON_FAIL(i4_retgain3);
+/****************************************************************
+* vizio_amtran_MasterVolume_param_setting_usage: end here       *
+****************************************************************/
+/****************************************************************
+* vizio_amtran_HeadRoomStart_param_setting_usage: start here    *
+****************************************************************/
+SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudHeadRoomStart;
+INT32 i4_retHRoom;
+/*****Set HeadRoom Start L Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/*****Set HeadRoom Start R Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/*****Set HeadRoom Start Ls Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/*****Set HeadRoom Start Rs Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/*****Set HeadRoom Start C Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_CENTER;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/*****Set HeadRoom Start LFE Channel*****/
+tSccAudHeadRoomStart.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+tSccAudHeadRoomStart.i4ChMute = 0;
+tSccAudHeadRoomStart.i4ChInvert = 0;
+tSccAudHeadRoomStart.i4GainByDBStep = 0;
+tSccAudHeadRoomStart.u4ChGainSmoothOrder = 0;
+i4_retHRoom=c_scc_aud_set_headroom_start_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomStart);
+ACFG_LOG_ON_FAIL(i4_retHRoom);
+/****************************************************************
+* vizio_amtran_HeadRoomStart_param_setting_usage: end here      *
+****************************************************************/
+/****************************************************************
+* vizio_amtran_HeadRoomEnd_param_setting_usage: start here      *
+****************************************************************/
+SCC_AUD_DEC_CH_GAINCTRL_BY_DB_T tSccAudHeadRoomEnd;
+INT32 i4_ret_HREnd;
+/*****Set HeadRoom End L Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_FRONT_LEFT;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/*****Set HeadRoom End R Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_FRONT_RIGHT;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/*****Set HeadRoom End Ls Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_REAR_LEFT;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/*****Set HeadRoom End Rs Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_REAR_RIGHT;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/*****Set HeadRoom End C Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_CENTER;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/*****Set HeadRoom End LFE Channel*****/
+tSccAudHeadRoomEnd.e_ch = SCC_AUD_CHANNEL_SUB_WOOFER;
+tSccAudHeadRoomEnd.i4ChMute = 0;
+tSccAudHeadRoomEnd.i4ChInvert = 0;
+tSccAudHeadRoomEnd.i4GainByDBStep = 0;
+tSccAudHeadRoomEnd.u4ChGainSmoothOrder = 0;
+i4_ret_HREnd=c_scc_aud_set_headroom_end_ch_gain(h_g_acfg_scc_main_aud, &tSccAudHeadRoomEnd);
+ACFG_LOG_ON_FAIL(i4_ret_HREnd);
+/****************************************************************
+* vizio_amtran_HeadRoomEnd_param_setting_usage: end here        *
+****************************************************************/
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: start here*****/ 
+/**********************************************************/ 
+SCC_AUD_SE_BIQUAD_INFO_T    scc_biquad_info; 
+/*****CH:0, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=4;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:0, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=5;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*****CH:1, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=8;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:1, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=9;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*****CH:2, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=12;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:2, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=13;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*****CH:3, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=16;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:3, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=17;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*****CH:4, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=20;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:4, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=21;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*****CH:5, Set:0 disable*****/ 
+scc_biquad_info.u4_Off=24;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/*****CH:5, Set:1 disable*****/ 
+scc_biquad_info.u4_Off=25;
+c_scc_aud_set_se_giir(h_g_acfg_scc_main_aud,&scc_biquad_info);
+/**********************************************************/ 
+/*****vizio_amtran_tone_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*************************************************************/ 
+/*****vizio_amtran_Bass_para_setting_usage: start here*****/ 
+/*************************************************************/ 
+/*****Bass on/off*****/ 
+INT32 i4_ret_bass;
+i4_ret_bass = c_scc_aud_set_bmanagement_mode(h_g_acfg_scc_main_aud, SCC_AUD_SE_BMANAGEMENT_OFF); 
+ACFG_LOG_ON_FAIL(i4_ret_bass);
+/*****Bass cutoff frequency*****/ 
+UINT32 i4CutoffFreq; 
+i4CutoffFreq = 100; 
+_i4Cli_AudLoadBassmTbl(i4CutoffFreq); 
+/*****Bass speaker setting*****/ 
+UINT8 pui1_value[5]; 
+pui1_value[0] = 2; 
+pui1_value[1] = 2; 
+pui1_value[2] = 2; 
+pui1_value[3] = 2; 
+pui1_value[4] = 1; 
+_set_audio_spk_connection(pui1_value); 
+/**********************************************************/ 
+/*****vizio_amtran_Bass_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/*************************************************************/ 
+/*****vizio_amtran_HPF/LPF_para_setting_usage: start here*****/ 
+/*************************************************************/ 
+SCC_AUD_SE_HLPF_INFO_T  r_IIR; 
+INT32 i4_ret_hlpf;
+/*****[HPF Part]CH: [1]*****/ 
+r_IIR.u4Off = 1;
+r_IIR.u4Type = 3;
+r_IIR.u4Ch = 1;
+r_IIR.u4Gain = 131072;
+r_IIR.u4Order = 1;
+r_IIR.u4Fc = 70;
+r_IIR.u4Q = 707;
+i4_ret_hlpf = c_scc_aud_set_se_hlpf(h_g_acfg_scc_main_aud, &r_IIR);
+ACFG_LOG_ON_FAIL(i4_ret_hlpf);
+/*****[HPF Part]CH: [2]*****/ 
+r_IIR.u4Off = 1;
+r_IIR.u4Type = 3;
+r_IIR.u4Ch = 2;
+r_IIR.u4Gain = 131072;
+r_IIR.u4Order = 1;
+r_IIR.u4Fc = 70;
+r_IIR.u4Q = 707;
+i4_ret_hlpf = c_scc_aud_set_se_hlpf(h_g_acfg_scc_main_aud, &r_IIR);
+ACFG_LOG_ON_FAIL(i4_ret_hlpf);
+/**********************************************************/ 
+/*****vizio_amtran_HPF/LPF_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/**********************************************************/ 
+/*****vizio_amtran_tvol_param_setting_usage: start here*****/ 
+/**********************************************************/ 
+/**********************************************************/ 
+/*****vizio_amtran_tvol_param_setting_usage: end here******/ 
+/**********************************************************/ 
+/*************************************************************/ 
+/*****vizio_amtran_CSDecoder_para_setting_usage: start here*****/ 
+/*************************************************************/ 
+/****************************************************************
+* vizio_amtran_TSHD_param_setting_usage: start here             *
+****************************************************************/
+INT32 i4_ret_TruS;
+INT32 _u4DTSSS1EXTPPControlTshd;
+/*****Set TruSurround HD Enable parameter*****/
+/*****TruSurround HD on*****/
+SM_COMMAND_T at_scc_cmds_Tshd[4];
+SCC_AUD_SE_OPCMD_T rOpCmdTshd;
+SCC_AUD_SE_EXT_PP_CTRL_INFO_T rExtPPInfoTshd;
+rOpCmdTshd.u4OpCode = 0;
+rOpCmdTshd.u1Type = SCC_AUD_SE_EXT_PP;
+rOpCmdTshd.pvData = (VOID*)(&rExtPPInfoTshd);
+rOpCmdTshd.u4DataSize = sizeof(rExtPPInfoTshd);
+rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_CTRL;
+rExtPPInfoTshd.eCtrlID = SCC_AUD_SE_EXT_PP_TYPE;
+_u4DTSSS1EXTPPControlTshd= 32;
+rExtPPInfoTshd.u_value.u4ProcType = _u4DTSSS1EXTPPControlTshd;
+i4_ret_TruS=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmdTshd);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_ON;
+i4_ret_TruS=c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rOpCmdTshd);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+SCC_AUD_DEC_DTSTSHD_PARAM_T tDtsTshdParam;
+tDtsTshdParam.eSccAudTshdParamType = SCC_Enable;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+i4_ret_TruS=c_scc_aud_get_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Input Gain parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_InGain;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.400000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Output Gain parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_OutGain;
+tDtsTshdParam.n_un.u4ParamFloat32 = 1.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Bypass Gain parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_BypassGain;
+tDtsTshdParam.n_un.u4ParamFloat32 = 1.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Out Mode parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_OutMode;
+tDtsTshdParam.n_un.eParamIOMode = 3;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Surround Effects Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_SurEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Surround Level Control parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_SurLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Control parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Split Analysis Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBSplitAnalysisEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Compressor Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBCompLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Speaker Size parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBSpkSize;
+tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBAnalysisSpkSize;
+tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front TruBass HD Mode parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontTBMode;
+tDtsTshdParam.n_un.eTBHDMode = SCC_SRS_TBHD_MODE_MONO;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer TruBass HD Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer TruBass HD Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer TruBass HD Split Analysis Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBSplitAnalysisEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer TruBass HD Compressor Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDSubTBCompLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer TruBass HD Speaker Size parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBSpkSize;
+tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDSubTBAnalysisSpkSize;
+tDtsTshdParam.n_un.eParamTBHDSpeakerLFResponse = SCC_SRS_TBHD_SPEAKER_LF_RESPONSE_40HZ;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Subwoofer CrossOver Frequency parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_SubwooferCxOverFc;
+tDtsTshdParam.n_un.eTruSurHDCxOverFreq = SCC_SRS_TSHD_CXOVER_80Hz;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front Definition Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDFrontDefEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_True;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Front Definition Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDFrontDefLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.060000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Center Definition Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_TSHDCenterDefEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Center Definition Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_TSHDCenterDefLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Dialog Clarity Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_DiaClarityEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set Dialog Clarity Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_DiaClarityLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD SRS 3D Mode parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdSrs3dMode;
+tDtsTshdParam.n_un.eSrs3DMode = SCC_SRS_SRS3D_STEREO;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD High Bit Rate parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdHighBitEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD SRS 3D Space Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdSpaceLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD SRS 3D Center Control parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdCenterLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD Focus Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdFocusEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD Focus Level parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdFocusLevel;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.000000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD Limiter Enable parameter*****/
+tDtsTshdParam.eSccAudTshdParamType = SCC_WowhdLimiterEn;
+tDtsTshdParam.n_un.u4ParamBool = SCC_SRS_False;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set WOW HD Limiter Minimal Gain parameter*****/
+tDtsTshdParam.eSccAudTshdParamType =  SCC_WowhdLimiterMinimalGain;
+tDtsTshdParam.n_un.u4ParamFloat32 = 0.250000;
+i4_ret_TruS=c_scc_aud_set_TruSurHD_Param(h_g_acfg_scc_main_aud, &tDtsTshdParam);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/*****Set BSDigital flag parameter*****/
+rExtPPInfoTshd.u_value.tUserParm.u4ProcId = 5;
+rExtPPInfoTshd.u_value.tUserParm.u4ParmId = 1;
+rExtPPInfoTshd.u_value.tUserParm.u4ParmValue = 0;
+rExtPPInfoTshd.eCtrlID = SCC_AUD_SE_EXT_PP_USER_PARM;
+rOpCmdTshd.u4OpCode = SCC_AUD_SE_OPCODE_CTRL;
+rOpCmdTshd.pvData = &rExtPPInfoTshd;
+rOpCmdTshd.u4DataSize = sizeof(SCC_AUD_SE_EXT_PP_CTRL_INFO_T);
+rOpCmdTshd.u1Type = SCC_AUD_SE_EXT_PP;
+at_scc_cmds_Tshd[0].e_code = SCC_CMD_CODE_GRP_TYPE;
+at_scc_cmds_Tshd[0].u.ui4_data = SCC_CMD_TYPE_AUDIO;
+at_scc_cmds_Tshd[1].e_code = SCC_CMD_CODE_NAME;
+at_scc_cmds_Tshd[1].u.ps_text = SN_PRES_MAIN_DISPLAY;
+at_scc_cmds_Tshd[2].e_code = SCC_CMD_CODE_AUDIO_SE_OPCMD;
+at_scc_cmds_Tshd[2].u.pv_data  = &rOpCmdTshd;
+at_scc_cmds_Tshd[3].e_code = SM_CMD_CODE_END;
+i4_ret_TruS = x_scc_comp_grp_set(at_scc_cmds_Tshd);
+ACFG_LOG_ON_FAIL(i4_ret_TruS);
+/****************************************************************
+* vizio_amtran_TSHD_param_setting_usage: end here               *
+****************************************************************/
+/****************************************************************
+*   visio_amtran_hardlimiter_param_setting_usage: start here    *
+*                                                               *
+****************************************************************/
+SCC_AUD_SE_HLIMTER_INFO_T  scc_hlimter_on;
+SCC_AUD_SE_HLIMTER_CH_INFO_T  scc_hlimter_info;
+/***hardlimiter on or off***/
+scc_hlimter_on.u4On = 1;
+c_scc_aud_set_se_hlmt_on_off(h_g_acfg_scc_main_aud, &scc_hlimter_on);
+/***hardlimiter L channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 849;
+scc_hlimter_info.u4Delaylen = 40;
+scc_hlimter_info.u4Boost = 1700;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_lr(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/***hardlimiter C channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 1000;
+scc_hlimter_info.u4Delaylen = 14;
+scc_hlimter_info.u4Boost = 250;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_c(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/***hardlimiter LFE channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 1000;
+scc_hlimter_info.u4Delaylen = 14;
+scc_hlimter_info.u4Boost = 250;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_lfe(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/***hardlimiter Ls channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 1000;
+scc_hlimter_info.u4Delaylen = 14;
+scc_hlimter_info.u4Boost = 250;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_lsrs(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/***hardlimiter R channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 849;
+scc_hlimter_info.u4Delaylen = 40;
+scc_hlimter_info.u4Boost = 1700;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_lr_r(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/***hardlimiter Rs channel parameter***/
+scc_hlimter_info.u4InputGain = 100;
+scc_hlimter_info.u4OutputGain = 1000;
+scc_hlimter_info.u4Delaylen = 14;
+scc_hlimter_info.u4Boost = 250;
+scc_hlimter_info.u4Level = 1000;
+c_scc_aud_set_se_hlmt_lsrs_rs(h_g_acfg_scc_main_aud,&scc_hlimter_info);
+/****************************************************************
+*   visio_amtran_hardlimiter_param_setting_usage: end here      *
+*                                                               *
+****************************************************************/
+/**********************************************************/ 
+/*****vizio_amtran_presence_para_setting_usage: start here*****/ 
+/**********************************************************/ 
+SCC_AUD_SE_PRESENCE_T r_Presence; 
+/***************presence is disable**************************/ 
+r_Presence.u4_enable=0;
+c_scc_aud_set_se_presence(h_g_acfg_scc_main_aud,&r_Presence);
+/**********************************************************/ 
+/*****vizio_amtran_presence_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: start here*****/ 
+/**********************************************************/ 
+SCC_AUD_SE_DELAY_T  scc_delay; 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_FRONT_LEFT;
+scc_delay.ui2_time =0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_FRONT_RIGHT;
+scc_delay.ui2_time =0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_CENTER;
+scc_delay.ui2_time = 0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_REAR_LEFT;
+scc_delay.ui2_time = 0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_REAR_RIGHT;
+scc_delay.ui2_time =0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+scc_delay.e_mode = 0;
+scc_delay.e_channel = SCC_AUD_CHANNEL_SUB_WOOFER;
+scc_delay.ui2_time =0;
+c_scc_aud_set_se_delay(h_g_acfg_scc_main_aud,&scc_delay);
+/**********************************************************/ 
+/*****vizio_amtran_delay_para_setting_usage: end here******/ 
+/**********************************************************/ 
+/***************************************************************/ 
+/*****vizio_amtran_PEQ_para_setting_usage: start here***********/ 
+/***************************************************************/ 
+SCC_AUD_SE_OPCMD_T rEqOpCmd;
+INT32 i4_reteq;
+rEqOpCmd.u4OpCode = SCC_AUD_SE_OPCODE_ON | SCC_AUD_SE_OPCODE_UPG_COEF;
+rEqOpCmd.pvData = (VOID*)(&EqCoef);
+rEqOpCmd.u4DataSize = sizeof(EqCoef);
+rEqOpCmd.u1Type = SCC_AUD_SE_11BEQ;
+i4_reteq = c_scc_aud_send_se_opcmd(h_g_acfg_scc_main_aud, &rEqOpCmd);
+ACFG_LOG_ON_FAIL(i4_reteq);
+/******************************************************/ 
+/***********   end   *************/ 
+/******************************************************/ 

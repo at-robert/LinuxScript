@@ -1,0 +1,4 @@
+[B]	SB3851MTK-292	SB DC OFF后很难开机
+[B]	MTK8507-42	H/L storage test后 Carton Laber皱褶起泡
+[B]	SB3851MTK-283	DC off/on后SB行为异常 (AMTCA-226)
+[C]	SB3831MTK-137	SB DC OFF/ON后按BTpair ，SB 配对提示音有杂音
