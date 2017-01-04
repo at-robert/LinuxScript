@@ -1,8 +1,12 @@
 VER=$1
 SUB=$2
-INPATH=~/Test/'4451_'$VER
+MCUPATH=~/Test/'4451_'$VER
 OUTPATH=~/mtk8507/workspace_intext/merge_back/v$VER-$SUB
 MERGEPATH=~/mtk8507/workspace_intext/merge_back
+
+DESTAUTO_VER=~/mtk8507/workspace_intext/dest/release/BDP_Generic/src/system/prop/version/auto_version.h
+DEST_VER=$(grep 'AUTO_VERSION' $DESTAUTO_VER | awk '{print $3}' )
+
 #color str
 RED='\e[0;31m'
 LIGHT_RED='\e[1;31m'
@@ -51,10 +55,10 @@ fi
 
 cp -r $MERGEPATH/NEW $OUTPATH
 
-#cp -fv $INPATH/fwupdate_4451C0.bin $OUTPATH/mcu_bins/
-#cp -fv $INPATH/fwupdate_3851D0.bin $OUTPATH/mcu_bins/
-#cp -fv $INPATH/fwupdate_3831D0.bin $OUTPATH/mcu_bins/
-#cp -fv $INPATH/fwupdate_3830D0.bin $OUTPATH/mcu_bins/
+cp -fv $MCUPATH/fwupdate_4451C0.bin $OUTPATH/mcu_bins/
+cp -fv $MCUPATH/fwupdate_3851D0.bin $OUTPATH/mcu_bins/
+cp -fv $MCUPATH/fwupdate_3831D0.bin $OUTPATH/mcu_bins/
+cp -fv $MCUPATH/fwupdate_3830D0.bin $OUTPATH/mcu_bins/
 
 
 cp -fv ~/mtk8507/workspace_intext/dest/release/BDP_Generic/build/8507_linux_demo_dbg.bin $OUTPATH/mtk8507_bins/
@@ -65,7 +69,7 @@ cp -fv ~/mtk8507/workspace_intext/dest/*.tar.gz $OUTPATH/mtk8507_source/
 sync
 
 cd $MERGEPATH
-tar cvfz vizio_sb_merge_back_IntExtDSP_v$VER.tar.gz v$VER-$SUB
+tar cvfz HQ$DEST_VER'_vizio_sb_merge_back_IntExtDSP_v'$VER.tar.gz v$VER-$SUB
 
 sync
 
@@ -73,14 +77,13 @@ echo "================================"
 echo "Vizio SB4451/3851/3831/3830 MD5 generation"
 echo "================================"
 
-find $OUTPATH -type f -name "*" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.bin" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.rar" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.txt" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.utv" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.apk" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.doc" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.gz" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
-# find $OUTPATH -type f -name "*.pdf" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.bin" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.rar" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.txt" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.utv" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.apk" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.doc" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.gz" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+find $OUTPATH -type f -name "*.pdf" -exec md5sum {} \; | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
 
-md5sum $MERGEPATH/vizio_sb_merge_back_IntExtDSP_v$VER.tar.gz | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
+md5sum $MERGEPATH/HQ$DEST_VER'_vizio_sb_merge_back_IntExtDSP_v'$VER.tar.gz | sed 's/\/home\/robert.lo\/mtk8507\/workspace_intext\/merge_back/		/g'
