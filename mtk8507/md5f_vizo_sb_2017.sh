@@ -2,6 +2,12 @@ VER=$1
 STM32FOLDER=~/GSync/Python/stm32_merge_bin
 OUTPATH=~/stm32f105/FW/VIZIO_SB_2017/Combine_FW/$1
 
+if [ "$1" == "" ];
+then
+    echo "using by ./md5f_vizio_sb_2017.sh VER"
+    exit;
+fi
+
 ./md5f_vizo_sb_3251.sh $VER
 ./md5f_vizo_sb_2820.sh $VER
 
