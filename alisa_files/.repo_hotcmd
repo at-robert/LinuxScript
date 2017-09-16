@@ -1,0 +1,52 @@
+# repo alias functions:
+alias repobra='repo branches'
+
+function repock(){
+    if [ "$1" == "" ];
+    then
+        echo "The usage : repock BRANCH_NAME"
+    else
+        repo checkout $1
+    fi
+}
+
+function repopull(){
+    if [ "$1" == "" ];
+    then
+        echo "The usage : repopull BRANCH_NAME"
+    else
+        repo forall -c "git pull l0_audio $1"
+    fi
+}
+
+function repopush(){
+    if [ "$1" == "" ];
+    then
+        echo "The usage : repopush BRANCH_NAME"
+    else
+        repo forall -c "git push l0_audio $1"
+    fi
+}
+
+function repomerge(){
+    if [ "$1" == "" ];
+    then
+        echo "The usage : repomerge BRANCH_NAME"
+    else
+        repo forall -c "git merge $1"
+    fi
+}
+
+function repols(){
+    if [ "$1" == "" ] && [ "$2" == "" ];
+    then
+        CMD="git log --pretty=format:\"%h - %an, %ar : %s\" --name-status"
+    elif [ "$2" == "" ];
+    then
+        CMD="git log --pretty=format:\"%h - %an, %ar : %s\" --name-status --since=$1"
+    else
+        CMD="git log --pretty=format:\"%h - %an, %ar : %s\" --name-status --since=$1 --author=$2"
+    fi
+    echo "Git LOG Since $CMD"
+    repo forall -p -c "$CMD"
+}
