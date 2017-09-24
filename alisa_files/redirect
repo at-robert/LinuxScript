@@ -1,0 +1,5 @@
+# advance shell script alias functions:
+
+function redir(){
+    python ~/Google\ 雲端硬碟/Work/Python/FileHandle/adv_redirect.py
+}
