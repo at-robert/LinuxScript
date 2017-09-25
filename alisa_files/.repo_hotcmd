@@ -50,3 +50,17 @@ function repols(){
     echo "Git LOG Since $CMD"
     repo forall -p -c "$CMD"
 }
+
+function repolsd(){
+    if [ "$1" == "" ] && [ "$2" == "" ];
+    then
+        CMD="git log --pretty=format:\"%h - %an, %cd : %s\" --name-status"
+    elif [ "$2" == "" ];
+    then
+        CMD="git log --pretty=format:\"%h - %an, %cd : %s\" --name-status --since=$1"
+    else
+        CMD="git log --pretty=format:\"%h - %an, %cd : %s\" --name-status --since=$1 --author=$2"
+    fi
+    echo "Git LOG Since $CMD"
+    repo forall -p -c "$CMD"
+}
