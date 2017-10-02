@@ -1,0 +1,7 @@
+# work relative shell script alias functions:
+
+function mtk(){
+    python ~/Google\ 雲端硬碟/Work/Python/csv_read/csv_mtk_jira.py ~/Downloads/ > ~/Downloads/mtk.txt
+    cp -fv ~/Downloads/mtk.txt /Volumes/robert.lo/
+    rm "/Users/robertlo/Downloads/Issue List  Mediatek eService.csv"
+}

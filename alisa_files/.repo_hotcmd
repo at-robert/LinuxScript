@@ -1,5 +1,8 @@
 # repo alias functions:
 alias repobra='repo branches'
+alias repostashl='repo forall -p -c "git stash list"'
+alias repos='repo status'
+alias repoa='repo forall -c "git bra"'
 
 function repock(){
     if [ "$1" == "" ];
