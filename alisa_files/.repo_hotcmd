@@ -1,5 +1,6 @@
 # repo alias functions:
 alias repobra='repo branches'
+alias repob='repo branches'
 alias repostashl='repo forall -p -c "git stash list"'
 alias repos='repo status'
 alias repoa='repo forall -c "git bra"'
@@ -38,6 +39,14 @@ function repomerge(){
     else
         repo forall -c "git merge $1"
     fi
+}
+
+function repol(){
+    NOW=$(date +"%Y-%m-%d")
+    PNOW=$(date --date='1 days ago' "+%Y-%m-%d")
+    CMD="git log --pretty=format:\"%h - %an, %ar : %s\" --name-status --since=$PNOW"
+    echo "Git LOG Since $CMD"
+    repo forall -p -c "$CMD"
 }
 
 function repols(){

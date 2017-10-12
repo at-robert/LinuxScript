@@ -5,3 +5,14 @@ function mtk(){
     cp -fv ~/Downloads/mtk.txt /Volumes/robert.lo/
     rm "/Users/robertlo/Downloads/Issue List  Mediatek eService.csv"
 }
+
+function diffpack(){
+    if [ "$1" == "" ] && [ "$2" == "" ];
+    then
+		echo "usage = diffpack SRC DEST"
+    else
+        diff -Nrq --exclude='.git' --exclude='.build-id' --exclude='.repo' \
+        	 --exclude='*.o' --exclude='*.a' --exclude='.svn' \
+        	  $1 $2 | awk 'BEGIN{FS=" "}{print $4}' | xargs tar -zcvf patch.tgz
+    fi
+}
