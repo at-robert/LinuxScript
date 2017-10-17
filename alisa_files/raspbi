@@ -1,0 +1,5 @@
+
+# Alias commands for Raspberry Pi environment
+
+alias poff='source ~/RaspPython/Python_Code/power_off_ir.sh'
+alias sing='/usr/bin/python ~/Python_Code/MP3/mp3_play.py /media/pi/SANDISK/Music/MP3/'
