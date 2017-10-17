@@ -16,3 +16,7 @@ function diffpack(){
         	  $1 $2 | awk 'BEGIN{FS=" "}{print $4}' | xargs tar -zcvf patch.tgz
     fi
 }
+
+alias py2a='pyenv global anaconda3-4.2.0'
+alias py2s='pyenv global system'
+alias pyinfo='pyenv versions'

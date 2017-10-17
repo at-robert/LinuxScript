@@ -42,8 +42,14 @@ function repomerge(){
 }
 
 function repol(){
-    NOW=$(date +"%Y-%m-%d")
-    PNOW=$(date --date='1 days ago' "+%Y-%m-%d")
+    
+    if [ "$1" == "" ];
+    then
+        PNOW=$(date --date='1 days ago' "+%Y-%m-%d")
+    else
+        PNOW=$(date --date=$1' days ago' "+%Y-%m-%d")
+    fi
+
     CMD="git log --pretty=format:\"%h - %an, %ar : %s\" --name-status --since=$PNOW"
     echo "Git LOG Since $CMD"
     repo forall -p -c "$CMD"
