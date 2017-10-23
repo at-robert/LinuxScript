@@ -14,7 +14,7 @@ function pictake(){
     else
         echo "$PIC_PATH doesn't exist so create one !!"
         mkdir $PIC_PATH
-    if
+    fi
 
     fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
 }
