@@ -1,0 +1,14 @@
+
+function pictake(){
+    PIC_PATH=~/webcam
+    DATE=$(date +"%Y-%m-%d_%H%M")
+    if [ -d $PIC_PATH ];
+    then
+        echo "$PIC_PATH exist !!"
+    else
+        echo "$PIC_PATH doesn't exist so create one !!"
+        mkdir $PIC_PATH
+    if
+
+    fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
+}

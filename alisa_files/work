@@ -20,3 +20,7 @@ function diffpack(){
 alias py2a='pyenv global anaconda3-4.2.0'
 alias py2s='pyenv global system'
 alias pyinfo='pyenv versions'
+
+alias mongod='~/mongo/bin/mongod --dbpath ~/mongo-data'
+
+alias cot='~/Google\ 雲端硬碟/Work/Python/collect_jira.sh'
