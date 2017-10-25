@@ -9,9 +9,12 @@ function repock(){
     if [ "$1" == "" ];
     then
         echo "The usage : repock BRANCH_NAME"
+    elif [[ "$1" == "mtk" ]]; then
+        repo checkout alps-release-l0-audio.tc17
     else
         repo checkout $1
     fi
+    repob
 }
 
 function repopull(){
@@ -86,4 +89,12 @@ function repolsd(){
     fi
     echo "Git LOG Since $CMD"
     repo forall -p -c "$CMD"
+}
+
+function repofs(){
+    echo "Repo First Sync for MTK8516"
+    repo sync -j4 -c --no-clone-bundle 
+    repo forall -c "git fetch --all"
+    repo forall -c "git checkout --track l0_audio/alps-release-l0-audio.tc17"
+    repo forall -c "git checkout --track l0_audio/amt-dev"
 }

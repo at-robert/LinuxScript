@@ -1,19 +1,118 @@
 # work relative shell script alias functions:
 
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
 function mtk(){
     python ~/Google\ 雲端硬碟/Work/Python/csv_read/csv_mtk_jira.py ~/Downloads/ > ~/Downloads/mtk.txt
+    cp /Volumes/robert.lo/mtk.txt /Volumes/robert.lo/mtk_backup.txt
     cp -fv ~/Downloads/mtk.txt /Volumes/robert.lo/
     rm "/Users/robertlo/Downloads/Issue List  Mediatek eService.csv"
+    printf "$LIGHT_BLUE ==== [DIFF => MTK e-service] ==== \n"
+    diff /Volumes/robert.lo/mtk_backup.txt /Volumes/robert.lo/mtk.txt --unchanged-line-format="" --old-line-format="[O]:%dn: %L" --new-line-format="[N]:%dn: %L"
+    printf "$END \n"
 }
 
 function diffpack(){
+    DATE=$(date +"%Y-%m-%d_%H%M")
+    OUTPATH=~/tmp
+
+    if [ -d $OUTPATH ];
+    then
+        echo "To remove and re-create $OUTPATH"
+        rm -rf $OUTPATH
+        mkdir $OUTPATH
+    fi
+
     if [ "$1" == "" ] && [ "$2" == "" ];
     then
 		echo "usage = diffpack SRC DEST"
     else
         diff -Nrq --exclude='.git' --exclude='.build-id' --exclude='.repo' \
         	 --exclude='*.o' --exclude='*.a' --exclude='.svn' \
-        	  $1 $2 | awk 'BEGIN{FS=" "}{print $4}' | xargs tar -zcvf patch.tgz
+             --exclude='*.so' --exclude='*.ninja' --exclude='.svn' \
+        	  $1 $2 | awk 'BEGIN{FS=" "}{print $4}' | xargs tar -zcvf $OUTPATH/'patch_'$DATE.tgz
+    fi
+}
+
+function mtbt(){
+    if [ "$1" == "m" ];
+    then
+        AMTPATH=~/mtk_git
+        ls -la $AMTPATH/.repo/manifest.xml
+    else
+        AMTPATH=~/amt_git
+    fi
+
+
+    SPWD=$PWD
+    echo " To store PWD = $SPWD"
+
+    if [ -d $AMTPATH ];
+    then
+        echo "To check mtk8516 build version on the folder $AMTPATH"
+        cd $AMTPATH/.repo/manifests
+        git slog -1 | awk 'BEGIN {FS=" "}{print $10}'
+        echo " The last PWD = $SPWD"
+        cd $SPWD
+    else
+        echo "$AMTPATH doesn't exist"
+        exit;
+    fi
+
+}
+
+function hotwe(){
+    echo " The current hot word env = $HOTWORD_ENV"
+
+    if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
+        echo "This hot function would be working on Mac book pro"
+    elif [[ $HOTWORD_ENV == 'UBTU14_4' ]]; then
+        echo "This hot function would be working on Ubuntu 14.4"
+    elif [[ $HOTWORD_ENV == 'RASPBI' ]]; then
+        echo "This hot function would be working on Raspberry pi"
+    else
+        echo "This function won't be working on $HOTWORD_ENV"
+    fi
+}
+
+function cp_mt8516(){
+
+    if [ $HOTWORD_ENV == 'UBTU14_4' ]; then
+        echo "This function will be working on $HOTWORD_ENV. Copy and check MTK8516 bin files"
+
+        MT8516_OUT_PATH=out/target/product/aud8516p1_slc_linux
+        cd $MT8516_OUT_PATH  &&  cp -rf MT8516_Android_scatter.txt preloader_aud8516p1_slc_linux.bin lk.bin boot.img recovery.img secro.img tz.img chrome.img system.img userdata.img /media/psf/robert.lo/mtk8516/FW/ && cd ../../../../
+        ls -la $MT8516_OUT_PATH/MT8516_Android_scatter.txt
+        ls -la $MT8516_OUT_PATH/preloader_aud8516p1_slc_linux.bin 
+        ls -la $MT8516_OUT_PATH/lk.bin 
+        ls -la $MT8516_OUT_PATH/boot.img 
+        ls -la $MT8516_OUT_PATH/recovery.img 
+        ls -la $MT8516_OUT_PATH/secro.img
+        ls -la $MT8516_OUT_PATH/tz.img 
+        ls -la $MT8516_OUT_PATH/chrome.img 
+        ls -la $MT8516_OUT_PATH/system.img 
+        ls -la $MT8516_OUT_PATH/userdata.img
+
+        DATE=$(date +"%Y-%m-%d_%H:%M")
+        printf "$LIGHT_CYAN The current time: $DATE $END \n"
+    else
+        echo "This function won't be working on $HOTWORD_ENV"
     fi
 }
 
