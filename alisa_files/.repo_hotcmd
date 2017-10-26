@@ -1,3 +1,21 @@
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
 # repo alias functions:
 alias repobra='repo branches'
 alias repob='repo branches'
@@ -98,3 +116,26 @@ function repofs(){
     repo forall -c "git checkout --track l0_audio/alps-release-l0-audio.tc17"
     repo forall -c "git checkout --track l0_audio/amt-dev"
 }
+
+# repo snap shot command
+function reposs(){
+    VER_PATH=$PWD/vendor/mediatek/appmainprog/main/amt_soundbar/vizio/VIZIO_SB_ver_info.h
+    DATE=$(date +"%Y%m%d%H%M")
+
+    if [ -f $VER_PATH ];
+    then
+        printf "$LIGHT_GREEN"
+        printf "Repo Snap Shot Version Path = $VER_PATH , DATE = $DATE \n"
+        AMT_BUILD_VER=$(grep 'AMT_VER_INFO_VERSION_VIZIO_PORTABLE' $VER_PATH | awk '{print $3}' | sed 's/\"//g' )
+        MTK_BUILD_VER=$(grep 'AMT_VER_MTK_SDK_BUILD' $VER_PATH | awk '{print $3}' | sed 's/\"//g' )
+        printf "AMT build version = $AMT_BUILD_VER , MTK build verison = $MTK_BUILD_VER \n"
+
+        AMT_MANIFEST=vendor/mediatek/appmainprog/main/amt_soundbar/manifest/amt_$AMT_BUILD_VER'_'$MTK_BUILD_VER'_'$DATE.xml
+        repo manifest -r -o $AMT_MANIFEST
+        ls -la $AMT_MANIFEST
+        printf "\n $END"
+    else
+        printf "$LIGHT_RED $VER_PATH doesn't exist \n $END" 
+    fi
+}
+
