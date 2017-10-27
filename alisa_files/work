@@ -116,6 +116,65 @@ function cp_mt8516(){
     fi
 }
 
+function wk_report_send(){
+    weeknumber=`date +%V`
+    One=1
+    wkp=$(($weeknumber + $One))
+
+    if [ -d /Volumes/robert.lo ]; then
+        echo " No /Volumes/robert.lo folder exist"
+        exit;
+    fi
+    
+    echo "Week number plus one:$wkp"
+    
+    python /Users/robertlo/Google\ 雲端硬碟/Work/Python/Email/SendMail_attach_fw5_wk_report.py
+    cp -fv /Volumes/robert.lo/Data/DOC/Weekly\ Report/FW5-report-wk$wkp.docx /Users/robertlo/Documents/DOC
+    
+    find ~/Documents/DOC/ -maxdepth 1 -type f -name "*[Nn][Pp][Ii]*.pptx" -exec rm -rf {} \;
+    find /Volumes/robert.lo -maxdepth 1 -type f -name "*[Nn][Pp][Ii]*.pptx" -exec cp -fv {} ~/Documents/DOC/ \;
+}
+
+# mount drive functions:
+function mount_rob(){
+    ROBPATH="/Volumes/robert.lo"
+    if [ -d $ROBPATH ];
+    then
+        echo "================================"
+        echo "$ROBPATH exists"
+        echo "================================"
+    else
+        echo "====$ROBPATH doesn't exist======"
+        mkdir $ROBPATH
+    fi
+
+    mount -t smbfs //robert.lo:000000@192.168.14.129/robert.lo $ROBPATH
+}
+
+# To commit mtk8507 project to SVN
+function cm_mtk8507_svn(){
+    BDP_G=BDP_Generic
+    BDP_L=BDP_Linux
+    CAST_P=Cast_Audio
+
+    if [ -d $BDP_G ] && [ -d $BDP_L ] && [ -d $CAST_P ]; then
+        echo "commit mtk8507 to SVN, to add or delete new files"
+        find . -type f -name "._.DS_Store" -exec rm {} \;
+        find . -type f -name ".DS_Store" -exec rm {} \;
+        svn del `svn status | sed -e '/^!/!d' -e 's/^!//'`
+        svn status | grep '^\!' | cut -c8- | while read f; do svn rm "$f"; done
+        svn add `svn status . | awk '/^[?]/{print $2}'`
+        svn add . --force --no-ignore
+        echo "Please press any key to commit to SVN or Ctrl+C to interrupt, to make sure ~/svnlog.txt to be edited"
+        read line
+        svn ci -F ~/svnlog.txt
+    else
+        echo "There are no mtk8507 project folder detected"
+    fi 
+}
+
+alias bu_mt8516='source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee /media/psf/Transcend/log.txt'
+
 alias py2a='pyenv global anaconda3-4.2.0'
 alias py2s='pyenv global system'
 alias pyinfo='pyenv versions'
