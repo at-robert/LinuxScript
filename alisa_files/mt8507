@@ -1,0 +1,126 @@
+
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+function cp_mt8507_m_sb(){
+    VER=$1
+    VM_OUT=/media/psf
+
+    if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
+        echo "MAC PRO ENV"
+
+        if [ -d /Volumes/$VER ]; then
+            INPATH=/Volumes/robert.lo/mtk8507/code_merge_IntExt/build_sdk/release/BDP_Generic/build
+            OUTPATH=/Volumes/$VER/upg/
+        else
+            echo " /Volumes/$VER doesn't exist "
+            return
+        fi
+    else
+        echo "Liunx VM ENV"
+        INPATH=$VM_OUT/robert.lo/mtk8507/code_merge_IntExt/build_sdk/release/BDP_Generic/build
+        OUTPATH=$VM_OUT/$VER/upg/
+    fi
+
+    ls -la $INPATH
+
+    if [ -d $OUTPATH ];
+    then
+            echo "================================"
+            echo "Outpath exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    mkdir $OUTPATH
+
+    printf "$LIGHT_RED[MTK8507 bootloader]\n"
+    ls -l $INPATH/mt8507_bl_linux.bin | awk '{for (i=6; i <= NF; i++) {printf $i" "} printf "\n"}'
+    printf "$LIGHT_GREEN[MTK8507 app]\n"
+    ls -l $INPATH/8507_linux_demo_dbg.bin | awk '{for (i=6; i <= NF; i++) {printf $i" "} printf "\n"}'
+    printf "$END"
+    echo " "
+
+    echo "===Copy MTK8507 release bin files to UPG folder =============="
+    cp $INPATH/mt8507_bl_linux.bin $OUTPATH
+    cp $INPATH/8507_linux_demo_dbg.bin $OUTPATH
+
+    touch $OUTPATH/bl_flag
+
+    if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
+        sync
+        diskutil unmount /Volumes/$VER/
+    fi 
+}
+
+function rest_mt8507_m(){
+    OUTPATH=clean_sdk
+    BUILDAUTO_VER=$OUTPATH/release/BDP_Generic/src/system/prop/version/auto_version.h
+    MTK_TALBALL=8507_VIZIO_release.tar.gz
+
+    if [ -f $MTK_TALBALL ];
+    then
+       echo "================================"
+    else
+       echo "MTK talball $MTK_TALBALL doesn't exist"
+       exit;
+    fi
+
+    rm -rf build_sdk/ merge_sdk/ mtk_sdk/ svn
+    mkdir -p build_sdk/release merge_sdk/release mtk_sdk/release svn
+
+
+    if [ -d $OUTPATH ];
+    then
+    		echo "================================"
+    		echo "$OUTPATH exists so that deleting it ........"
+    		echo "================================"
+    		rm -rf $OUTPATH
+    fi
+
+    mkdir -p $OUTPATH
+    tar xvf $MTK_TALBALL -C $OUTPATH
+
+    cd $OUTPATH/release/BDP_Linux/
+    tar xvf mtk-linux-3.10.26.tar.gz
+    tar xvf release_linux.tar.gz
+    rm mtk-linux-3.10.26.tar.gz
+    rm release_linux.tar.gz
+    cd ../../..
+
+    SDK_VER=$(grep 'AUTO_VERSION' $BUILDAUTO_VER | awk '{print $3}' )
+
+    echo "================================"
+    echo "MTK package = HQ$SDK_VER "
+    echo "================================"
+
+    touch $OUTPATH/readme_$SDK_VER.txt
+    mv $MTK_TALBALL $OUTPATH/$MTK_TALBALL
+
+    echo "================================"
+    echo "copy clean code to merge_sdk "
+    echo "================================"
+    cp -a $OUTPATH/release/* ./merge_sdk/release/
+
+    echo "================================"
+    echo "copy clean code to mtk_sdk "
+    echo "================================"
+    cp -a $OUTPATH/release/* ./mtk_sdk/release/
+}

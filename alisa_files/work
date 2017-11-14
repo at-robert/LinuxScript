@@ -173,7 +173,17 @@ function cm_mtk8507_svn(){
     fi 
 }
 
-alias bu_mt8516='source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee /media/psf/Transcend/log.txt'
+function bu_mt8516(){
+    SSD_PATH=/media/psf/Transcend
+
+    if [ -d $SSD_PATH ]; then
+        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee $SSD_PATH/mt8516_log.txt
+    else
+        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | ~/mt8516_log.txt
+    fi
+}
+
+# alias bu_mt8516='source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee /media/psf/Transcend/log.txt'
 
 alias py2a='pyenv global anaconda3-4.2.0'
 alias py2s='pyenv global system'
