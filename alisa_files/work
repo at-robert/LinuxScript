@@ -18,6 +18,11 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
+function xor_cal(){
+    echo "To calculate for factory command checksum"
+    python ~/Google\ 雲端硬碟/Work/Python/xor_checksum/xor_chk_win.py
+}
+
 function mtk(){
     python ~/Google\ 雲端硬碟/Work/Python/csv_read/csv_mtk_jira.py ~/Downloads/ > ~/Downloads/mtk.txt
     cp /Volumes/robert.lo/mtk.txt /Volumes/robert.lo/mtk_backup.txt
