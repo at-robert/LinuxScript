@@ -46,7 +46,8 @@ function diffpack(){
 
     if [ "$1" == "" ] && [ "$2" == "" ];
     then
-		echo "usage = diffpack SRC DEST"
+		echo "usage = diffpack DEST SRC"
+        echo "SRC is the folder where to extract files out"
     else
         diff -Nrq --exclude='.git' --exclude='.build-id' --exclude='.repo' \
         	 --exclude='*.o' --exclude='*.a' --exclude='.svn' \
@@ -184,7 +185,7 @@ function bu_mt8516(){
     if [ -d $SSD_PATH ]; then
         source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee $SSD_PATH/mt8516_log.txt
     else
-        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | ~/mt8516_log.txt
+        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee ~/mt8516_log.txt
     fi
 }
 
