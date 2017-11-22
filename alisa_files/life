@@ -9,3 +9,9 @@ function py3(){
 	echo "anaconda3-4.2.0" > ~/Google\ 雲端硬碟/Work/Python/.python-version
 	python --version
 }
+
+function scp_from_rapix(){
+	RASPX_IP=$(cat ~/.ssh/rap_x_server | grep -m 1 'host' | awk '{print $3}')
+	echo "Raspi_x ip addr = $RASPX_IP"
+	scp pi@$RASPX_IP:~/webcam/*.jpg  .
+}

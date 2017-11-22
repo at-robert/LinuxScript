@@ -22,7 +22,7 @@ function pictake(){
 function edid_r(){
     if [ -f edid.bin ];
     then
-        echo "To existing edid.bin and edid.txt"
+        echo "To delete existing edid.bin and edid.txt"
         rm -rf edid.bin edid.txt
     else
         echo "Nothing to delete"
