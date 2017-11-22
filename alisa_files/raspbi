@@ -18,3 +18,10 @@ function pictake(){
 
     fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
 }
+
+function edid_r(){
+    echo "To read the EDID table data through HDMI connector and then show information"
+    tvservice -d edid.bin
+    edidparser edid.bin > edid.txt
+    cat edid.txt
+}
