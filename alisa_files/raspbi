@@ -20,6 +20,14 @@ function pictake(){
 }
 
 function edid_r(){
+    if [ -f edid.bin ];
+    then
+        echo "To existing edid.bin and edid.txt"
+        rm -rf edid.bin edid.txt
+    else
+        echo "Nothing to delete"
+    fi
+
     echo "To read the EDID table data through HDMI connector and then show information"
     tvservice -d edid.bin
     edidparser edid.bin > edid.txt
