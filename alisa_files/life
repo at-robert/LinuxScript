@@ -15,3 +15,23 @@ function scp_from_rapix(){
 	echo "Raspi_x ip addr = $RASPX_IP"
 	scp pi@$RASPX_IP:~/webcam/*.jpg  .
 }
+
+function net_ok(){
+	RETRY=0
+	ONE=1
+	MARGIN=6
+	CONNECT='NOT'
+
+	while [ $CONNECT == 'NOT' ] && [ $RETRY -lt $MARGIN ]; do
+		if ping -q -c 1 -W 1 google.com >/dev/null; then
+  			echo "The network is up"
+  			CONNECT='ON'
+		else
+  			echo "The network is down"
+  			CONNECT='NOT'
+  			RETRY=$(($RETRY + $ONE))
+  			echo " Retry Count = $RETRY"
+  			sleep 10
+		fi
+	done
+}
