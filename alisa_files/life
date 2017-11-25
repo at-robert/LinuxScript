@@ -1,37 +1,57 @@
 alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www73.eyny.com/forum-576-1.html'
 
 function py2(){
-	echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
-	python --version
+    echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
+    python --version
 }
 
 function py3(){
-	echo "anaconda3-4.2.0" > ~/Google\ 雲端硬碟/Work/Python/.python-version
-	python --version
+    echo "anaconda3-4.2.0" > ~/Google\ 雲端硬碟/Work/Python/.python-version
+    python --version
 }
 
 function scp_from_rapix(){
-	RASPX_IP=$(cat ~/.ssh/rap_x_server | grep -m 1 'host' | awk '{print $3}')
-	echo "Raspi_x ip addr = $RASPX_IP"
-	scp pi@$RASPX_IP:~/webcam/*.jpg  .
+    RASPX_IP=$(cat ~/.ssh/rap_x_server | grep -m 1 'host' | awk '{print $3}')
+    echo "Raspi_x ip addr = $RASPX_IP"
+    scp pi@$RASPX_IP:~/webcam/*.jpg  .
 }
 
 function net_ok(){
-	RETRY=0
-	ONE=1
-	MARGIN=6
-	CONNECT='NOT'
+    RETRY=0
+    ONE=1
+    MARGIN=6
+    CONNECT='NOT'
 
-	while [ $CONNECT == 'NOT' ] && [ $RETRY -lt $MARGIN ]; do
-		if ping -q -c 1 -W 1 google.com >/dev/null; then
-  			echo "The network is up"
-  			CONNECT='ON'
-		else
-  			echo "The network is down"
-  			CONNECT='NOT'
-  			RETRY=$(($RETRY + $ONE))
-  			echo " Retry Count = $RETRY"
-  			sleep 10
-		fi
-	done
+    while [ $CONNECT == 'NOT' ] && [ $RETRY -lt $MARGIN ]; do
+        echo "To check Internet for $RETRY times"
+        if ping -q -c 1 -W 1 google.com >/dev/null; then
+            echo "The network is up"
+            CONNECT='ON'
+        else
+            echo "The network is down"
+            CONNECT='NOT'
+            RETRY=$(($RETRY + $ONE))
+            echo " Retry Count = $RETRY"
+            sleep 10
+        fi
+    done
+}
+
+function amk(){
+    if [ "$1" == "" ] ;
+    then
+        echo "Default number 10"
+        NUM=10
+    else
+        NUM=$1
+    fi
+
+    if [ "$2" == "" ] ;
+    then
+        echo "Default str"
+    else
+        STR=$2
+    fi
+
+    mkdir $(printf "$STR%02i " $(seq 1 $NUM))
 }
