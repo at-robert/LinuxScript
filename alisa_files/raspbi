@@ -16,7 +16,13 @@ function pictake(){
         mkdir $PIC_PATH
     fi
 
-    fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM "
+        raspistill -o $PIC_PATH/$DATE.jpg -t 1000
+    else
+        fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
+    fi
 }
 
 function edid_r(){
