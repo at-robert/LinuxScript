@@ -40,6 +40,31 @@ function edid_r(){
     cat edid.txt
 }
 
+function cam_take(){
+    PIC_PATH=~/webcam
+    DATE=$(date +"%Y-%m-%d_%H%M")
+    if [ -d $PIC_PATH ];
+    then
+        echo "$PIC_PATH exist !!"
+    else
+        echo "$PIC_PATH doesn't exist so create one !!"
+        mkdir $PIC_PATH
+    fi
+
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM "
+        if [ $1 == "s" ];
+        then
+            raspistill -o $PIC_PATH/'std_'$DATE.jpg -t 1000
+        else
+            raspistill -o $PIC_PATH/'img_'$DATE.jpg -t 1000
+        fi
+    else
+        echo "Raspberry Camera doesn't support"
+    fi
+}
+
 function cam_preview(){
 
     if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
