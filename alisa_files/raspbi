@@ -39,3 +39,14 @@ function edid_r(){
     edidparser edid.bin > edid.txt
     cat edid.txt
 }
+
+function cam_preview(){
+
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM Preview"
+        python ~/RaspPython/Python_Code/RapiCam/cam_preview.py
+    else
+        echo "Raspberry Camera doesn't support"
+    fi
+}
