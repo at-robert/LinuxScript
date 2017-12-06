@@ -54,7 +54,7 @@ function cam_take(){
     if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
     then
         echo " $RAIPCAM "
-        if [ $1 == "s" ];
+        if [ "$1" == "s" ];
         then
             raspistill -o $PIC_PATH/'std_'$DATE.jpg -t 1000
         else
