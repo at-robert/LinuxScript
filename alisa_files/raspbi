@@ -75,3 +75,23 @@ function cam_preview(){
         echo "Raspberry Camera doesn't support"
     fi
 }
+
+function ir_vizio_tv(){
+
+        if [ "$1" == "hdmi" ];
+        then
+            irsend SEND_ONCE VIZIO_TV HDMI
+        elif [ "$1" == "comp" ];
+        then
+            irsend SEND_ONCE VIZIO_TV COMP
+        elif [ "$1" == "av" ];
+        then
+            irsend SEND_ONCE VIZIO_TV AV
+        elif [ "$1" == "pwr" ];
+        then
+            irsend SEND_ONCE VIZIO_TV KEY_POWER
+        else
+            echo "The input parameter is required: hdmi,comp,av,pwr"
+        fi
+}
+
