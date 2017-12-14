@@ -70,7 +70,12 @@ function cam_preview(){
     if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
     then
         echo " $RAIPCAM Preview"
-        python ~/RaspPython/Python_Code/RapiCam/cam_preview.py
+        if [ "$1" == "d" ];
+        then
+            python ~/RaspPython/Python_Code/RapiCam/cam_preview.py d
+        else
+            python ~/RaspPython/Python_Code/RapiCam/cam_preview.py
+        fi
     else
         echo "Raspberry Camera doesn't support"
     fi
