@@ -1,5 +1,5 @@
 VER=$1
-INPATH=~/Test/'4451_'$VER
+INPATH=~/mtk8507/FW/MCU/'4451_'$VER
 OUTPATH=~/mtk8507/workspace/merge_back/v$VER
 
 if [ "$VER" == "" ];then

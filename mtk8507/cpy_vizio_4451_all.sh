@@ -1,6 +1,6 @@
 VER=$1
 SDK=$2
-INPATH=~/Test/'4451_'$VER
+INPATH=~/mtk8507/FW/MCU/'4451_'$VER
 OUTPATH=~/mtk8507/FW/$VER
 
 if [ "$1" == "" ] || [ "$2" == "" ];

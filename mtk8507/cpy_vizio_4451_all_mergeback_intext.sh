@@ -1,6 +1,6 @@
 VER=$1
 SUB=$2
-MCUPATH=~/Test/'4451_'$VER
+MCUPATH=~/mtk8507/FW/MCU/'4451_'$VER
 OUTPATH=~/mtk8507/workspace_intext/merge_back/v$VER-$SUB
 MERGEPATH=~/mtk8507/workspace_intext/merge_back
 
