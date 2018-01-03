@@ -55,3 +55,13 @@ function amk(){
 
     mkdir $(printf "$STR%02i " $(seq 1 $NUM))
 }
+
+function connect_rapi(){
+    if [ "$1" == "" ] ;
+    then 
+        echo " LAN number is required "
+        return
+    else
+        ssh pi@192.168.0.$1
+    fi
+}

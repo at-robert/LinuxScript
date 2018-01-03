@@ -19,7 +19,7 @@ function pictake(){
     if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
     then
         echo " $RAIPCAM "
-        raspistill -o $PIC_PATH/$DATE.jpg -t 1000
+        raspistill  --width 1280 --height 960 --quality 100 -o $PIC_PATH/$DATE.jpg -t 1000
     else
         fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
     fi
@@ -56,9 +56,9 @@ function cam_take(){
         echo " $RAIPCAM "
         if [ "$1" == "s" ];
         then
-            raspistill -o $PIC_PATH/'std_'$DATE.jpg -t 1000
+            raspistill --width 1280 --height 960 --quality 100 -o $PIC_PATH/'std_'$DATE.jpg -t 1000
         else
-            raspistill -o $PIC_PATH/'img_'$DATE.jpg -t 1000
+            raspistill  --width 1280 --height 960 --quality 100 -o $PIC_PATH/'img_'$DATE.jpg -t 1000
         fi
     else
         echo "Raspberry Camera doesn't support"
