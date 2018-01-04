@@ -1,5 +1,5 @@
 VER=$1
-INPATH=~/Test/'4451_'$VER
+INPATH=~/mtk8507/FW/MCU/'4451_'$VER
 OUTPATH=~/mtk8507/tools/Publish_Tool_with_dev_script/In
 
 if [ "$VER" == "" ];then

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
+=======
+alias envy='python ~/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www73.eyny.com/forum-576-1.html'
+>>>>>>> 902ebcec533ec7d8e82ee2420337a63c77f32f07
 
 function py2(){
     echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
@@ -54,4 +58,14 @@ function amk(){
     fi
 
     mkdir $(printf "$STR%02i " $(seq 1 $NUM))
+}
+
+function connect_rapi(){
+    if [ "$1" == "" ] ;
+    then 
+        echo " LAN number is required "
+        return
+    else
+        ssh pi@192.168.0.$1
+    fi
 }

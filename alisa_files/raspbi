@@ -16,7 +16,13 @@ function pictake(){
         mkdir $PIC_PATH
     fi
 
-    fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM "
+        raspistill  --width 1280 --height 960 --quality 100 -o $PIC_PATH/$DATE.jpg -t 1000
+    else
+        fswebcam -r 1280x720 --no-banner $PIC_PATH/$DATE.jpg
+    fi
 }
 
 function edid_r(){
@@ -33,3 +39,64 @@ function edid_r(){
     edidparser edid.bin > edid.txt
     cat edid.txt
 }
+
+function cam_take(){
+    PIC_PATH=~/webcam
+    DATE=$(date +"%Y-%m-%d_%H%M")
+    if [ -d $PIC_PATH ];
+    then
+        echo "$PIC_PATH exist !!"
+    else
+        echo "$PIC_PATH doesn't exist so create one !!"
+        mkdir $PIC_PATH
+    fi
+
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM "
+        if [ "$1" == "s" ];
+        then
+            raspistill --width 1280 --height 960 --quality 100 -o $PIC_PATH/'std_'$DATE.jpg -t 1000
+        else
+            raspistill  --width 1280 --height 960 --quality 100 -o $PIC_PATH/'img_'$DATE.jpg -t 1000
+        fi
+    else
+        echo "Raspberry Camera doesn't support"
+    fi
+}
+
+function cam_preview(){
+
+    if [ $RAIPCAM == 'RAICAMSUPPORT' ]; 
+    then
+        echo " $RAIPCAM Preview"
+        if [ "$1" == "d" ];
+        then
+            python ~/RaspPython/Python_Code/RapiCam/cam_preview.py d
+        else
+            python ~/RaspPython/Python_Code/RapiCam/cam_preview.py
+        fi
+    else
+        echo "Raspberry Camera doesn't support"
+    fi
+}
+
+function ir_vizio_tv(){
+
+        if [ "$1" == "hdmi" ];
+        then
+            irsend SEND_ONCE VIZIO_TV HDMI
+        elif [ "$1" == "comp" ];
+        then
+            irsend SEND_ONCE VIZIO_TV COMP
+        elif [ "$1" == "av" ];
+        then
+            irsend SEND_ONCE VIZIO_TV AV
+        elif [ "$1" == "pwr" ];
+        then
+            irsend SEND_ONCE VIZIO_TV KEY_POWER
+        else
+            echo "The input parameter is required: hdmi,comp,av,pwr"
+        fi
+}
+

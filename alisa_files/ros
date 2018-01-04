@@ -1,0 +1,7 @@
+function ros_turtle_sim(){
+    rosrun turtlesim turtlesim_node
+}
+
+function ros_turtle_key(){
+    rosrun turtlesim turtle_teleop_key
+}

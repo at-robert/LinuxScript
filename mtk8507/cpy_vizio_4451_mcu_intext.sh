@@ -1,5 +1,5 @@
 VER=$1
-INPATH=~/Test/'4451_'$VER
+INPATH=~/mtk8507/FW/MCU/'4451_'$VER
 OUTPATH=~/mtk8507/Trunk/int_ext
 OUTPATH_SVN=~/mtk8507/Trunk/int_ext_svn
 OUTPATH_SVN_SECURE=~/mtk8507/Trunk/svn_secure
