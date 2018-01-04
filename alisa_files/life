@@ -1,4 +1,4 @@
-alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www73.eyny.com/forum-576-1.html'
+alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
 
 function py2(){
     echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
