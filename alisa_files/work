@@ -198,4 +198,4 @@ alias pyinfo='pyenv versions'
 alias mongod='~/mongo/bin/mongod --dbpath ~/mongo-data'
 
 alias cot='~/Google\ 雲端硬碟/Work/Python/collect_jira.sh'
-alias bak_ring='cp -a /Volumes/robert.lo/Data/Ring_Project/ ~/Documents/GitHub/Ring_Project/'
+alias bak_ring='sudo cp -a /Volumes/robert.lo/Data/Ring_Project/ ~/Documents/GitHub/Ring_Project/'
