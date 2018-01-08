@@ -1,0 +1,35 @@
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+GVA_VER_PATH=~/mtk8516/Trunk/mtk_git_server/vendor/mediatek/c4a/prebuilts
+
+OUT_STR=$(find $GVA_VER_PATH/*.tar.xz $GVA_VER_PATH/*.zip -printf "%f\n")
+OUT_STR=$(echo $OUT_STR | sed 's/_v[0-9]*.tar.xz//g' | sed 's/_v[0-9]*.zip//g')
+GVA_ENG=$(echo $OUT_STR | awk '{print $1}')
+GVA_USER=$(echo $OUT_STR | awk '{print $2}')
+CR_ENG=$(echo $OUT_STR | awk '{print $3}')
+CR_USER=$(echo $OUT_STR | awk '{print $4}')
+
+function mt8516_ver(){
+    printf "$LIGHT_BLUE ==== [Google Cast Shell Versions] ==== $OUT_STR \n"
+    printf "$LIGHT_RED ==== [GVA ENG] ==== $GVA_ENG \n"
+    printf "$LIGHT_GREEN ==== [GVA USER] ==== $GVA_USER \n"
+    printf "$LIGHT_PURPLE ==== [CR ENG] ==== $CR_ENG \n"
+    printf "$YELLOW ==== [CR USER] ==== $CR_USER \n"
+    printf "$END \n"
+}
