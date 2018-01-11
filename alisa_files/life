@@ -53,7 +53,23 @@ function amk(){
         STR=$2
     fi
 
-    mkdir $(printf "$STR%02i " $(seq 1 $NUM))
+    if [ "$1" == "12mon" ] || [ "$1" == "12MON" ] ;
+    then
+        mkdir "JAN"
+        mkdir "FEB"
+        mkdir "MAR"
+        mkdir "APL"
+        mkdir "MAY"
+        mkdir "JUN"
+        mkdir "JUL"
+        mkdir "AUG"
+        mkdir "SEP"
+        mkdir "OCT"
+        mkdir "NOV"
+        mkdir "DEC"
+    else
+        mkdir $(printf "$STR%02i " $(seq 1 $NUM))
+    fi
 }
 
 function connect_rapi(){
