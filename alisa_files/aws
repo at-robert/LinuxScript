@@ -1,6 +1,8 @@
 
 # AWS_PEM='/Users/mac/Documents/AWS_CERT/jupyterone.pem'
-AWS_PEM='/Users/robertlo/Documents/AWS_CERT/jupyterone.pem'
+# AWS_PEM='/Users/robertlo/Documents/AWS_CERT/jupyterone.pem'
+
+AWS_PEM=$HOME'/Documents/AWS_CERT/jupyterone.pem'
 
 
 function aws_ec2_connect(){
