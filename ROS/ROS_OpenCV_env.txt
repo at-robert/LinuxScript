@@ -1,0 +1,36 @@
+1. To create the work folder
+mkdir ros_project_dependencies_ws
+
+2. To switch to the folder
+cd ros_project_dependencies_ws
+
+3. To download the code package from github
+mkdir src
+cd src
+git clone https://github.com/bosch-ros-pkg/usb_cam.git
+cd ..
+catkin_make
+
+4. To install V4L uilities
+sudo apt-get install v4l-utils
+
+5. To check if UVC camera is ok
+dmesg
+
+6. To install cheese webcam software
+sudo apt-get install cheese
+
+7. To run Cheese
+cheese
+
+NOTE:
+To go into "preference menu" to select desire camera
+
+8.
+cd ~/ros_project_dependencies_ws
+source devel/setup.bash
+roslaunch usb_cam usb_cam-test.launch
+
+NOTE:
+To check available webcam by typing
+ls -la /dev/video*
