@@ -18,6 +18,11 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
+function goto_ana_server(){
+    cd /media/psf/Home/Google\ 雲端硬碟/Work/Python/MasteringComputerVision_V1.01/
+    jupy
+}
+
 function xor_cal(){
     echo "To calculate for factory command checksum"
     python ~/Google\ 雲端硬碟/Work/Python/xor_checksum/xor_chk_win.py
