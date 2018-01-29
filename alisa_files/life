@@ -1,5 +1,7 @@
 alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
 alias jupy='jupyter notebook'
+alias pppoe_on='pon dsl-provider'
+alias pppoe_off='poff dsl-provider'
 
 function py2(){
     echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
@@ -110,3 +112,4 @@ function connect_rapi(){
         ssh pi@192.168.0.$1
     fi
 }
+
