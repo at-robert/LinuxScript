@@ -3,8 +3,29 @@
 # AWS_PEM='/Users/robertlo/Documents/AWS_CERT/jupyterone.pem'
 
 AWS_PEM=$HOME'/Documents/AWS_CERT/jupyterone.pem'
+MACHINE_DNS='ec2-54-92-236-169.compute-1.amazonaws.com'
 
 
 function aws_ec2_connect(){
-	ssh -i $AWS_PEM ubuntu@ec2-34-229-104-230.compute-1.amazonaws.com
+    ssh -i $AWS_PEM ubuntu@$MACHINE_DNS
+}
+
+function aws_ec2_scp_from(){
+    if [ "$1" == "" ];
+    then
+    echo "using by aws_ec2_scp_from FILE"
+    return
+    else
+        scp -i ~/Documents/AWS_CERT/jupyterone.pem ubuntu@$MACHINE_DNS:~/remotefile/$1 ~/Downloads/
+    fi
+}
+
+function aws_ec2_scp_to(){
+    if [ "$1" == "" ];
+    then
+    echo "using by aws_ec2_scp_to FILE"
+    return
+    else
+        scp -i ~/Documents/AWS_CERT/jupyterone.pem $1 ubuntu@$MACHINE_DNS:~/remotefile
+    fi
 }
