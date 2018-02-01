@@ -3,6 +3,18 @@ alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
+function gupdate(){
+    cd ~/Documents/Github/LinuxScript
+    git pull
+    cd ~/Documents/Github/Taiwan_Stock
+    git pull
+    cd ~/Documents/Github/GitTips
+    git pull
+    cd ~/Documents/Github/OftenUsed
+    git pull
+    cd ~/Documents/Github/
+}
+
 function py2(){
     echo "system" > ~/Google\ 雲端硬碟/Work/Python/.python-version
     python --version
