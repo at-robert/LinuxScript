@@ -20,7 +20,8 @@ END='\e[0m'
 
 function goto_ana_server(){
     cd /media/psf/Home/Google\ 雲端硬碟/Work/Python/MasteringComputerVision_V1.01/ 
-    echo "Hi Anaconda!!" & jupy
+    echo "Hi Anaconda!!"
+    jupyter notebook
 }
 
 function xor_cal(){
