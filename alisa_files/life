@@ -22,22 +22,37 @@ alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
 function gupdate(){
-    cd ~/Documents/Github/LinuxScript
+        echo " The current hot word env = $HOTWORD_ENV"
+
+    if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
+        echo "This hot function would be working on Mac book pro"
+        path=~/Documents/Github
+    elif [[ $HOTWORD_ENV == 'IMAC_5K' ]]; then
+        echo "This hot function would be working on IMac 5K"
+        path=~/Documents/Github
+    else
+        echo "This function would be regular Linux environment"
+        path=~/Github
+    fi
+
+    cd $path/LinuxScript
     printf "$LIGHT_RED Git Pull LinuxScript $END \n" 
     git pull
-    cd ~/Documents/Github/Taiwan_Stock
+    cd $path/Taiwan_Stock
     printf "$LIGHT_GREEN Git Pull Taiwan_Stock $END \n"
     git pull
-    cd ~/Documents/Github/GitTips
+    cd $path/GitTips
     printf "$LIGHT_CYAN Git Pull GitTips $END \n"
     git pull
-    cd ~/Documents/Github/OftenUsed
+    cd $path/OftenUsed
     printf "$YELLOW Git Pull OftenUsed $END \n"
     git pull
-    cd ~/Documents/Github/RaspPython
+    cd $path/RaspPython
     printf "$YELLOW Git Pull RaspPython $END \n"
     git pull
-    cd ~/Documents/Github/
+
+    
+    cd $path
 }
 
 function py2(){

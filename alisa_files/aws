@@ -3,7 +3,7 @@
 # AWS_PEM='/Users/robertlo/Documents/AWS_CERT/jupyterone.pem'
 
 AWS_PEM=$HOME'/Documents/AWS_CERT/jupyterone.pem'
-MACHINE_DNS='ec2-54-92-236-169.compute-1.amazonaws.com'
+MACHINE_DNS='ec2-54-236-202-38.compute-1.amazonaws.com'
 
 
 function aws_ec2_connect(){
