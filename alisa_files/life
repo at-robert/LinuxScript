@@ -21,6 +21,11 @@ alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
+function encode_conv(){
+    echo " To convert encoding in the folder $1 to $2"
+    python ~/Google\ 雲端硬碟/Work/Python/Encode_converter/encode_converter.py $1 $2
+}
+
 function gupdate(){
         echo " The current hot word env = $HOTWORD_ENV"
 
