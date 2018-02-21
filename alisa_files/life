@@ -16,10 +16,14 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
+# alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
 alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
+
+function envy(){
+    python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+}
 
 function gupdate(){
         echo " The current hot word env = $HOTWORD_ENV"
