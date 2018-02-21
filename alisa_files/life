@@ -16,14 +16,13 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
+# alias envy='python /Users/mac/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html'
 alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
-function encode_conv(){
-    echo " To convert encoding in the folder $1 to $2"
-    python ~/Google\ 雲端硬碟/Work/Python/Encode_converter/encode_converter.py $1 $2
+function envy(){
+    python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
 function gupdate(){
