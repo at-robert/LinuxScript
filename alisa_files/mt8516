@@ -16,7 +16,7 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-GVA_VER_PATH=~/mtk8516/Trunk/mtk_git_server/vendor/mediatek/c4a/prebuilts
+GVA_VER_PATH=~/mtk8516/Trunk/amt_git_server/vendor/mediatek/c4a/prebuilts
 
 OUT_STR=$(find $GVA_VER_PATH/*.tar.xz $GVA_VER_PATH/*.zip -printf "%f\n")
 OUT_STR=$(echo $OUT_STR | sed 's/_v[0-9]*.tar.xz//g' | sed 's/_v[0-9]*.zip//g')
