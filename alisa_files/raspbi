@@ -95,8 +95,14 @@ function ir_vizio_tv(){
         elif [ "$1" == "pwr" ];
         then
             irsend SEND_ONCE VIZIO_TV KEY_POWER
+        elif [ "$1" == "volu" ];
+        then
+            irsend SEND_ONCE VIZIO_TV KEY_VOLUMEUP
+        elif [ "$1" == "vold" ];
+        then
+            irsend SEND_ONCE VIZIO_TV VOL_DWN
         else
-            echo "The input parameter is required: hdmi,comp,av,pwr"
+            echo "The input parameter is required: hdmi,comp,av,pwr,volu,vold"
         fi
 }
 
