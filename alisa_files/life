@@ -134,6 +134,12 @@ function amk(){
 function afind(){
     INFILE=$1
 
+    if [ "$1" == "" ] ;
+    then
+        echo "Finding ._* pattern"
+        INFILE='._*'
+    fi
+
     find . -type f -name "$INFILE" -exec ls -la {} \;
     count=$(find . -type f -name "$INFILE" -exec ls -la {} \; | wc -l | sed 's/^[ \t]*//g')
 
