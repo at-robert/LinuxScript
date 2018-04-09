@@ -134,14 +134,17 @@ function wk_report_send(){
     wkp=$(($weeknumber + $One))
 
     if [ -d /Volumes/robert.lo ]; then
+        echo " /Volumes/robert.lo folder exist"
+        else
         echo " No /Volumes/robert.lo folder exist"
-        exit;
+        return
     fi
     
     echo "Week number plus one:$wkp"
     
-    python /Users/robertlo/Google\ 雲端硬碟/Work/Python/Email/SendMail_attach_fw5_wk_report.py
-    cp -fv /Volumes/robert.lo/Data/DOC/Weekly\ Report/FW5-report-wk$wkp.docx /Users/robertlo/Documents/DOC
+    # python /Users/robertlo/Google\ 雲端硬碟/Work/Python/Email/SendMail_attach_fw5_wk_report.py
+    python ~/Documents/GitHub/OftenUsed/Email/SendMail_attach_fw5_wk_report.py
+    cp -fv /Volumes/robert.lo/Data/DOC/Weekly_Report/FW5-report-wk$wkp.docx /Users/robertlo/Documents/DOC
     
     find ~/Documents/DOC/ -maxdepth 1 -type f -name "*[Nn][Pp][Ii]*.pptx" -exec rm -rf {} \;
     find /Volumes/robert.lo -maxdepth 1 -type f -name "*[Nn][Pp][Ii]*.pptx" -exec cp -fv {} ~/Documents/DOC/ \;
@@ -157,7 +160,7 @@ function mount_rob(){
         echo "================================"
     else
         echo "====$ROBPATH doesn't exist======"
-        mkdir $ROBPATH
+        sudo mkdir $ROBPATH
     fi
 
     mount -t smbfs //robert.lo:000000@192.168.14.129/robert.lo $ROBPATH
