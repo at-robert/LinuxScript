@@ -179,3 +179,7 @@ function connect_rapi(){
     fi
 }
 
+function stock_div(){
+    python ~/Documents/GitHub/Taiwan_Stock/tw_stock_divden_release_date.py
+}
+
