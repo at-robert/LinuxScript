@@ -25,6 +25,11 @@ function envy(){
     python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
+function supdate(){
+    cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
+    python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
+}
+
 function gupdate(){
         echo " The current hot word env = $HOTWORD_ENV"
 
@@ -114,18 +119,18 @@ function amk(){
 
     if [ "$1" == "12mon" ] || [ "$1" == "12MON" ] ;
     then
-        mkdir "JAN"
-        mkdir "FEB"
-        mkdir "MAR"
-        mkdir "APL"
-        mkdir "MAY"
-        mkdir "JUN"
-        mkdir "JUL"
-        mkdir "AUG"
-        mkdir "SEP"
-        mkdir "OCT"
-        mkdir "NOV"
-        mkdir "DEC"
+        mkdir "01JAN"
+        mkdir "02FEB"
+        mkdir "03MAR"
+        mkdir "04APL"
+        mkdir "05MAY"
+        mkdir "06JUN"
+        mkdir "07JUL"
+        mkdir "08AUG"
+        mkdir "09SEP"
+        mkdir "10OCT"
+        mkdir "11NOV"
+        mkdir "12DEC"
     else
         mkdir $(printf "$STR%02i " $(seq 1 $NUM))
     fi
