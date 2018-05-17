@@ -59,6 +59,9 @@ function gupdate(){
     cd $path/RaspPython
     printf "$YELLOW Git Pull RaspPython $END \n"
     git pull
+    cd $path/Arduino
+    printf "$LIGHT_BLUE Git Pull Arduino $END \n"
+    git pull
 
     
     cd $path
