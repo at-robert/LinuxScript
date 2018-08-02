@@ -24,6 +24,11 @@ function goto_ana_server(){
     jupyter notebook
 }
 
+function goto_xr871(){
+    cd /media/psf/Home/Documents/GitHub/XR871/
+    echo "Hi XR871 All Winner!!"
+}
+
 function xor_cal(){
     echo "To calculate for factory command checksum"
     python ~/Google\ 雲端硬碟/Work/Python/xor_checksum/xor_chk_win.py

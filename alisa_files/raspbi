@@ -106,3 +106,28 @@ function ir_vizio_tv(){
         fi
 }
 
+function ir_db0204(){
+
+        if [ "$1" == "enter" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_ENTER
+        elif [ "$1" == "down" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_DOWN
+        elif [ "$1" == "up" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_UP
+        elif [ "$1" == "left" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_LEFT
+        elif [ "$1" == "right" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_RIGHT
+        elif [ "$1" == "pwr" ];
+        then
+            irsend SEND_ONCE DB0204 KEY_POWER
+        else
+            echo "The input parameter is required: enter,down,up,left,right,pwr"
+        fi
+}
+
