@@ -17,6 +17,115 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
+MAC_MT8502_PATH=/media/psf/Home/Documents/mtk8502
+AMT_MT8502_PATH=/home/swrd/MTK8502/Trunk/amt/release
+
+AUTO_VER=$AMT_MT8502_PATH/BDP_Generic/src/system/prop/version/auto_version.h
+FW_VER=$AMT_MT8502_PATH/BDP_Generic/src/audio_application/amt_soundbar/vizio/VIZIO_SB_ver_info.h
+
+alias goto_mt8502_svn='cd $MAC_MT8502_PATH/evk_svn/release'
+alias goto_mt8502_amt='cd $AMT_MT8502_PATH'
+
+
+# svn commands
+alias svn_ci_f='svn ci -F $MAC_MT8502_PATH/svn_log.txt'
+
+function ck_mt8502_ver(){
+    SDK_VER=$(grep 'AUTO_VERSION' $AUTO_VER | awk '{print $3}' )
+    INT_FW_VER=$(grep 'AMT_VER_INFO_VERSION' $FW_VER | awk '{print $3}' )
+    printf "$GREEN=MTK 8502 SDK Version= "$SDK_VER"===$END \n"
+    printf "$LIGHT_BLUE=AMT Version= "$INT_FW_VER"===$END \n"
+
+    echo "CHECK VERSION first, Enter to continue or q"
+    # Read input.
+    read input_char
+
+    if [ "$input_char" == 'q' ];
+    then 
+        echo "Quit"
+    else
+        echo "Go!!"
+    fi
+}
+
+function cp_mt8502_t8032(){
+    CMD=$1
+
+    if [ "$1" == "" ];
+    then
+        echo "Copy new T8032 bin to MT8502"
+        cp $MAC_MT8502_PATH/T8032_MT8502/workspace/mt8563_T8032.bin $AMT_MT8502_PATH/BDP_Generic/res/mt8563_T8032.bin
+    else
+        echo "Copy MTK T8032 bin to MT8502"
+        cp $MAC_MT8502_PATH/mt8563_T8032.bin $AMT_MT8502_PATH/BDP_Generic/res/mt8563_T8032.bin
+    fi
+}
+
 function bu_mt8502(){
-    sh build.sh | tee /media/psf/Home/Documents/mtk8502/debug.log
+    cd $AMT_MT8502_PATH/BDP_Generic/
+    sh autobuild/config8502soundbar_coreoff.sh
+
+    SDK_VER=$(grep 'AUTO_VERSION' $AUTO_VER | awk '{print $3}' )
+    INT_FW_VER=$(grep 'AMT_VER_INFO_VERSION' $FW_VER | awk '{print $3}' )
+    printf "$GREEN=MTK 8502 SDK Version= "$SDK_VER"===$END \n"
+    printf "$LIGHT_BLUE=AMT Version= "$INT_FW_VER"===$END \n"
+
+    echo "CHECK VERSION first, Enter to continue or q"
+    # Read input.
+    read input_char
+
+    if [ "$input_char" == 'q' ];
+    then 
+        echo "Quit"
+    else
+        echo "Go!!"
+        sh build.sh | tee $MAC_MT8502_PATH/debug.log
+    fi
+}
+
+function goto_mt8502_svn(){
+    cd $MAC_MT8502_PATH/evk_svn/release
+}
+
+function cp_mt8502_m_sb(){
+    VER=$1
+    VM_IN=$AMT_MT8502_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/BDP_Generic/build
+    OUTPATH=$VM_OUT/$VER/upg/
+
+    ls -la $INPATH
+
+    if [ -d $OUTPATH ];
+    then
+            echo "================================"
+            echo "Outpath exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    mkdir $OUTPATH
+
+    printf "$LIGHT_RED[MTK8502 bootloader]\n"
+    ls -l $INPATH/mt8502_bl_linux.bin | awk '{for (i=6; i <= NF; i++) {printf $i" "} printf "\n"}'
+    printf "$LIGHT_GREEN[MTK8502 app]\n"
+    ls -l $INPATH/8502_linux_demo_dbg.bin | awk '{for (i=6; i <= NF; i++) {printf $i" "} printf "\n"}'
+    printf "$END"
+    echo " "
+
+    echo "===Copy MTK8502 release bin files to UPG folder =============="
+    cp $INPATH/mt8502_bl_linux.bin $OUTPATH
+    cp $INPATH/8502_linux_demo_dbg.bin $OUTPATH
+
+    touch $OUTPATH/bl_flag
 }
