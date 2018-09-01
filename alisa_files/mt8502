@@ -221,6 +221,9 @@ function prepare_mt8502_sdk(){
     return
     fi
 
+    rm -rf build_sdk/ merge_sdk/ mtk_sdk/ svn
+    mkdir -p build_sdk/release merge_sdk/release mtk_sdk/release svn
+
     if [ -d $OUTPATH ];
     then
             echo "================================"
@@ -251,4 +254,18 @@ function prepare_mt8502_sdk(){
 
     touch $OUTPATH/readme_$SDK_VER.txt
     mv $MTK_TALBALL $OUTPATH/$MTK_TALBALL
+
+    # if [ "$2" == "m" ];
+    # then
+    echo "================================"
+    echo "copy clean code to merge_sdk "
+    echo "================================"
+    cp -a $OUTPATH/release/* ./merge_sdk/release/
+
+    echo "================================"
+    echo "copy clean code to mtk_sdk "
+    echo "================================"
+    cp -a $OUTPATH/release/* ./mtk_sdk/release/
+    # fi
+
 }

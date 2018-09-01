@@ -21,6 +21,8 @@ alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
+LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
+
 function envy(){
     python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
@@ -189,5 +191,9 @@ function connect_rapi(){
 
 function stock_div(){
     python ~/Documents/GitHub/Taiwan_Stock/tw_stock_divden_release_date.py
+}
+
+function ass2srt(){
+    $LINUXSCRIPT_PATH/Ass2Srt/ass2srt.sh
 }
 
