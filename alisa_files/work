@@ -24,6 +24,20 @@ function goto_ana_server(){
     jupyter notebook
 }
 
+function cp_jira_report(){
+    SRC_PATH_FILE='/media/psf/Home/Downloads/VizioJIRA.txt'
+    DEST_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo'
+
+
+    if [ "$1" == "" ];
+    then
+    cp $SRC_PATH_FILE $DEST_PATH
+    else
+    cp $1 $DEST_PATH
+    fi
+
+}
+
 function goto_xr871(){
     cd /media/psf/Home/Documents/GitHub/XR871/
     echo "Hi XR871 All Winner!!"

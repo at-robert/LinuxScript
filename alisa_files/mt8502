@@ -21,14 +21,23 @@ MAC_MT8502_PATH=/media/psf/Home/Documents/mtk8502
 AMT_MT8502_PATH=/home/swrd/MTK8502/Trunk/amt/release
 MEG_MT8502_PATH=/home/swrd/MTK8502/Merge/release
 BUILDSDK_MT8502_PATH=/home/swrd/MTK8502/build_sdk/release
+MTKSDK_MT8502_PATH=/home/swrd/MTK8502/mtk_sdk/release
 SVN_MT8502_PATH=/home/swrd/MTK8502/svn/release
 
-alias goto_mt8502_amt='cd $AMT_MT8502_PATH'
+SMB_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo/mtk8502/Trunk/Patch/20180830_GPIO23_issue/hdmi_rx_hal.o'
+MEG_MT8502_GPIO23=/home/swrd/MTK8502/merge_sdk/release/BDP_Generic/build_linux_ko/src/driver/hdmi_rx/inter_rx/hdmi_rx_hal.o
+
+alias goto_mt8502_amt='cd $AMT_MT8502_PATH/BDP_Generic'
 alias goto_mt8502_svn='cd /home/swrd/MTK8502/svn/release'
 
+alias bu_mt8502_pwd='sh build.sh | tee $MAC_MT8502_PATH/debug.log'
 
 # svn commands
 alias svn_ci_f='svn ci -F $MAC_MT8502_PATH/svn_log.txt'
+
+function patch_check_mt8502(){
+    diff SMB_PATH MEG_MT8502_GPIO23
+}
 
 function export_mt8502_code(){
 
@@ -97,17 +106,17 @@ function ck_mt8502_ver(){
 function cp_mt8502_t8032(){
     CMD=$1
 
-    if [ "$1" == "" ];
+    if [ "$1" == "amt" ];
     then
-        echo "Copy new T8032 bin to AMT MT8502"
+        echo "Copy AMT T8032 bin to AMT MT8502"
         cp $MAC_MT8502_PATH/T8032_MT8502/workspace/mt8563_T8032.bin $AMT_MT8502_PATH/BDP_Generic/res/mt8563_T8032.bin
-    elif [ "$1" == "svn" ];
+    elif [ "$1" == "mtk" ];
     then
-        echo "Copy new T8032 bin to SVN MT8502"
-        cp $MAC_MT8502_PATH/T8032_MT8502/workspace/mt8563_T8032.bin $MAC_MT8502_PATH/evk_svn/release/BDP_Generic/res/mt8563_T8032.bin
+        echo "Copy MTK T8032 bin to AMT MT8502"
+        cp $MAC_MT8502_PATH/T8032_MT8502_MTK/workspace/mt8563_T8032.bin $MAC_MT8502_PATH/evk_svn/release/BDP_Generic/res/mt8563_T8032.bin
     else
-        echo "Copy MTK T8032 bin to MT8502"
-        cp $MAC_MT8502_PATH/mt8563_T8032.bin $AMT_MT8502_PATH/BDP_Generic/res/mt8563_T8032.bin
+        echo "Copy AMT T8032 bin to AMT MT8502"
+        cp $MAC_MT8502_PATH/T8032_MT8502/workspace/mt8563_T8032.bin $AMT_MT8502_PATH/BDP_Generic/res/mt8563_T8032.bin
     fi
 }
 
@@ -125,6 +134,7 @@ function bu_mt8502_from(){
         AUTO_VER_AMT=$AMT_MT8502_PATH/BDP_Generic/src/system/prop/version/auto_version.h
         FW_VER_AMT=$AMT_MT8502_PATH/BDP_Generic/src/audio_application/amt_soundbar/vizio/VIZIO_SB_ver_info.h
         cd $AMT_MT8502_PATH/BDP_Generic/
+        sh autobuild/config8502_vizio_soundbar.sh
 
     elif [ "$1" == "build_sdk" ]; 
     then 
@@ -132,15 +142,24 @@ function bu_mt8502_from(){
         AUTO_VER_AMT=$BUILDSDK_MT8502_PATH/BDP_Generic/src/system/prop/version/auto_version.h
         FW_VER_AMT=$BUILDSDK_MT8502_PATH/BDP_Generic/src/audio_application/amt_soundbar/vizio/VIZIO_SB_ver_info.h
         cd $BUILDSDK_MT8502_PATH/BDP_Generic/
+        sh autobuild/config8502_vizio_soundbar.sh
+
+    elif [ "$1" == "mtk_sdk" ]; 
+    then 
+        echo "Build Path : $MTKSDK_MT8502_PATH"
+        AUTO_VER_AMT=$MTKSDK_MT8502_PATH/BDP_Generic/src/system/prop/version/auto_version.h
+        FW_VER_AMT=$MTKSDK_MT8502_PATH/BDP_Generic/src/audio_application/amt_soundbar/vizio/VIZIO_SB_ver_info.h
+        cd $MTKSDK_MT8502_PATH/BDP_Generic/
+        sh autobuild/config8502soundbar_coreoff.sh
+
     else
         echo "Build Path : $AMT_MT8502_PATH"
         AUTO_VER_AMT=$AMT_MT8502_PATH/BDP_Generic/src/system/prop/version/auto_version.h
         FW_VER_AMT=$AMT_MT8502_PATH/BDP_Generic/src/audio_application/amt_soundbar/vizio/VIZIO_SB_ver_info.h
         cd $AMT_MT8502_PATH/BDP_Generic/
+        sh autobuild/config8502_vizio_soundbar.sh
     fi
 
-    # sh autobuild/config8502soundbar_coreoff.sh
-    sh autobuild/config8502_vizio_soundbar.sh
 
     SDK_VER=$(grep 'AUTO_VERSION' $AUTO_VER_AMT | awk '{print $3}' )
     INT_FW_VER=$(grep 'AMT_VER_INFO_VERSION' $FW_VER_AMT | awk '{print $3}' )
@@ -180,6 +199,10 @@ function cp_mt8502_to(){
     then 
         echo "Copy Path : $AMT_MT8502_PATH"
         VM_IN=$AMT_MT8502_PATH
+    elif [ "$2" == "mtk_sdk" ]; 
+    then 
+        echo "Copy Path : $MTKSDK_MT8502_PATH"
+        VM_IN=$MTKSDK_MT8502_PATH
     else
         echo "Copy Path : $BUILDSDK_MT8502_PATH"
         VM_IN=$BUILDSDK_MT8502_PATH
