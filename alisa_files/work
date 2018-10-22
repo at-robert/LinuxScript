@@ -26,8 +26,8 @@ function goto_ana_server(){
 
 function cp_jira_report(){
     SRC_PATH_FILE='/media/psf/Home/Downloads/VizioJIRA.txt'
-    DEST_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo'
-
+    # DEST_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo'
+    DEST_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo/'
 
     if [ "$1" == "" ];
     then
@@ -35,7 +35,6 @@ function cp_jira_report(){
     else
     cp $1 $DEST_PATH
     fi
-
 }
 
 function goto_xr871(){
