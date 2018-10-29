@@ -29,6 +29,7 @@ MEG_MT8502_GPIO23=/home/swrd/MTK8502/merge_sdk/release/BDP_Generic/build_linux_k
 
 alias goto_mt8502_amt='cd $AMT_MT8502_PATH/BDP_Generic'
 alias goto_mt8502_svn='cd /home/swrd/MTK8502/svn/release'
+alias goto_mt8502_mac='cd $MAC_MT8502_PATH/evk_svn/release'
 
 alias bu_mt8502_pwd='sh build.sh | tee $MAC_MT8502_PATH/debug.log'
 
