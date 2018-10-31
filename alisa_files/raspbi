@@ -86,6 +86,27 @@ function cam_preview(){
     fi
 }
 
+function ir_vizio_sb(){
+        if [ "$1" == "info" ];
+        then
+            irsend SEND_ONCE VIZIO_SB KEY_INFO_KEY
+        elif [ "$1" == "rst_audio" ];
+        then
+            irsend SEND_ONCE VIZIO_SB KEY_RST_AUDIO
+        elif [ "$1" == "aux" ];
+        then
+            irsend SEND_ONCE VIZIO_SB KEY_INPUT_AUX_1
+        elif [ "$1" == "opt" ];
+        then
+            irsend SEND_ONCE VIZIO_SB KEY_INPUT_OPTICAL_4
+        elif [ "$1" == "spk" ];
+        then
+            irsend SEND_ONCE VIZIO_SB KEY_SPKR_TEST
+        else
+            echo "The input parameter is required: info,rst_audio,aux,opt,spk"
+        fi    
+}
+
 function ir_vizio_tv(){
 
         if [ "$1" == "hdmi" ];
