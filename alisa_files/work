@@ -26,12 +26,17 @@ function goto_ana_server(){
 
 function cp_jira_report(){
     SRC_PATH_FILE='/media/psf/Home/Downloads/VizioJIRA.txt'
+    SRC_PATH_FILE1='/media/psf/Home/Downloads/VizioJIRA_rearrge.txt'
     # DEST_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo'
     DEST_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo/'
 
     if [ "$1" == "" ];
     then
     cp $SRC_PATH_FILE $DEST_PATH
+    elif [ "$1" == "arr" ]; 
+    then
+    #statementselif
+    cp $SRC_PATH_FILE1 $DEST_PATH
     else
     cp $1 $DEST_PATH
     fi
