@@ -22,9 +22,9 @@ USB20B_MD5_AUTH='87ac56e88da12cbbd0e87d9a776397c8'
 USB30B_MD5_AUTH='11cc7304da69a03cb62f96e1d0bbab13'
 
 USB20A_PATH=/media/rob/USB20A/USB20A.bin
-USB30A_PATH=/media/rob/USB20A/USB30A.bin
-USB20B_PATH=/media/rob/USB20A/USB20B.bin
-USB30B_PATH=/media/rob/USB20A/USB30B.bin
+USB30A_PATH=/media/rob/USB30A/USB30A.bin
+USB20B_PATH=/media/rob/USB20B/USB20B.bin
+USB30B_PATH=/media/rob/USB30B/USB30B.bin
 
 # == To check the connection and test file existing ==============
 if [ -f $USB20A_PATH ];
