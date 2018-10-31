@@ -179,6 +179,10 @@ function aredir(){
     python ~/Google\ 雲端硬碟/Work/Python/FileHandle/adv_redirect.py $1 "$2"
 }
 
+function arename(){
+    python ~/Google\ 雲端硬碟/Work/Python/Rename/adv_rename.py $1 "$2"
+}
+
 function connect_rapi(){
     if [ "$1" == "" ] ;
     then 
