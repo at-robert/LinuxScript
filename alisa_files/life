@@ -22,6 +22,11 @@ alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
 
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
+OFTENUSED_PATH=~/Documents/Github/OftenUsed/
+
+function chk_srt_order(){
+    python $OFTENUSED_PATH/SRT_Check/srt_check.py $1
+}
 
 function envy(){
     python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html

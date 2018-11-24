@@ -18,6 +18,11 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
+GIGA_AD27QD_PATH=/media/psf/Home/Documents/GigaByte/AD27QD
+
+alias goto_giga_ad27qd='cd $GIGA_AD27QD_PATH/'
+
+
 function goto_ana_server(){
     cd /media/psf/Home/Google\ 雲端硬碟/Work/Python/MasteringComputerVision_V1.01/ 
     echo "Hi Anaconda!!"
