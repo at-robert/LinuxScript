@@ -1,0 +1,90 @@
+
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
+
+MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
+AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
+
+
+alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
+alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
+
+
+function bu_msd92q_pwd()
+{
+    if [ "$1" == "sdk" ];
+    then
+    printf "$GREEN MSD92Q SDK Code $END \n"
+    make clean; make | tee $MAC_MSD92Q_PATH/debug.log
+    elif [ "$1" == "amt" ];
+    then
+    printf "$RED MSD92Q AMT Code $END \n"
+    ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
+    else
+    printf "$GREEN MSD92Q SDK Code $END \n"
+    make clean; make | tee $MAC_MSD92Q_PATH/debug.log    
+    fi
+}
+
+
+
+function cp_msd92q_to(){
+    VER=$1
+    VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    if [ "$2" == "sdk" ];
+    then
+        echo "Copy Path : $MSTAR_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+    elif [ "$2" == "amt" ];
+    then
+        echo "Copy Path : $AMT_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$AMT_MERGEBIN_MSD92Q_PATH
+    else
+        echo "Copy Path : $MSTAR_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/MERGE.bin
+    OUTPATH=$VM_OUT/$VER/MERGE.bin
+
+    ls -la $INPATH
+
+    if [ -f $OUTPATH ];
+    then
+            echo "================================"
+            echo "$OUTPATH exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    echo "===Copy MSD92Q merge bin file to root folder =============="
+    cp $INPATH $OUTPATH
+}

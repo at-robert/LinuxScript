@@ -1,0 +1,142 @@
+
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+MAC_MSD92T_PATH=/media/psf/Home/Documents/msd92t
+MAC_MSD8120_PATH=/media/psf/Home/Documents/msd8120
+
+TWN_MERGEBIN_MSD92T_PATH=$HOME/msd92t/Code/TWN/Bin_R2_EDEN_64MB_ATSC_TTS
+TWN_MERGEBIN_MSD8120_PATH=$HOME/msd8120/Code/TWN/Bin_R2_EDEN_64MB_ATSC_TTS
+
+alias goto_msd92t_twn_tv='cd $HOME/msd92t/Code/TWN'
+alias goto_msd8120_twn_tv='cd $HOME/msd8120/Code/TWN'
+
+
+function bu_msd92t_pwd()
+{
+
+    if [ "$1" == "twn32_nxp" ];
+    then
+        printf "$GREEN MSD92T TWN TV 32N NXP  $END \n"
+        make clean; prj=twn_hd model=32N tuner=nxp make | tee $MAC_MSD92T_PATH/debug.log
+    elif [ "$1" == "twn32_silab" ];
+    then
+        printf "$RED MSD92T TWN TV 32N SILAB  $END \n"
+        make clean; prj=twn_hd model=32N tuner=silab make | tee $MAC_MSD92T_PATH/debug.log
+    else
+        printf "$GREEN MSD92T TWN TV 32N NXP  $END \n"
+        make clean; prj=twn_hd model=32N tuner=nxp make | tee $MAC_MSD92T_PATH/debug.log
+    fi
+}
+
+function bu_msd8120_pwd()
+{
+
+    if [ "$1" == "tw39E" ];
+    then
+        printf "$GREEN MSD8120 TWN TV TW39E VB $END \n"
+        make clean;  prj=tw_hd model=TW39E_VB make | tee $MAC_MSD8120_PATH/debug.log
+    elif [ "$1" == "twn32_silab" ];
+    then
+        printf "$GREEN MSD8120 TWN TV TW39E VB $END \n"
+        make clean;  prj=tw_hd model=TW39E_VB make | tee $MAC_MSD8120_PATH/debug.log
+    else
+        printf "$GREEN MSD8120 TWN TV TW39E VB $END \n"
+        make clean;  prj=tw_hd model=TW39E_VB make | tee $MAC_MSD8120_PATH/debug.log
+    fi
+}
+
+function cp_msd8120_to(){
+    VER=$1
+    VM_IN=$TWN_MERGEBIN_MSD8120_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    if [ "$2" == "twn" ];
+    then
+        echo "Copy Path : $TWN_MERGEBIN_MSD8120_PATH"
+        VM_IN=$TWN_MERGEBIN_MSD8120_PATH
+    else
+        echo "Copy Path : $TWN_MERGEBIN_MSD8120_PATH"
+        VM_IN=$TWN_MERGEBIN_MSD8120_PATH
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/MERGE.bin
+    OUTPATH=$VM_OUT/$VER/MERGE.bin
+
+    ls -la $INPATH
+
+    if [ -f $OUTPATH ];
+    then
+            echo "================================"
+            echo "$OUTPATH exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    echo "===Copy MSD8120 merge bin file to root folder =============="
+    cp $INPATH $OUTPATH
+}
+
+function cp_msd92t_to(){
+    VER=$1
+    VM_IN=$TWN_MERGEBIN_MSD92T_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    if [ "$2" == "twn" ];
+    then
+        echo "Copy Path : $TWN_MERGEBIN_MSD92T_PATH"
+        VM_IN=$TWN_MERGEBIN_MSD92T_PATH
+    else
+        echo "Copy Path : $TWN_MERGEBIN_MSD92T_PATH"
+        VM_IN=$TWN_MERGEBIN_MSD92T_PATH
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/MERGE.bin
+    OUTPATH=$VM_OUT/$VER/MERGE.bin
+
+    ls -la $INPATH
+
+    if [ -f $OUTPATH ];
+    then
+            echo "================================"
+            echo "$OUTPATH exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    echo "===Copy MSD92T merge bin file to root folder =============="
+    cp $INPATH $OUTPATH
+}
