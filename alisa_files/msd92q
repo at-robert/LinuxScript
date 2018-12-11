@@ -26,24 +26,64 @@ AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
 
+function bu_msd92q_sboot()
+{
+    printf "$GREEN MSD92Q setup sboot setting $END \n"
+    cp ./configs/M3822/.config.m3822.chakra3.152b.spi_nor_32bit .config
+    diff ./configs/M3822/.config.m3822.chakra3.152b.spi_nor_32bit .config
+    printf "$RED To check if everything is ok!!! $END \n"
+
+    # Read input.
+    read input_char
+
+    if [ "$input_char" == 'q' ];
+    then 
+        echo "Quit"
+        return 
+    else
+        echo "Go!!"
+    fi
+
+    make menuconfig
+    printf "$GREEN MSD92Q sboot start building $END \n"
+    make
+
+    printf "$GREEN"
+    ls -la ./out/sboot.bin
+    printf "$END \n"
+
+}
+
+function clean_msd92q_unnecessary()
+{
+    svn del --force       Bin_ARM_M3822_256M_DVB_MST152B
+    svn del --force       Obj_ARM_M3822_256M_DVB_MST152B
+    svn del --force       m.log
+    svn revert       boot/sboot/bin/AP.bin
+    svn revert       boot/sboot/bin/AP.map
+    svn revert       boot/sboot/out/all.bin
+    svn revert       boot/sboot/out/chunk_header.bin
+    svn revert       boot/sboot/out/chunk_header.txt
+    svn revert       scripts/crcmod/__init__.pyc
+    svn revert       scripts/crcmod/_crcfunpy.pyc
+    svn revert       scripts/crcmod/crcmod.pyc
+}
 
 function bu_msd92q_pwd()
 {
     if [ "$1" == "sdk" ];
     then
     printf "$GREEN MSD92Q SDK Code $END \n"
-    make clean; make | tee $MAC_MSD92Q_PATH/debug.log
+    make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
     elif [ "$1" == "amt" ];
     then
     printf "$RED MSD92Q AMT Code $END \n"
     ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
     else
     printf "$GREEN MSD92Q SDK Code $END \n"
-    make clean; make | tee $MAC_MSD92Q_PATH/debug.log    
+    make clean; make all | tee $MAC_MSD92Q_PATH/debug.log    
     fi
 }
-
-
 
 function cp_msd92q_to(){
     VER=$1
@@ -73,6 +113,14 @@ function cp_msd92q_to(){
     INPATH=$VM_IN/MERGE.bin
     OUTPATH=$VM_OUT/$VER/MERGE.bin
 
+    if [ -d $VM_OUT/$VER ];
+    then 
+        printf "$GREEN "
+    else
+        printf "$RED $VM_OUT/$VER doesn't exist $END \n"
+    return 
+    fi
+
     ls -la $INPATH
 
     if [ -f $OUTPATH ];
@@ -87,4 +135,5 @@ function cp_msd92q_to(){
 
     echo "===Copy MSD92Q merge bin file to root folder =============="
     cp $INPATH $OUTPATH
+    printf "$END"
 }
