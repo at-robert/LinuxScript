@@ -18,13 +18,17 @@ END='\e[0m'
 #color str - end
 
 MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
+SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
 
 MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
+MSTAR2_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk_2/Bin_ARM_M3822_256M_DVB_MST152B
+MSTARSSD_MERGEBIN_MSD92Q_PATH=$SSD_MSD92Q_PATH/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 
 
 alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
+alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
 
 function bu_msd92q_sboot()
 {
@@ -69,6 +73,206 @@ function clean_msd92q_unnecessary()
     svn revert       scripts/crcmod/crcmod.pyc
 }
 
+function discard_msd92q_files()
+{
+    if [ "$1" == "ui" ];
+    then
+    printf "$GREEN MSD92Q to revert UI files - To press 'g' to run or any key to exit $END \n"
+    # Read input.
+    read input_char
+
+    if [ "$input_char" == 'g' ];
+    then 
+        echo "Go!!!"
+    else
+        echo "Quit!!"
+        return
+    fi
+    svn revert  tv-ap/dvb/ui2/osd_resource/skintool/res1920x1080x565/ZUI.xml
+    svn revert  tv-ap/dvb/ui2/osd_resource/skintool/res1920x1080x565/build_time.log
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_ATV_MANUAL_TUNING_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_ATV_MANUAL_TUNING_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_ATV_MANUAL_TUNING_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_ATV_MANUAL_TUNING_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_LANGUAGE_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_LANGUAGE_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_LANGUAGE_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_LANGUAGE_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_VOLUME_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_VOLUME_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_VOLUME_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUDIO_VOLUME_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUTO_TUNING_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUTO_TUNING_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUTO_TUNING_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_AUTO_TUNING_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CADTV_MANUAL_TUNING_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CADTV_MANUAL_TUNING_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CADTV_MANUAL_TUNING_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CADTV_MANUAL_TUNING_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_ATSC_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_ATSC_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_ATSC_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_ATSC_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_INFO_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_LIST_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_LIST_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_LIST_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CHANNEL_LIST_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CIMMI_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CIMMI_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CIMMI_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_CIMMI_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DESIGN_MENU_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DESIGN_MENU_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DESIGN_MENU_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DESIGN_MENU_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DMP_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DMP_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DMP_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DMP_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DTV_MANUAL_TUNING_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DTV_MANUAL_TUNING_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DTV_MANUAL_TUNING_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_DTV_MANUAL_TUNING_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EFFECT_SETTING_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EFFECT_SETTING_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EFFECT_SETTING_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EFFECT_SETTING_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPG_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPG_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPG_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPG_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPOP_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPOP_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPOP_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EPOP_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EXPERT_MENU_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EXPERT_MENU_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EXPERT_MENU_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_EXPERT_MENU_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FACTORY_MENU_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FACTORY_MENU_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FACTORY_MENU_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FACTORY_MENU_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FMRADIO_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FMRADIO_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FMRADIO_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_FMRADIO_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_HOTKEY_OPTION_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_HOTKEY_OPTION_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_HOTKEY_OPTION_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_HOTKEY_OPTION_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INPUT_SOURCE_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INPUT_SOURCE_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INPUT_SOURCE_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INPUT_SOURCE_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_ATSC_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_ATSC_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_ATSC_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_ATSC_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_INSTALL_GUIDE_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MAIN_MENU_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MAIN_MENU_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MAIN_MENU_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MAIN_MENU_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MENU_DISHSETUP_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MENU_DISHSETUP_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MENU_DISHSETUP_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MENU_DISHSETUP_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MESSAGE_BOX_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MESSAGE_BOX_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MESSAGE_BOX_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_MESSAGE_BOX_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_OAD_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_OAD_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_OAD_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_OAD_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PROGRAM_EDIT_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PROGRAM_EDIT_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PROGRAM_EDIT_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PROGRAM_EDIT_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_BROWSER_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_BROWSER_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_BROWSER_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_BROWSER_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_PVR_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SCREEN_SAVER_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SCREEN_SAVER_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SCREEN_SAVER_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SCREEN_SAVER_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SUBTITLE_LANGUAGE_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SUBTITLE_LANGUAGE_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SUBTITLE_LANGUAGE_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_SUBTITLE_LANGUAGE_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_TENKEY_NUMBER_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_TENKEY_NUMBER_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_TENKEY_NUMBER_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_TENKEY_NUMBER_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_UPGRADE_alphatable_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_UPGRADE_postables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_UPGRADE_styletables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_UPGRADE_tables_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/ZUI_components_c.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_ATV_MANUAL_TUNING_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_AUDIO_LANGUAGE_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_AUDIO_VOLUME_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_AUTO_TUNING_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_CADTV_MANUAL_TUNING_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_CHANNEL_INFO_ATSC_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_CHANNEL_INFO_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_CHANNEL_LIST_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_CIMMI_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_DESIGN_MENU_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_DMP_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_DTV_MANUAL_TUNING_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_EFFECT_SETTING_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_EPG_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_EPOP_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_EXPERT_MENU_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_FACTORY_MENU_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_FMRADIO_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_HOTKEY_OPTION_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_INPUT_SOURCE_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_INSTALL_GUIDE_ATSC_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_INSTALL_GUIDE_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_MAIN_MENU_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_MENU_DISHSETUP_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_MESSAGE_BOX_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_OAD_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_PROGRAM_EDIT_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_PVR_BROWSER_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_PVR_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_SCREEN_SAVER_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_SUBTITLE_LANGUAGE_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_TENKEY_NUMBER_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_UPGRADE_tables_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_components_h.inl
+    svn revert  tv-ap/dvb/ui2/res1920x1080x565/include/ZUI_wndproc_h.inl
+    else
+    printf "$RED MSD92Q Invalid parameter $END \n"
+    fi    
+}
+
+function merge_code_msd92q_setup()
+{
+    find . -type f -name "._.DS_Store" -exec rm {} \;
+    find . -type f -name ".DS_Store" -exec rm {} \;
+    svn del `svn status | sed -e '/^!/!d' -e 's/^!//'`
+    svn status | grep '^\!' | cut -c8- | while read f; do svn rm "$f"; done
+    svn add `svn status . | awk '/^[?]/{print $2}'`
+    svn add . --force --no-ignore
+}
+
 function bu_msd92q_pwd()
 {
     if [ "$1" == "sdk" ];
@@ -96,10 +300,24 @@ function cp_msd92q_to(){
         return
     fi
 
+    if [ "$1" == "SPI_EMU" ];
+    then
+        VM_OUT=$MAC_MSD92Q_PATH
+        echo " The output path will be SPI emulator $VM_OUT "
+    fi
+
     if [ "$2" == "sdk" ];
     then
         echo "Copy Path : $MSTAR_MERGEBIN_MSD92Q_PATH"
         VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+    elif [ "$2" == "sdk2" ];
+    then
+        echo "Copy Path : $MSTAR2_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$MSTAR2_MERGEBIN_MSD92Q_PATH
+    elif [ "$2" == "sdk_ssd" ];
+    then
+        echo "Copy Path : $MSTARSSD_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$MSTARSSD_MERGEBIN_MSD92Q_PATH
     elif [ "$2" == "amt" ];
     then
         echo "Copy Path : $AMT_MERGEBIN_MSD92Q_PATH"
@@ -121,7 +339,14 @@ function cp_msd92q_to(){
     return 
     fi
 
-    ls -la $INPATH
+    if [ -f $INPATH ];
+    then
+        printf "$GREEN "
+        ls -la $INPATH
+    else
+        printf "$RED $INPATH doesn't exist\n Don't forget to build the source code $END \n"
+        return
+    fi
 
     if [ -f $OUTPATH ];
     then
