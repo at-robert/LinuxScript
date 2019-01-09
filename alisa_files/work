@@ -19,9 +19,11 @@ END='\e[0m'
 #color str - end
 
 GIGA_AD27QD_PATH=/media/psf/Home/Documents/GigaByte/AD27QD
+MAC_DOC_PATH=/media/psf/Home/Documents/
 
 alias goto_giga_ad27qd='cd $GIGA_AD27QD_PATH/'
 
+alias svn_ci_f='svn ci -F $MAC_DOC_PATH/svn_log.txt'
 
 function goto_ana_server(){
     cd /media/psf/Home/Google\ 雲端硬碟/Work/Python/MasteringComputerVision_V1.01/ 

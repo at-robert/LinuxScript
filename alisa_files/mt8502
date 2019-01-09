@@ -34,7 +34,7 @@ alias goto_mt8502_mac='cd $MAC_MT8502_PATH/evk_svn/release'
 alias bu_mt8502_pwd='sh build.sh | tee $MAC_MT8502_PATH/debug.log'
 
 # svn commands
-alias svn_ci_f='svn ci -F $MAC_MT8502_PATH/svn_log.txt'
+# alias svn_ci_f='svn ci -F $MAC_MT8502_PATH/svn_log.txt'
 
 function patch_check_mt8502(){
     diff SMB_PATH MEG_MT8502_GPIO23

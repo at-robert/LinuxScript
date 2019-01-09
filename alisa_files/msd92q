@@ -20,15 +20,22 @@ END='\e[0m'
 MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
 SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
 
+MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/msd92q/PM/
+MSTAR_PMBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/boot/sboot/bin/BD_MST152B_10AQT/
+
+
 MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 MSTAR2_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk_2/Bin_ARM_M3822_256M_DVB_MST152B
 MSTARSSD_MERGEBIN_MSD92Q_PATH=$SSD_MSD92Q_PATH/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 
+MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
+
 
 alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
 alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
+alias cp_msd92q_str_pm='cp -a $MAC_MSD92Q_PM_PATH/PM51_M3822.bin $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin & ls -la $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin'
 
 function bu_msd92q_sboot()
 {
@@ -277,6 +284,9 @@ function bu_msd92q_pwd()
 {
     if [ "$1" == "sdk" ];
     then
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap.bin $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
     printf "$GREEN MSD92Q SDK Code $END \n"
     make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
     elif [ "$1" == "amt" ];
