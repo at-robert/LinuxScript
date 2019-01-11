@@ -5,6 +5,8 @@ alias poff='source ~/RaspPython/Python_Code/power_off_ir.sh'
 alias sing='/usr/bin/python ~/Python_Code/MP3/mp3_play.py /media/pi/SANDISK/Music/MP3/'
 
 function ir_reset(){
+    cd ~/RaspPython/
+    git pull
     sudo /etc/init.d/lirc stop
     sudo cp ~/RaspPython/Python_Code/lircd.conf /etc/lirc/lircd.conf
     sudo /etc/init.d/lirc start
