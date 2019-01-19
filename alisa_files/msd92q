@@ -25,10 +25,18 @@ MSTAR2_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk_2/Bin_ARM_M3822_256M_DVB
 MSTARSSD_MERGEBIN_MSD92Q_PATH=$SSD_MSD92Q_PATH/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 
+BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
+BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
 
 alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
 alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
+
+function cp_msd92q_bmp_bin()
+{
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+}
 
 function bu_msd92q_sboot()
 {
@@ -277,6 +285,9 @@ function bu_msd92q_pwd()
 {
     if [ "$1" == "sdk" ];
     then
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+
     printf "$GREEN MSD92Q SDK Code $END \n"
     make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
     elif [ "$1" == "amt" ];
@@ -284,6 +295,9 @@ function bu_msd92q_pwd()
     printf "$RED MSD92Q AMT Code $END \n"
     ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
     else
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+
     printf "$GREEN MSD92Q SDK Code $END \n"
     make clean; make all | tee $MAC_MSD92Q_PATH/debug.log    
     fi
