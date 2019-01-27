@@ -24,6 +24,7 @@ alias pppoe_off='poff dsl-provider'
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
 OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 
+
 function chk_srt_order(){
     python $OFTENUSED_PATH/SRT_Check/srt_check.py $1
 }
@@ -208,3 +209,22 @@ function ass2srt(){
     $LINUXSCRIPT_PATH/Ass2Srt/ass2srt.sh
 }
 
+function adu(){
+    du -sk * | sort -g | awk '{ 
+
+        numBytes = $1 * 1024; 
+        numUnits = split("B K M G T P", unit); 
+        num = numBytes; 
+        iUnit = 0; 
+
+        while(num >= 1024 && iUnit + 1 < numUnits) { 
+            num = num / 1024; 
+            iUnit++; 
+        } 
+
+        $1 = sprintf( ((num == 0) ? "%6d%s " : "%6.1f%s "), num, unit[iUnit + 1]);
+        print $0; 
+
+    }'
+    echo " To list the size of files !!!"
+}
