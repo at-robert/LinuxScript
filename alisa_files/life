@@ -69,7 +69,9 @@ function gupdate(){
     cd $path/Arduino
     printf "$LIGHT_BLUE Git Pull Arduino $END \n"
     git pull
-
+    cd $path/Plotly-Dashboards-with-Dash
+    printf "$LIGHT_RED Git Pull Plotly and Dashboards $END \n"
+    git pull
     
     cd $path
 }
