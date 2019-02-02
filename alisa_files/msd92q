@@ -68,12 +68,13 @@ function bu_msd92q_sboot()
 
 function clean_msd92q_unnecessary()
 {
-    svn del --force       Bin_ARM_M3822_256M_DVB_MST152B
-    svn del --force       Obj_ARM_M3822_256M_DVB_MST152B
-    svn del --force       m.log
+    svn del --force  Bin_ARM_M3822_256M_DVB_MST152B
+    svn del --force  Obj_ARM_M3822_256M_DVB_MST152B
+    svn del --force  m.log
     svn revert       boot/sboot/bin/AP.bin
     svn revert       boot/sboot/bin/AP.map
     svn revert       boot/sboot/out/all.bin
+    svn revert       boot/sboot/out/sboot.bin
     svn revert       boot/sboot/out/chunk_header.bin
     svn revert       boot/sboot/out/chunk_header.txt
     svn revert       scripts/crcmod/__init__.pyc
