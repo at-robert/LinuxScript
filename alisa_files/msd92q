@@ -29,6 +29,8 @@ MSTAR2_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk_2/Bin_ARM_M3822_256M_DVB
 MSTARSSD_MERGEBIN_MSD92Q_PATH=$SSD_MSD92Q_PATH/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 
+BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
+BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
 MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
 
 SMB_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
@@ -37,6 +39,12 @@ alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt='cd $HOME/msd92q/Code/amt'
 alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
 alias cp_msd92q_str_pm='cp -a $MAC_MSD92Q_PM_PATH/PM51_M3822.bin $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin & ls -la $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin'
+
+function cp_msd92q_bmp_bin()
+{
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+}
 
 function bu_msd92q_sboot()
 {
@@ -296,6 +304,9 @@ function bu_msd92q_pwd()
     printf "$RED MSD92Q AMT Code $END \n"
     ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
     else
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+
     printf "$GREEN MSD92Q SDK Code $END \n"
     make clean; make all | tee $MAC_MSD92Q_PATH/debug.log    
     fi
