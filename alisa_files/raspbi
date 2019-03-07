@@ -4,8 +4,18 @@
 alias poff='source ~/RaspPython/Python_Code/power_off_ir.sh'
 alias sing='/usr/bin/python ~/Python_Code/MP3/mp3_play.py /media/pi/SANDISK/Music/MP3/'
 
+UARTLOG='uart_log.log'
+
 function aminicom(){
-    minicom -c on  -b 115200 -o -D /dev/ttyUSB0
+    if [ -f  $UARTLOG ];
+    then
+        echo "To delete existing $UARTLOG"
+        rm -rf $UARTLOG
+    else
+        echo "Nothing to delete"
+    fi
+
+    minicom -c on  -b 115200 -o -D /dev/ttyUSB0 -C $UARTLOG
 }
 
 function ir_reset(){
@@ -163,3 +173,27 @@ function ir_db0204(){
         fi
 }
 
+function ir_himedia(){
+
+        if [ "$1" == "enter" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_ENTER
+        elif [ "$1" == "down" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_DOWN
+        elif [ "$1" == "up" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_UP
+        elif [ "$1" == "left" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_LEFT
+        elif [ "$1" == "right" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_RIGHT
+        elif [ "$1" == "pwr" ];
+        then
+            irsend SEND_ONCE HiMEDIA KEY_POWER
+        else
+            echo "The input parameter is required: enter,down,up,left,right,pwr"
+        fi
+}
