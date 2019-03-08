@@ -90,7 +90,8 @@ function py3(){
 function scp_from_rapix(){
     RASPX_IP=$(cat ~/.ssh/rap_x_server | grep -m 1 'host' | awk '{print $3}')
     echo "Raspi_x ip addr = $RASPX_IP"
-    scp pi@$RASPX_IP:~/webcam/*.jpg  .
+    # scp pi@$RASPX_IP:~/webcam/*.jpg  .
+    scp pi@$RASPX_IP:~/uart_log.log .
 }
 
 function net_ok(){

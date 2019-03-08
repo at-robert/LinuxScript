@@ -12,7 +12,8 @@ function aminicom(){
         echo "To delete existing $UARTLOG"
         rm -rf $UARTLOG
     else
-        echo "Nothing to delete"
+        echo "Nothing to delete so create new $UARTLOG"
+        touch $UARTLOG
     fi
 
     minicom -c on  -b 115200 -o -D /dev/ttyUSB0 -C $UARTLOG
