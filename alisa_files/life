@@ -229,3 +229,11 @@ function adu(){
     }'
     echo " To list the size of files !!!"
 }
+
+function mount_win_vm_disk(){
+    password='000000'    
+    HiMediaMacAddr=00:1C:42:4D:4C:AA
+    HiMediaMacIP=$(echo "$password\n" | sudo -S nmap -sP 192.168.12.* | awk '/Nmap scan report for/{printf $6;}/MAC Address:/{print " => "$3;}' | grep -i "$HiMediaMacAddr" | sort)
+    HiMediaMacIP=$(echo "$HiMediaMacIP" | sed 's/=>//g' | sed 's/00:1C:42:4D:4C:AA//g' | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g')
+    echo "HiMediaMacIP = $HiMediaMacIP"
+}
