@@ -30,6 +30,8 @@ MSTAR2_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk_2/Bin_ARM_M3822_256M_DVB
 MSTARSSD_MERGEBIN_MSD92Q_PATH=$SSD_MSD92Q_PATH/Code/mstar_sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_92Q_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/Bin_ARM_M3822_256M_DVB_MST152B
+AMT_92Q_SOURCECODE_PATH=$HOME/msd92q/Code/amt_92q/
+AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
 
 BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
 BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
@@ -42,6 +44,21 @@ alias goto_msd92q_sdk='cd $HOME/msd92q/Code/mstar_sdk'
 alias goto_msd92q_amt_92q='cd $HOME/msd92q/Code/amt_92q'
 alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
 alias cp_msd92q_str_pm='cp -a $MAC_MSD92Q_PM_PATH/PM51_M3822.bin $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin & ls -la $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin'
+
+function code_update()
+{
+    if [ "$1" == "vm" ];
+    then
+        printf "$GREEN Update Path : $AMT_92Q_VM_SOURCECODE_PATH $END \n"
+        VM_IN=$AMT_92Q_VM_SOURCECODE_PATH
+    else
+        printf "$RED Update Path : $AMT_92Q_SOURCECODE_PATH $END \n"
+        VM_IN=$AMT_92Q_SOURCECODE_PATH
+    fi
+
+    cd $VM_IN
+    svn up .
+}
 
 function cp_msd92q_bmp_bin()
 {
