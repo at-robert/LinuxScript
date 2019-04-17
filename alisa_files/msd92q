@@ -36,6 +36,7 @@ AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
 BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
 BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
 MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
+AMT92Q_BMP_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
 
 SMB_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
 
@@ -325,10 +326,13 @@ function bu_msd92q_pwd()
     if [ "$1" == "sdk" ];
     then
     printf "$RED MSD92Q Copy Bmp bin $END \n"
-    cp -a $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap.bin $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+    # cp -a $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap.bin $MSTAR_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
 
-    printf "$GREEN MSD92Q SDK Code $END \n"
-    make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
+    printf "$GREEN MSD92Q JVC50Q prj = 4K, model = JVC50Q, SDK Code $END \n"
+    # make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
+    make clean; make prj=tw_4k model=JVC50Q | tee $MAC_MSD92Q_PATH/debug.log
+
     elif [ "$1" == "amt" ];
     then
     printf "$RED MSD92Q AMT Code $END \n"
@@ -384,8 +388,8 @@ function cp_msd92q_to(){
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
     else
-        echo "Copy Path : $MSTAR_MERGEBIN_MSD92Q_PATH"
-        VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+        echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
     fi
 
     echo "Liunx VM ENV"
@@ -426,6 +430,8 @@ function cp_msd92q_to(){
     if [ -d $SMB_PATH ];
     then
     cp $INPATH $SMB_PATH/MERGE.bin
+    MERGEMD5=$(md5sum $SMB_PATH/MERGE.bin | awk '{print $1}')
+    echo $MERGEMD5 > $SMB_PATH/MERGE_MD5_$MERGEMD5.txt
     else
         printf "$RED $SMB_PATH doesn't exist $END \n"
     fi
