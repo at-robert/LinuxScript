@@ -39,8 +39,12 @@ MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565
 
 AMT92Q_BMP_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
 
-SMB_PATH_CHECK='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4'
-SMB_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
+# SMB_PATH_CHECK='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4'
+# SMB_PATH='/run/user/1000/gvfs/smb-share:server=10.128.1.24,share=robert.lo//Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
+
+SMB_PATH_CHECK='/home/swrd/tmp/svn_server/Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4'
+SMB_PATH='/home/swrd/tmp/svn_server/Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
+
 
 # The default FW binary name
 FW_BIN_NAME=MERGE.bin
