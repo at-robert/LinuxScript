@@ -160,6 +160,15 @@ function bu_msd92q_pwd()
     printf "$GREEN <<AmTRAN>> MSD92Q JVC50Q prj = 4K, model = JVC50Q, SDK Code $END \n"
     make clean; make prj=tw_4k model=JVC50Q | tee $MAC_MSD92Q_PATH/debug.log
 
+    elif [ "$1" == "amt55" ];
+    then
+
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
+    printf "$GREEN <<AmTRAN>> MSD92Q JVC55Q prj = 4K, model = JVC55Q, SDK Code $END \n"
+    make clean; make prj=tw_4k model=JVC55Q | tee $MAC_MSD92Q_PATH/debug.log
+
     else
     echo "$RED To copy MSD92Q BMP bin file into SW LOAD one"
     cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
@@ -197,6 +206,12 @@ function cp_msd92q_to(){
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC50Q.bin
+
+    elif [ "$2" == "amt55" ];
+    then
+        echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
+        FW_BIN_NAME=JVC55Q.bin
 
     elif [ "$2" == "sdk_evk" ];
     then
