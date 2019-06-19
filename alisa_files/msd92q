@@ -23,7 +23,9 @@ SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
 MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/msd92q/PM/
 MSTAR_PMBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/boot/sboot/bin/BD_MST152B_10AQT/
 
-SDK_EVK_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk_evk/Bin_ARM_M3822_256M_DVB_MST152B
+SDK_EVK_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
+SDK_AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk_amt/Bin_ARM_M3822_256M_DVB_MST152B
+
 
 MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
 
@@ -195,13 +197,8 @@ function cp_msd92q_to(){
         echo " The output path will be SPI emulator $VM_OUT "
     fi
 
-    if [ "$2" == "sdk" ];
-    then
-        echo "Copy Path : $MSTAR_MERGEBIN_MSD92Q_PATH"
-        VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
-        FW_BIN_NAME=MERGE.bin
 
-    elif [ "$2" == "amt" ];
+    if [ "$2" == "amt" ];
     then
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
@@ -213,10 +210,16 @@ function cp_msd92q_to(){
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC55Q.bin
 
-    elif [ "$2" == "sdk_evk" ];
+    elif [ "$2" == "sdk" ];
     then
         echo "Copy Path : $SDK_EVK_MERGEBIN_MSD92Q_PATH"
         VM_IN=$SDK_EVK_MERGEBIN_MSD92Q_PATH
+
+    elif [ "$2" == "sdk_amt" ];
+    then
+        echo "Copy Path : $SDK_AMT_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$SDK_AMT_MERGEBIN_MSD92Q_PATH
+        FW_BIN_NAME=JVC50Q.bin
 
     elif [ "$2" == "amt_92q" ];
     then
