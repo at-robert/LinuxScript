@@ -58,6 +58,24 @@ alias goto_msd92q_sdk_ssd='cd $SSD_MSD92Q_PATH/Code/mstar_sdk'
 alias goto_msd92q_amt_92q='cd $HOME/msd92q/Code/amt_92q'
 alias cp_msd92q_str_pm='cp -a $MAC_MSD92Q_PM_PATH/PM51_M3822.bin $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin & ls -la $MSTAR_PMBIN_MSD92Q_PATH/STR_PM.bin'
 
+function sim_bu_msd92q()
+{
+    svn_ver_str=$(svn info | grep "Revision" | awk '{print $2}')
+
+    if [ "$1" == "amt" ];
+    then
+        printf "$CYAN Simple Build MSD92Q JVC50Q $END \n"
+        make model=JVC50Q svn_ver_str=$svn_ver_str
+    elif [ "$1" == "amt55" ];
+    then
+        printf "$CYAN Simple Build MSD92Q JVC55Q $END \n"
+        make model=JVC55Q svn_ver_str=$svn_ver_str
+    else
+        printf "$CYAN Simple Build MSD92Q JVC50Q $END \n"
+        make model=JVC50Q svn_ver_str=$svn_ver_str
+    fi
+}
+
 function code_update()
 {
     if [ "$1" == "vm" ];
@@ -131,6 +149,34 @@ function clean_msd92q_unnecessary()
     svn del --force  core/bin/common/ttx_font/tt_font_34x30.binc
     svn del --force  tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_strings.binc
     svn del --force  boot/sboot/out
+    svn del --force  Bin_ARM_M3822_256M_ATSC_MST152B
+    svn del --force  Obj_ARM_M3822_256M_ATSC_MST152B
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-7.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-7.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-7.binc
+    svn del --force  core/middleware/tts/cbr/data/en/en-US_female_Terri-bap-128.prosodyc
+    svn del --force  core/middleware/tts/cbr/data/en/en-US_female_Terri-bap-128.voicec
 }
 
 function merge_code_msd92q_setup()
@@ -145,6 +191,9 @@ function merge_code_msd92q_setup()
 
 function bu_msd92q_pwd()
 {
+    svn_ver_str=$(svn info | grep "Revision" | awk '{print $2}')
+    printf "$LIGHT_PURPLE SVN Version = $svn_ver_str $END \n"
+
     if [ "$1" == "sdk" ];
     then
     # printf "$RED MSD92Q Copy Bmp bin $END \n"
@@ -160,7 +209,7 @@ function bu_msd92q_pwd()
     cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
 
     printf "$GREEN <<AmTRAN>> MSD92Q JVC50Q prj = 4K, model = JVC50Q, SDK Code $END \n"
-    make clean; make prj=tw_4k model=JVC50Q | tee $MAC_MSD92Q_PATH/debug.log
+    make clean; make prj=tw_4k model=JVC50Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
     elif [ "$1" == "amt55" ];
     then
@@ -169,7 +218,7 @@ function bu_msd92q_pwd()
     cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
 
     printf "$GREEN <<AmTRAN>> MSD92Q JVC55Q prj = 4K, model = JVC55Q, SDK Code $END \n"
-    make clean; make prj=tw_4k model=JVC55Q | tee $MAC_MSD92Q_PATH/debug.log
+    make clean; make prj=tw_4k model=JVC55Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
     else
     echo "$RED To copy MSD92Q BMP bin file into SW LOAD one"
