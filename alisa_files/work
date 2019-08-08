@@ -20,6 +20,7 @@ END='\e[0m'
 
 GIGA_AD27QD_PATH=/media/psf/Home/Documents/GigaByte/AD27QD
 MAC_DOC_PATH=/media/psf/Home/Documents/
+MAC_DOWNLOAD_PATH=/media/psf/Home/Downloads/
 
 alias goto_giga_ad27qd='cd $GIGA_AD27QD_PATH/'
 
@@ -28,6 +29,9 @@ alias svn_ci_f='svn ci -F $MAC_DOC_PATH/svn_log.txt'
 alias login_92t_server='ssh robert.lo@192.168.12.113'
 
 alias svn_log='svn log -v -c'
+
+alias svn_change_st='svn status --changelist label'
+alias svn_ci_change_f='svn commit --changelist label -F $MAC_DOC_PATH/svn_log.txt'
 
 function goto_ana_server(){
     cd /media/psf/Home/Google\ 雲端硬碟/Work/Python/MasteringComputerVision_V1.01/ 
@@ -51,6 +55,24 @@ function cp_jira_report(){
     else
     cp $1 $DEST_PATH
     fi
+}
+
+function cp_wk_report_vm(){
+    SRC_PATH=/home/swrd/tmp/svn_server/Data_ING/DOC/Weekly_Report
+    weeknumber=`date +%V`
+    One=0
+    wkp=$(($weeknumber + $One))
+
+    if [ -d $SRC_PATH ]; then
+        echo " $SRC_PATH folder exist"
+        else
+        echo " $SRC_PATH folder doesn't exist"
+        return
+    fi
+    
+    echo "Week number plus one:$wkp"
+    
+    cp -fv $SRC_PATH/FW5-report-wk$wkp.docx $MAC_DOWNLOAD_PATH
 }
 
 function goto_xr871(){

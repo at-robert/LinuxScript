@@ -1,0 +1,294 @@
+
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+
+AMT_95V_SOURCECODE_PATH=/media/swrd/CodingDisk/msd95v/Code/amt
+MAC_MSD95V_PATH=/media/psf/Home/Documents/msd95v
+AMT_95V_UPGRADEBIN_PATH=/media/swrd/CodingDisk/msd95v/Code/amt/images/marshmallow/mangosteen/
+
+# Old setting ----------------------------------------------------------
+MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
+SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
+
+MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/msd92q/PM/
+MSTAR_PMBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/boot/sboot/bin/BD_MST152B_10AQT/
+
+SDK_EVK_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
+SDK_AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk_amt/Bin_ARM_M3822_256M_DVB_MST152B
+
+MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
+AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
+AMT_92Q_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/Bin_ARM_M3822_256M_DVB_MST152B
+
+AMT_92Q_SOURCECODE_PATH=$HOME/msd92q/Code/amt_92q/
+AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
+
+BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
+BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
+MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
+
+AMT92Q_BMP_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
+
+SMB_PATH_CHECK='/home/swrd/tmp/svn_server/Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4'
+SMB_PATH='/home/swrd/tmp/svn_server/Data_ING/2019_TWN_TV_92Q/TOOLS/ISP_Tool_V4.9.4/new_fw/'
+# Old setting ----------------------------------------------------------
+
+# The default FW binary name
+FW_BIN_NAME=M95vUpgrade_2GBDDR.bin
+
+function code_update()
+{
+    if [ "$1" == "up" ];
+    then
+        printf "$GREEN Update Path : $AMT_95V_SOURCECODE_PATH $END \n"
+        VM_IN=$AMT_95V_SOURCECODE_PATH
+
+        cd $VM_IN
+    	svn up .
+    else
+        printf "$RED Update Path : $AMT_95V_SOURCECODE_PATH Without SVN update $END \n"
+        VM_IN=$AMT_95V_SOURCECODE_PATH
+
+        cd $VM_IN
+    	# svn up .
+    fi
+}
+
+function svn_st()
+{
+	svn st  | grep -v ^? | grep -v .so$ | grep -v .a$ | grep -v pyc$  | grep -v android/vendor/mstar/supernova/tee/package | grep -v android/vendor/mstar/supernova/tee/package/Middleware/include/openssl | tee $MAC_MSD95V_PATH/debug.log
+}
+
+
+function cp_msd95v_to(){
+    VER=$1
+    VM_IN=$MSTAR_MERGEBIN_MSD92Q_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    if [ "$2" == "amt" ];
+    then
+        echo "Copy Path : $AMT_95V_UPGRADEBIN_PATH"
+        VM_IN=$AMT_95V_UPGRADEBIN_PATH
+        FW_BIN_NAME=M95vUpgrade_2GBDDR.bin
+    else
+        echo "Copy Path : $AMT_95V_UPGRADEBIN_PATH"
+        VM_IN=$AMT_95V_UPGRADEBIN_PATH
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/$FW_BIN_NAME
+    OUTPATH=$VM_OUT/$VER/$FW_BIN_NAME
+
+    if [ -d $VM_OUT/$VER ];
+    then 
+        printf "$GREEN "
+    else
+        printf "$RED $VM_OUT/$VER doesn't exist $END \n"
+    return 
+    fi
+
+    if [ -f $INPATH ];
+    then
+        printf "$GREEN "
+        ls -la $INPATH
+    else
+        printf "$RED $INPATH doesn't exist\n Don't forget to build the source code $END \n"
+        return
+    fi
+
+    if [ -f $OUTPATH ];
+    then
+            echo "================================"
+            echo "$OUTPATH exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    echo "===Copy MSD92Q merge bin file to root folder =============="
+    cp $INPATH $OUTPATH
+
+    # echo "===Copy MSD92Q merge bin file to smb folder =============="
+    # if [ -d $SMB_PATH_CHECK ];
+    # then
+    #     printf "$GREEN To recreate the folder $SMB_PATH $END \n"
+    #     rm -rf $SMB_PATH
+    #     mkdir $SMB_PATH
+    # else
+    #     printf "$RED $SMB_PATH doesn't exist, Please check network connection !! $END \n"
+    # fi
+
+    # if [ -d $SMB_PATH ];
+    # then
+    #     cp $INPATH $SMB_PATH/$FW_BIN_NAME
+    #     MERGEMD5=$(md5sum $SMB_PATH/$FW_BIN_NAME | awk '{print $1}')
+    #     echo $MERGEMD5 > $SMB_PATH/MERGE_MD5_$MERGEMD5.txt
+    # else
+    #     printf "$RED $SMB_PATH doesn't exist $END \n"
+    # fi
+
+    printf "$END"
+}
+
+
+function cp_msd92q_bmp_bin()
+{
+    echo "To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+}
+
+function bu_msd92q_sboot()
+{
+    printf "$GREEN MSD92Q setup sboot setting $END \n"
+    cp ./configs/M3822/.config.m3822.chakra3.152b.spi_nor_32bit .config
+    diff ./configs/M3822/.config.m3822.chakra3.152b.spi_nor_32bit .config
+    printf "$RED To check if everything is ok!!! $END \n"
+
+    # Read input.
+    read input_char
+
+    if [ "$input_char" == 'q' ];
+    then 
+        echo "Quit"
+        return 
+    else
+        echo "Go!!"
+    fi
+
+    make menuconfig
+    printf "$GREEN MSD92Q sboot start building $END \n"
+    make
+
+    printf "$GREEN"
+    ls -la ./out/sboot.bin
+    printf "$END \n"
+
+}
+
+function clean_msd92q_unnecessary()
+{
+    svn del --force  Bin_ARM_M3822_256M_DVB_MST152B
+    svn del --force  Obj_ARM_M3822_256M_DVB_MST152B
+    svn del --force  m.log
+    svn del --force  .vscode
+    svn del --force  boot/sboot/bin/AP.bin
+    svn del --force  boot/sboot/bin/AP.map
+    svn revert       boot/sboot/out/all.bin
+    svn revert       boot/sboot/out/sboot.bin
+    svn revert       boot/sboot/out/chunk_header.bin
+    svn revert       boot/sboot/out/chunk_header.txt
+    svn revert       scripts/crcmod/__init__.pyc
+    svn revert       scripts/crcmod/_crcfunpy.pyc
+    svn revert       scripts/crcmod/crcmod.pyc
+    svn del --force  core/bin/M3822/audio/aucode_adec_r2.binc
+    svn del --force  core/bin/M3822/cape/mheg5_LE.binc
+    svn del --force  core/bin/M3822/cape/vdplayer_hk_mp4.binc
+    svn del --force  core/bin/M3822/panel/PANEL_GAMMA.binc
+    svn del --force  core/bin/M3822/vdec/fwVPU.binc
+    svn del --force  core/bin/M3822/vdec/fwVPU_VLC.binc
+    svn del --force  core/bin/common/ttx_font/tt_font_34x30.binc
+    svn del --force  tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_strings.binc
+    svn del --force  boot/sboot/out
+    svn del --force  Bin_ARM_M3822_256M_ATSC_MST152B
+    svn del --force  Obj_ARM_M3822_256M_ATSC_MST152B
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_16x33-7.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_19x32-7.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-0.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-1.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-2.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-3.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-4.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-5.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-6.binc
+    svn del --force  core/bin/common/cc_font/1920x1080/Font_CC_24x37-7.binc
+    svn del --force  core/middleware/tts/cbr/data/en/en-US_female_Terri-bap-128.prosodyc
+    svn del --force  core/middleware/tts/cbr/data/en/en-US_female_Terri-bap-128.voicec
+}
+
+function merge_code_msd92q_setup()
+{
+    find . -type f -name "._.DS_Store" -exec rm {} \;
+    find . -type f -name ".DS_Store" -exec rm {} \;
+    svn del `svn status | sed -e '/^!/!d' -e 's/^!//'`
+    svn status | grep '^\!' | cut -c8- | while read f; do svn rm "$f"; done
+    svn add `svn status . | awk '/^[?]/{print $2}'`
+    svn add . --force --no-ignore
+}
+
+function bu_msd92q_pwd()
+{
+    svn_ver_str=$(svn info | grep "Revision" | awk '{print $2}')
+    printf "$LIGHT_PURPLE SVN Version = $svn_ver_str $END \n"
+
+    if [ "$1" == "sdk" ];
+    then
+    # printf "$RED MSD92Q Copy Bmp bin $END \n"
+    # cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+    printf "$RED <<MStar>> MSD92Q SDK Code at the current path $END \n"
+    make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
+
+    elif [ "$1" == "amt" ];
+    then
+    # printf "$RED MSD92Q AMT Code $END \n"
+    # ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
+    printf "$GREEN <<AmTRAN>> MSD92Q JVC50Q prj = 4K, model = JVC50Q, SDK Code $END \n"
+    make clean; make prj=tw_4k model=JVC50Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
+
+    elif [ "$1" == "amt55" ];
+    then
+
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
+    printf "$GREEN <<AmTRAN>> MSD92Q JVC55Q prj = 4K, model = JVC55Q, SDK Code $END \n"
+    make clean; make prj=tw_4k model=JVC55Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
+
+    else
+    echo "$RED To copy MSD92Q BMP bin file into SW LOAD one"
+    cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
+
+    printf "$RED <<MStar>> MSD92Q SDK Code $END \n"
+    make clean; make all | tee $MAC_MSD92Q_PATH/debug.log    
+    fi
+}
+
