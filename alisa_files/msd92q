@@ -70,6 +70,14 @@ function sim_bu_msd92q()
     then
         printf "$CYAN Simple Build MSD92Q JVC55Q $END \n"
         make model=JVC55Q svn_ver_str=$svn_ver_str
+    elif [ "$1" == "amt65" ];
+    then    
+        printf "$CYAN Simple Build MSD92Q JVC65Q $END \n"
+        make model=JVC65Q svn_ver_str=$svn_ver_str
+    elif [ "$1" == "amt75" ];
+    then
+        printf "$CYAN Simple Build MSD92Q JVC75Q $END \n"
+        make model=JVC75Q svn_ver_str=$svn_ver_str
     else
         printf "$CYAN Simple Build MSD92Q JVC50Q $END \n"
         make model=JVC50Q svn_ver_str=$svn_ver_str
@@ -220,6 +228,24 @@ function bu_msd92q_pwd()
     printf "$GREEN <<AmTRAN>> MSD92Q JVC55Q prj = 4K, model = JVC55Q, SDK Code $END \n"
     make clean; make prj=tw_4k model=JVC55Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
+    elif [ "$1" == "amt65" ];
+    then
+
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
+    printf "$GREEN <<AmTRAN>> MSD92Q JVC65Q prj = 4K, model = JVC65Q, SDK Code $END \n"
+    make clean; make prj=tw_4k model=JVC65Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
+
+    elif [ "$1" == "amt75" ];
+    then
+
+    printf "$RED MSD92Q Copy Bmp bin $END \n"
+    cp -a $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap.bin $AMT92Q_BMP_MSD92Q_PATH/ZUI_bitmap_SW_LOAD.bin
+
+    printf "$GREEN <<AmTRAN>> MSD92Q JVC75Q prj = 4K, model = JVC75Q, SDK Code $END \n"
+    make clean; make prj=tw_4k model=JVC75Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
+
     else
     echo "$RED To copy MSD92Q BMP bin file into SW LOAD one"
     cp -a  $BMP_BIN_FILE $BMP_BIN_SW_FILE
@@ -313,6 +339,20 @@ function cp_msd92q_to(){
 
     echo "===Copy MSD92Q merge bin file to root folder =============="
     cp $INPATH $OUTPATH
+
+    echo "=== Check MD5 Sum of in and out files =============="
+    IN_MD5=$(md5sum $INPATH | awk '{print $1}' )
+    OUT_MD5=$(md5sum $OUTPATH | awk '{print $1}' )
+
+    printf "$LIGHT_PURPLE IN_MD5 = $IN_MD5 , OUT_MD5 = $OUT_MD5 $END \n"
+
+    if [ "$IN_MD5" == "$OUT_MD5" ];
+    then
+        printf "$YELLOW MD5 Sum check OK!! $END \n"
+    else
+        printf "$RED MD5 Sum check fail, please check the files!! $END \n"
+        return
+    fi
 
     echo "===Copy MSD92Q merge bin file to smb folder =============="
 

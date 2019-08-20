@@ -131,6 +131,20 @@ function cp_msd95v_to(){
     echo "===Copy MSD92Q merge bin file to root folder =============="
     cp $INPATH $OUTPATH
 
+    echo "=== Check MD5 Sum of in and out files =============="
+    IN_MD5=$(md5sum $INPATH | awk '{print $1}' )
+    OUT_MD5=$(md5sum $OUTPATH | awk '{print $1}' )
+
+    printf "$LIGHT_PURPLE IN_MD5 = $IN_MD5 , OUT_MD5 = $OUT_MD5 $END \n"
+
+    if [ "$IN_MD5" == "$OUT_MD5" ];
+    then
+        printf "$YELLOW MD5 Sum check OK!! $END \n"
+    else
+        printf "$RED MD5 Sum check fail, please check the files!! $END \n"
+        return
+    fi
+
     # echo "===Copy MSD92Q merge bin file to smb folder =============="
     # if [ -d $SMB_PATH_CHECK ];
     # then
