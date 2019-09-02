@@ -35,6 +35,10 @@ AMT_92Q_SOURCECODE_PATH=$HOME/msd92q/Code/amt_92q/
 AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
 
 
+AMT_8120_MERGEBIN_MSD8120_PATH=$HOME/msd8120/amt45b/Bin_R2_EULER_ZUI_128MB_DVBT_TWN
+
+
+
 BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
 BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin
 MSTAR_BMP_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/
@@ -285,6 +289,12 @@ function cp_msd92q_to(){
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC55Q.bin
 
+    elif [ "$2" == "amt65" ];
+    then
+        echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
+        FW_BIN_NAME=JVC65Q.bin
+
     elif [ "$2" == "sdk" ];
     then
         echo "Copy Path : $SDK_EVK_MERGEBIN_MSD92Q_PATH"
@@ -355,6 +365,106 @@ function cp_msd92q_to(){
     fi
 
     echo "===Copy MSD92Q merge bin file to smb folder =============="
+
+    if [ -d $SMB_PATH_CHECK ];
+    then
+        printf "$GREEN To recreate the folder $SMB_PATH $END \n"
+        rm -rf $SMB_PATH
+        mkdir $SMB_PATH
+    else
+        printf "$RED $SMB_PATH doesn't exist, Please check network connection !! $END \n"
+    fi
+
+    if [ -d $SMB_PATH ];
+    then
+        cp $INPATH $SMB_PATH/$FW_BIN_NAME
+        MERGEMD5=$(md5sum $SMB_PATH/$FW_BIN_NAME | awk '{print $1}')
+        echo $MERGEMD5 > $SMB_PATH/MERGE_MD5_$MERGEMD5.txt
+    else
+        printf "$RED $SMB_PATH doesn't exist $END \n"
+    fi
+
+    printf "$END"
+}
+
+function cp_msd8120_to(){
+    VER=$1
+    VM_IN=$AMT_8120_MERGEBIN_MSD8120_PATH
+    VM_OUT=/media/psf
+
+    if [ "$1" == "" ];
+    then
+        echo "Parameter shouldn't be empty"
+        return
+    fi
+
+    if [ "$2" == "amt" ];
+    then
+        echo "Copy Path : $AMT_8120_MERGEBIN_MSD8120_PATH"
+        VM_IN=$AMT_8120_MERGEBIN_MSD8120_PATH
+        FW_BIN_NAME=45B.bin
+
+    elif [ "$2" == "amt45b" ];
+    then
+        echo "Copy Path : $AMT_8120_MERGEBIN_MSD8120_PATH"
+        VM_IN=$AMT_8120_MERGEBIN_MSD8120_PATH
+        FW_BIN_NAME=45B.bin
+
+    else
+        echo "Copy Path : $AMT_8120_MERGEBIN_MSD8120_PATH"
+        VM_IN=$AMT_8120_MERGEBIN_MSD8120_PATH
+        FW_BIN_NAME=45B.bin
+    fi
+
+    echo "Liunx VM ENV"
+    INPATH=$VM_IN/$FW_BIN_NAME
+    OUTPATH=$VM_OUT/$VER/$FW_BIN_NAME
+
+    if [ -d $VM_OUT/$VER ];
+    then 
+        printf "$GREEN "
+    else
+        printf "$RED $VM_OUT/$VER doesn't exist $END \n"
+    return 
+    fi
+
+    if [ -f $INPATH ];
+    then
+        printf "$GREEN "
+        ls -la $INPATH
+    else
+        printf "$RED $INPATH doesn't exist\n Don't forget to build the source code $END \n"
+        return
+    fi
+
+    if [ -f $OUTPATH ];
+    then
+            echo "================================"
+            echo "$OUTPATH exists so that deleting it ........"
+            echo "================================"
+            rm -rf $OUTPATH
+    else
+        echo "================================"
+    fi
+
+    echo "===Copy MSD92Q merge bin file to root folder =============="
+    cp $INPATH $OUTPATH
+
+    echo "=== Check MD5 Sum of in and out files =============="
+    IN_MD5=$(md5sum $INPATH | awk '{print $1}' )
+    OUT_MD5=$(md5sum $OUTPATH | awk '{print $1}' )
+
+    printf "$LIGHT_PURPLE IN_MD5 = $IN_MD5 , OUT_MD5 = $OUT_MD5 $END \n"
+
+    if [ "$IN_MD5" == "$OUT_MD5" ];
+    then
+        printf "$YELLOW MD5 Sum check OK!! $END \n"
+    else
+        printf "$RED MD5 Sum check fail, please check the files!! $END \n"
+        return
+    fi
+
+    echo "===Copy MSD8120 merge bin file to smb folder =============="
 
     if [ -d $SMB_PATH_CHECK ];
     then
