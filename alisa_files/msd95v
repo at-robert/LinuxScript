@@ -128,7 +128,7 @@ function cp_msd95v_to(){
         echo "================================"
     fi
 
-    echo "===Copy MSD92Q merge bin file to root folder =============="
+    echo "===Copy MSD95V merge bin file to root folder =============="
     cp $INPATH $OUTPATH
 
     echo "=== Check MD5 Sum of in and out files =============="

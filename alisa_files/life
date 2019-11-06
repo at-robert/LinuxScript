@@ -73,7 +73,10 @@ function gupdate(){
     cd $path/Plotly-Dashboards-with-Dash
     printf "$LIGHT_RED Git Pull Plotly and Dashboards $END \n"
     git pull
-    
+    cd $path/GolangExercise
+    printf "$LIGHT_GREEN Git Golang Exercise $END \n"
+    git pull
+
     cd $path
 }
 

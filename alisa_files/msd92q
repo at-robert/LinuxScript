@@ -66,19 +66,19 @@ function sim_bu_msd92q()
 {
     svn_ver_str=$(svn info | grep "Revision" | awk '{print $2}')
 
-    if [ "$1" == "amt" ];
+    if [ "$1" == "amt" ] || [ "$1" == "50q" ];
     then
         printf "$CYAN Simple Build MSD92Q JVC50Q $END \n"
         make model=JVC50Q svn_ver_str=$svn_ver_str
-    elif [ "$1" == "amt55" ];
+    elif [ "$1" == "amt55" ] || [ "$1" == "55q" ];
     then
         printf "$CYAN Simple Build MSD92Q JVC55Q $END \n"
         make model=JVC55Q svn_ver_str=$svn_ver_str
-    elif [ "$1" == "amt65" ];
+    elif [ "$1" == "amt65" ] || [ "$1" == "65q" ];
     then    
         printf "$CYAN Simple Build MSD92Q JVC65Q $END \n"
         make model=JVC65Q svn_ver_str=$svn_ver_str
-    elif [ "$1" == "amt75" ];
+    elif [ "$1" == "amt75" ] || [ "$1" == "75q" ];
     then
         printf "$CYAN Simple Build MSD92Q JVC75Q $END \n"
         make model=JVC75Q svn_ver_str=$svn_ver_str
@@ -213,7 +213,7 @@ function bu_msd92q_pwd()
     printf "$RED <<MStar>> MSD92Q SDK Code at the current path $END \n"
     make clean; make all | tee $MAC_MSD92Q_PATH/debug.log
 
-    elif [ "$1" == "amt" ];
+    elif [ "$1" == "amt" ] || [ "$1" == "50q" ];
     then
     # printf "$RED MSD92Q AMT Code $END \n"
     # ./make.sh cleanall | tee $MAC_MSD92Q_PATH/debug.log
@@ -223,7 +223,7 @@ function bu_msd92q_pwd()
     printf "$GREEN <<AmTRAN>> MSD92Q JVC50Q prj = 4K, model = JVC50Q, SDK Code $END \n"
     make clean; make prj=tw_4k model=JVC50Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
-    elif [ "$1" == "amt55" ];
+    elif [ "$1" == "amt55" ] || [ "$1" == "55q" ];
     then
 
     printf "$RED MSD92Q Copy Bmp bin $END \n"
@@ -232,7 +232,7 @@ function bu_msd92q_pwd()
     printf "$GREEN <<AmTRAN>> MSD92Q JVC55Q prj = 4K, model = JVC55Q, SDK Code $END \n"
     make clean; make prj=tw_4k model=JVC55Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
-    elif [ "$1" == "amt65" ];
+    elif [ "$1" == "amt65" ] || [ "$1" == "65q" ];
     then
 
     printf "$RED MSD92Q Copy Bmp bin $END \n"
@@ -241,7 +241,7 @@ function bu_msd92q_pwd()
     printf "$GREEN <<AmTRAN>> MSD92Q JVC65Q prj = 4K, model = JVC65Q, SDK Code $END \n"
     make clean; make prj=tw_4k model=JVC65Q svn_ver_str=$svn_ver_str | tee $MAC_MSD92Q_PATH/debug.log
 
-    elif [ "$1" == "amt75" ];
+    elif [ "$1" == "amt75" ] || [ "$1" == "75q" ];
     then
 
     printf "$RED MSD92Q Copy Bmp bin $END \n"
@@ -277,23 +277,29 @@ function cp_msd92q_to(){
     fi
 
 
-    if [ "$2" == "amt" ];
+    if [ "$2" == "amt" ] || [ "$2" == "50q" ];
     then
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC50Q.bin
 
-    elif [ "$2" == "amt55" ];
+    elif [ "$2" == "amt55" ] || [ "$2" == "55q" ];
     then
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC55Q.bin
 
-    elif [ "$2" == "amt65" ];
+    elif [ "$2" == "amt65" ] || [ "$2" == "65q" ];
     then
         echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
         VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
         FW_BIN_NAME=JVC65Q.bin
+
+    elif [ "$2" == "amt75" ] || [ "$2" == "75q" ];
+    then
+        echo "Copy Path : $AMT_92Q_MERGEBIN_MSD92Q_PATH"
+        VM_IN=$AMT_92Q_MERGEBIN_MSD92Q_PATH
+        FW_BIN_NAME=JVC75Q.bin
 
     elif [ "$2" == "sdk" ];
     then
