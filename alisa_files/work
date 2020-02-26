@@ -22,6 +22,8 @@ GIGA_AD27QD_PATH=/media/psf/Home/Documents/GigaByte/AD27QD
 MAC_DOC_PATH=/media/psf/Home/Documents/
 MAC_DOWNLOAD_PATH=/media/psf/Home/Downloads/
 
+alias rasp_power_off='python ~/Documents/Github/GoogleAssistIOT/mqtt_projects/mqtt_publish_poweroff.py'
+
 alias goto_giga_ad27qd='cd $GIGA_AD27QD_PATH/'
 
 alias svn_ci_f='svn ci -F $MAC_DOC_PATH/svn_log.txt'
@@ -76,8 +78,13 @@ function cp_wk_report_vm(){
 }
 
 function goto_xr871(){
-    cd /media/psf/Home/Documents/GitHub/XR871/
+    cd $MAC_DOC_PATH/GitHub/XR871/
     echo "Hi XR871 All Winner!!"
+}
+
+function goto_sony(){
+    cd $MAC_DOC_PATH/Sony/TOOLS/sony_sn_convertor
+    echo "Hi Sony Tools"
 }
 
 function xor_cal(){

@@ -76,6 +76,9 @@ function gupdate(){
     cd $path/GolangExercise
     printf "$LIGHT_GREEN Git Golang Exercise $END \n"
     git pull
+    cd $path/GoogleAssistIOT
+    printf "$LIGHT_CYAN Git GoogleAssistIOT $END \n"
+    git pull
 
     cd $path
 }
@@ -86,7 +89,7 @@ function py2(){
 }
 
 function py3(){
-    echo "anaconda3-4.2.0" > ~/Google\ 雲端硬碟/Work/Python/.python-version
+    echo "anaconda3-5.3.0" > ~/Google\ 雲端硬碟/Work/Python/.python-version
     python --version
 }
 
