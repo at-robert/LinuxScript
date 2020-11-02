@@ -19,14 +19,14 @@ END='\e[0m'
 
 
 AMT_95V_SOURCECODE_PATH=/media/swrd/CodingDisk/msd95v/Code/amt
-MAC_MSD95V_PATH=/media/psf/Home/Documents/msd95v
+MAC_MSD95V_PATH=/media/psf/Home/Documents/Work_platforms/msd95v
 AMT_95V_UPGRADEBIN_PATH=/media/swrd/CodingDisk/msd95v/Code/amt/images/marshmallow/mangosteen/
 
 # Old setting ----------------------------------------------------------
-MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
+MAC_MSD92Q_PATH=/media/psf/Home/Documents/Work_platforms/msd92q
 SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
 
-MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/msd92q/PM/
+MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/Work_platforms/msd92q/PM/
 MSTAR_PMBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/boot/sboot/bin/BD_MST152B_10AQT/
 
 SDK_EVK_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
@@ -37,7 +37,7 @@ AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_92Q_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/Bin_ARM_M3822_256M_DVB_MST152B
 
 AMT_92Q_SOURCECODE_PATH=$HOME/msd92q/Code/amt_92q/
-AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
+AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/Work_platforms/msd92q/AMT_Code
 
 BMP_BIN_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap.bin
 BMP_BIN_SW_FILE=./tv-ap/dvb/ui2/res1920x1080x565/osdcomposer/osdbin/ZUI_bitmap_SW_LOAD.bin

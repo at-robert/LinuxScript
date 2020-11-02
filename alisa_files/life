@@ -24,6 +24,8 @@ alias pppoe_off='poff dsl-provider'
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
 OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 
+alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
+
 
 function chk_srt_order(){
     python $OFTENUSED_PATH/SRT_Check/srt_check.py $1
@@ -98,6 +100,11 @@ function scp_from_rapix(){
     echo "Raspi_x ip addr = $RASPX_IP"
     # scp pi@$RASPX_IP:~/webcam/*.jpg  .
     scp pi@$RASPX_IP:~/uart_log.log .
+}
+
+function scp_from_113(){
+    echo "Copy files from 192.168.12.113 Tmp folder"
+    scp -r robert.lo@192.168.12.113:/home/robert.lo/tmp ~/Downloads/Temp/
 }
 
 function net_ok(){

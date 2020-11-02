@@ -1,0 +1,66 @@
+
+#color str
+RED='\e[0;31m'
+LIGHT_RED='\e[1;31m'
+BLACK='\e[0;30m'
+BLUE='\e[0;34m'
+LIGHT_BLUE='\e[1;34m'
+GREEN='\e[0;32m'
+LIGHT_GREEN='\e[1;32m'
+PURPLE='\e[0;35m'
+LIGHT_PURPLE='\e[1;35m'
+CYAN='\e[0;36m'
+LIGHT_CYAN='\e[1;36m'
+BROWN='\e[0;33m'
+YELLOW='\e[1;33m'
+DARK_GRAY='\e[1;30m'
+END='\e[0m'
+#color str - end
+
+AMB_CV22_CODE_PATH=$HOME/work/amb/code/trunk
+MAC_DOWNLOAD_PATH=/media/psf/Home/Downloads/
+
+function goto_cv22()
+{
+	cd $AMB_CV22_CODE_PATH
+}
+
+function setup_build_cv22(){
+	cd $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/boards/cv22_walnut
+	source ../../build/env/aarch64-linaro-gcc.env
+	make sync_build_mkcfg
+	make cv22_ipcam_config
+	make defconfig_public_linux
+}
+
+function bu_cv22()
+{
+	rm $MAC_DOWNLOAD_PATH/bst_bld_kernel_lnx_release.bin
+	cd $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/boards/cv22_walnut
+	source ../../build/env/aarch64-linaro-gcc.env
+	make sync_build_mkcfg
+	make cv22_ipcam_config
+	make defconfig_public_linux
+	make -j8
+	cp $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/out/cv22_walnut/images/bst_bld_kernel_lnx_release.bin $MAC_DOWNLOAD_PATH
+}
+
+function bu_cv22_emmc()
+{
+	rm $MAC_DOWNLOAD_PATH/bst_bld_kernel_lnx_release.bin
+	cd $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/boards/cv22_walnut
+	source ../../build/env/aarch64-linaro-gcc.env
+	make sync_build_mkcfg
+	make cv22_ipcam_emmc_config
+	make defconfig_public_linux
+	make -j8
+	cp $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/out/cv22_walnut/images/bst_bld_kernel_lnx_release.bin $MAC_DOWNLOAD_PATH
+}
+
+function cp_cv22()
+{
+	echo "copy cv22 binary to download"
+	cp $AMB_CV22_CODE_PATH/cv22_linux_sdk_2.5/ambarella/out/cv22_walnut/images/bst_bld_kernel_lnx_release.bin $MAC_DOWNLOAD_PATH
+}
+
+
