@@ -17,7 +17,7 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-MAC_MT8502_PATH=/media/psf/Home/Documents/mtk8502
+MAC_MT8502_PATH=/media/psf/Home/Documents/Work_platforms/mtk8502
 AMT_MT8502_PATH=/home/swrd/MTK8502/Trunk/amt/release
 MEG_MT8502_PATH=/home/swrd/MTK8502/Merge/release
 BUILDSDK_MT8502_PATH=/home/swrd/MTK8502/build_sdk/release

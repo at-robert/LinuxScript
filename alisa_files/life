@@ -24,6 +24,8 @@ alias pppoe_off='poff dsl-provider'
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
 OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 
+alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
+
 
 function chk_srt_order(){
     python $OFTENUSED_PATH/SRT_Check/srt_check.py $1
@@ -100,6 +102,11 @@ function scp_from_rapix(){
     scp pi@$RASPX_IP:~/uart_log.log .
 }
 
+function scp_from_113(){
+    echo "Copy files from 192.168.12.113 Tmp folder"
+    scp -r robert.lo@192.168.12.113:/home/robert.lo/tmp ~/Downloads/Temp/
+}
+
 function net_ok(){
     RETRY=0
     ONE=1
@@ -124,8 +131,9 @@ function net_ok(){
 function amk(){
     if [ "$1" == "" ] ;
     then
-        echo "Default number 10"
+        echo "First parameter can't be empty"
         NUM=10
+        return 
     else
         NUM=$1
     fi
@@ -151,6 +159,19 @@ function amk(){
         mkdir "10OCT"
         mkdir "11NOV"
         mkdir "12DEC"
+    elif [ "$1" == "proj" ] && [ "$2" == "" ] ;
+    then
+        echo " second parameter can't be empty"
+        return
+    elif [ "$1" == "proj" ] && [ "$2" != "" ] ;
+    then
+        echo " Making Project Folder = $2"
+        mkdir $2
+        mkdir -p $2/DOC $2/SCH $2/DATA_SHEET $2/EDID $2/TOOLS
+        mkdir -p $2/DOC/EngSpec $2/DOC/OSD_Tree
+        mkdir -p $2/SCH/EVT $2/SCH/DVT $2/SCH/PVT $2/SCH/PMP
+        mkdir -p $2/EDID/EVT $2/EDID/DVT $2/EDID/PVT $2/EDID/PMP
+        mkdir -p $2/DATA_SHEET/Panel $2/DATA_SHEET/SOC $2/DATA_SHEET/Amp
     else
         mkdir $(printf "$STR%02i " $(seq 1 $NUM))
     fi

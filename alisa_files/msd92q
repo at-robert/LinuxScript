@@ -17,10 +17,10 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-MAC_MSD92Q_PATH=/media/psf/Home/Documents/msd92q
+MAC_MSD92Q_PATH=/media/psf/Home/Documents/Work_platforms/msd92q
 SSD_MSD92Q_PATH=/media/psf/Transcend/msd92q
 
-MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/msd92q/PM/
+MAC_MSD92Q_PM_PATH=/media/psf/Home/Documents/Work_platforms/msd92q/PM/
 MSTAR_PMBIN_MSD92Q_PATH=$HOME/msd92q/Code/mstar_sdk/boot/sboot/bin/BD_MST152B_10AQT/
 
 SDK_EVK_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
@@ -32,7 +32,7 @@ MSTAR_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/sdk/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_92Q_MERGEBIN_MSD92Q_PATH=$HOME/msd92q/Code/amt_92q/Bin_ARM_M3822_256M_DVB_MST152B
 AMT_92Q_SOURCECODE_PATH=$HOME/msd92q/Code/amt_92q/
-AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/msd92q/AMT_Code
+AMT_92Q_VM_SOURCECODE_PATH=/media/psf/Home/Documents/Work_platforms/msd92q/AMT_Code
 
 
 AMT_8120_MERGEBIN_MSD8120_PATH=$HOME/msd8120/amt45b/Bin_R2_EULER_ZUI_128MB_DVBT_TWN

@@ -17,8 +17,8 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-MAC_MSD92T_PATH=/media/psf/Home/Documents/msd92t
-MAC_MSD8120_PATH=/media/psf/Home/Documents/msd8120
+MAC_MSD92T_PATH=/media/psf/Home/Documents/Work_platforms/msd92t
+MAC_MSD8120_PATH=/media/psf/Home/Documents/Work_platforms/msd8120
 
 TWN_MERGEBIN_MSD92T_PATH=$HOME/msd92t/Code/TWN/Bin_R2_EDEN_64MB_ATSC_TTS
 TWN_MERGEBIN_MSD8120_PATH=$HOME/msd8120/Code/TWN/Bin_R2_EDEN_64MB_ATSC_TTS

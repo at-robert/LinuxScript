@@ -18,9 +18,11 @@ DARK_GRAY='\e[1;30m'
 END='\e[0m'
 #color str - end
 
-GIGA_AD27QD_PATH=/media/psf/Home/Documents/GigaByte/AD27QD
-MAC_DOC_PATH=/media/psf/Home/Documents/
+GIGA_AD27QD_PATH=/media/psf/Home/Documents/Work_platforms/GigaByte/AD27QD
+MAC_DOC_PATH=/media/psf/Home/Documents/Work_platforms/
 MAC_DOWNLOAD_PATH=/media/psf/Home/Downloads/
+
+TARGET_PATH=/media/psf/Home/Documents/Work_platforms/2020_Gaming_Monitors/Code/
 
 alias rasp_power_off='python ~/Documents/Github/GoogleAssistIOT/mqtt_projects/mqtt_publish_poweroff.py'
 
@@ -41,11 +43,17 @@ function goto_ana_server(){
     jupyter notebook
 }
 
+function cp_amtranlib_jar(){
+    echo "Copy amtranlib.jar to Android APP"
+    cp /Users/kuochihlo/Downloads/amtranlib.jar /Users/kuochihlo/Documents/Work_platforms/msd95v_framework/apiservicetest/app/libs
+}
+
 function cp_jira_report(){
     SRC_PATH_FILE='/media/psf/Home/Downloads/VizioJIRA.txt'
     SRC_PATH_FILE1='/media/psf/Home/Downloads/VizioJIRA_rearrge.txt'
     # DEST_PATH='/run/user/1000/gvfs/smb-share:server=192.168.12.115,share=robert.lo'
-    DEST_PATH='/home/swrd/tmp/svn_server/'
+    # DEST_PATH='/home/swrd/tmp/svn_server/'
+    DEST_PATH='/home/robertlo/smb4k/'
 
     if [ "$1" == "" ];
     then
@@ -85,6 +93,16 @@ function goto_xr871(){
 function goto_sony(){
     cd $MAC_DOC_PATH/Sony/TOOLS/sony_sn_convertor
     echo "Hi Sony Tools"
+}
+
+function goto_msi(){
+    cd $MAC_DOC_PATH/MSI_soundbar/Code
+    echo "Hi MSI Source Code"   
+}
+
+function goto_work(){
+    cd $MAC_DOC_PATH
+    echo "Hi Work_platforms"
 }
 
 function xor_cal(){
@@ -251,15 +269,15 @@ function cm_mtk8507_svn(){
     fi 
 }
 
-function bu_mt8516(){
-    SSD_PATH=/media/psf/Transcend
+# function bu_mt8516(){
+#     SSD_PATH=/media/psf/Transcend
 
-    if [ -d $SSD_PATH ]; then
-        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee $SSD_PATH/mt8516_log.txt
-    else
-        source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee ~/mt8516_log.txt
-    fi
-}
+#     if [ -d $SSD_PATH ]; then
+#         source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee $SSD_PATH/mt8516_log.txt
+#     else
+#         source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee ~/mt8516_log.txt
+#     fi
+# }
 
 # alias bu_mt8516='source build/envsetup.sh && lunch full_aud8516p1_slc_linux-eng && make -j4 2>&1 | tee /media/psf/Transcend/log.txt'
 
@@ -269,5 +287,36 @@ alias pyinfo='pyenv versions'
 
 alias mongod='~/mongo/bin/mongod --dbpath ~/mongo-data'
 
-alias cot='~/Google\ 雲端硬碟/Work/Python/collect_jira.sh'
+# alias cot='~/Google\ 雲端硬碟/Work/Python/collect_jira.sh'
 alias bak_ring='sudo cp -a /Volumes/robert.lo/Data/Ring_Project/ ~/Documents/GitHub/Ring_Project/'
+
+function cot(){
+    source ~/Google\ 雲端硬碟/Work/Python/collect_jira.sh
+    scp ~/Downloads/VizioJIRA.txt robert.lo@192.168.12.87:~
+    scp ~/Downloads/VizioJIRA.txt robert.lo@192.168.12.87:~/AmTJIRA.txt
+    scp ~/Downloads/VizioJIRA_rearrge.txt robert.lo@192.168.12.87:~/AmtArrg.txt
+    cp ~/Downloads/VizioJIRA.txt ~/Downloads/AmTJIRA.txt
+
+}
+
+function up_svn_subfolders(){
+
+    if [ "$1" == "" ];
+    then
+        printf "$LIGHT_RED Using the default path = $TARGET_PATH $END \n"
+    else
+        TARGET_PATH=$1
+        printf "$LIGHT_GREEN The TARGET_PATH = $TARGET_PATH $END \n"
+    fi
+
+    for D in `find $TARGET_PATH -maxdepth 1 -type d`
+    do
+        # //Do whatever you need with D
+        if [ -d "${D}" ] && [ ${D} != $TARGET_PATH ];
+        then
+        svn up $D
+        # echo " PATH = $D"
+        fi
+    done
+}
+
