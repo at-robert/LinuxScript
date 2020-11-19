@@ -128,6 +128,19 @@ function net_ok(){
     done
 }
 
+function keep_connect(){
+
+    while True; do
+        if ping -q -c 1 -W 1 google.com >/dev/null; then
+            echo "The network is up !! "
+            sleep 5
+        else
+            echo "The network is down"
+            break
+        fi
+    done
+}
+
 function amk(){
     if [ "$1" == "" ] ;
     then
