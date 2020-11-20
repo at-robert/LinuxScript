@@ -129,20 +129,27 @@ function net_ok(){
 }
 
 function amk(){
+    NUM=0
+    STR=""
+    
     if [ "$1" == "" ] ;
     then
-        echo "Default number 10"
-        NUM=10
+        # echo "Default number 10"
+        # NUM=10
+        printf "$LIGHT_RED You need to specify number !! $END \n"
+        return
     else
         NUM=$1
     fi
 
     if [ "$2" == "" ] ;
     then
-        echo "Default str"
+        echo "Empty str"
     else
         STR=$2
     fi
+
+    printf "$LIGHT_GREEN Creating folder at num = $NUM , str = $STR $END \n"
 
     if [ "$1" == "12mon" ] || [ "$1" == "12MON" ] ;
     then
