@@ -128,16 +128,28 @@ function net_ok(){
     done
 }
 
+function keep_connect(){
+
+    while True; do
+        if ping -q -c 1 -W 1 google.com >/dev/null; then
+            echo "The network is up !! "
+            sleep 5
+        else
+            echo "The network is down"
+            break
+        fi
+    done
+}
+
 function amk(){
     NUM=0
     STR=""
     
     if [ "$1" == "" ] ;
     then
-        # echo "Default number 10"
-        # NUM=10
-        printf "$LIGHT_RED You need to specify number !! $END \n"
-        return
+        echo "First parameter can't be empty"
+        NUM=10
+        return 
     else
         NUM=$1
     fi
@@ -165,6 +177,19 @@ function amk(){
         mkdir "10OCT"
         mkdir "11NOV"
         mkdir "12DEC"
+    elif [ "$1" == "proj" ] && [ "$2" == "" ] ;
+    then
+        echo " second parameter can't be empty"
+        return
+    elif [ "$1" == "proj" ] && [ "$2" != "" ] ;
+    then
+        echo " Making Project Folder = $2"
+        mkdir $2
+        mkdir -p $2/DOC $2/SCH $2/DATA_SHEET $2/EDID $2/TOOLS
+        mkdir -p $2/DOC/EngSpec $2/DOC/OSD_Tree
+        mkdir -p $2/SCH/EVT $2/SCH/DVT $2/SCH/PVT $2/SCH/PMP
+        mkdir -p $2/EDID/EVT $2/EDID/DVT $2/EDID/PVT $2/EDID/PMP
+        mkdir -p $2/DATA_SHEET/Panel $2/DATA_SHEET/SOC $2/DATA_SHEET/Amp
     else
         mkdir $(printf "$STR%02i " $(seq 1 $NUM))
     fi
@@ -205,6 +230,10 @@ function afind(){
 }
 
 function aredir(){
+    python ~/Google\ 雲端硬碟/Work/Python/FileHandle/adv_redirect.py $1 "$2"
+}
+
+function adv_redir(){
     python ~/Google\ 雲端硬碟/Work/Python/FileHandle/adv_redirect.py $1 "$2"
 }
 
