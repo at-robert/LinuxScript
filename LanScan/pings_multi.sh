@@ -27,6 +27,7 @@ SCRIPT=${0##*/}
 NETWORK="192.168.12"
 IP_START="$1"
 IP_END="$2"
+IP_RESULT_FILE=~/Downloads/ip_result.txt
  
 # --- start SCRIPT ---
 trap 'stop' SIGUSR1 SIGINT SIGHUP SIGQUIT SIGTERM SIGSTOP
@@ -49,10 +50,12 @@ Example:
  
 if [[ ! -z ${IP_START} && ! -z ${IP_END} ]]; then
 	echo -e "\nStart ${SCRIPT} Scanner Server ...."
+
+	echo "1" > $IP_RESULT_FILE
  
 	for opt in $(seq ${IP_START} ${IP_END})
 	do 
-		if [ ${opt} == '80' ] || [ ${opt} == '87' ] || [ ${opt} == '94' ] || [ ${opt} == '113' ]; then 
+		if [ ${opt} == '87' ] || [ ${opt} == '94' ] || [ ${opt} == '113' ]; then 
             ping -c 1 -W 1 ${NETWORK}.${opt} &> /dev/null && result=0 || result=1
     
             if [ "${result}" == 0 ]; then
@@ -60,9 +63,22 @@ if [[ ! -z ${IP_START} && ! -z ${IP_END} ]]; then
             else
                 printf "$LIGHT_RED Server ${NETWORK}.${opt} is DOWN. $END \n"
             fi
+
+            if [ "${result}" == 1 ] && [ ${opt} == '87' ] ; then
+                echo "0" > $IP_RESULT_FILE
+            fi
         fi
 	done
- 
+
+	# IP_RESULT=$(cat "$IP_RESULT_FILE") 
+	# printf "$LIGHT_CYAN IP Result = $IP_RESULT $END \n"
+
+	# if [ $IP_RESULT -eq 1 ]; then
+	# 	echo " IP Result = $IP_RESULT !!"
+	# else
+	#   	echo " IP Result = $IP_RESULT !!!"
+	# fi
+
 else
 	help
  

@@ -26,6 +26,9 @@ OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 
 alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
 
+function dayoff(){
+    python $OFTENUSED_PATH/Dayoff/fw5_day_off.py
+}
 
 function chk_srt_order(){
     python $OFTENUSED_PATH/SRT_Check/srt_check.py $1
