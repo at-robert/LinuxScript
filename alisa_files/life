@@ -289,3 +289,26 @@ function mount_win_vm_disk(){
     HiMediaMacIP=$(echo "$HiMediaMacIP" | sed 's/=>//g' | sed 's/00:1C:42:4D:4C:AA//g' | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g')
     echo "HiMediaMacIP = $HiMediaMacIP"
 }
+
+function amv(){
+
+    SRC_PATH=./v/
+    if [ -d $SRC_PATH ]; 
+    then
+        printf "$LIGHT_RED $SRC_PATH folder exist $END"
+    else
+        echo " $SRC_PATH folder doesn't exist"
+        return
+    fi
+
+    printf "$LIGHT_GREEN Moving video files type : mkv, mov, mp4, avi to the folder V $END \n" 
+    find . -maxdepth 1 -type f -name "*.mp4" -exec mv {} ./v/ \;
+    find . -maxdepth 1 -type f -name "*.mov" -exec mv {} ./v/ \;
+    find . -maxdepth 1 -type f -name "*.mkv" -exec mv {} ./v/ \;
+    find . -maxdepth 1 -type f -name "*.avi" -exec mv {} ./v/ \;
+}
+
+
+
+
+
