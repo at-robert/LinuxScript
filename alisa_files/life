@@ -290,6 +290,7 @@ function mount_win_vm_disk(){
     echo "HiMediaMacIP = $HiMediaMacIP"
 }
 
+# To move video files to a certain folder V
 function amv(){
     cd ~/Downloads/
     SRC_PATH=./v/
