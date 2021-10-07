@@ -291,7 +291,7 @@ function mount_win_vm_disk(){
 }
 
 function amv(){
-
+    cd ~/Downloads/
     SRC_PATH=./v/
     if [ -d $SRC_PATH ]; 
     then
