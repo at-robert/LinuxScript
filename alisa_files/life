@@ -310,6 +310,32 @@ function amv(){
 }
 
 
+function aex(){
+    cd ~/Downloads/
+
+    if [ "$1" == "" ] ;
+    then
+        PASS=pennyinlive@eyny
+    elif [ "$1" == "h" ] ;
+    then
+        PASS=hkmmopqqo-eyny
+    else
+        PASS=$1
+    fi
+
+    printf "$LIGHT_GREEN  Advance Extracting Rar files with the Password = $PASS $END \n"
+
+    find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+}
+
+function aname(){
+    cd ~/Downloads/
+    
+    rename 's/^(.{14}).*(\.mp4)/$1$2/' *.mp4
+}
+
+
+
 
 
 
