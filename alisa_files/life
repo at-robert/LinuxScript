@@ -240,9 +240,10 @@ function adv_redir(){
     python ~/Google\ 雲端硬碟/Work/Python/FileHandle/adv_redirect.py $1 "$2"
 }
 
-function arename(){
-    python ~/Google\ 雲端硬碟/Work/Python/Rename/adv_rename.py $1 "$2"
-}
+
+#function arename(){
+    # python ~/Google\ 雲端硬碟/Work/Python/Rename/adv_rename.py $1 "$2"
+# }
 
 function connect_rapi(){
     if [ "$1" == "" ] ;
@@ -293,20 +294,21 @@ function mount_win_vm_disk(){
 # To move video files to a certain folder V
 function amv(){
     cd ~/Downloads/
-    SRC_PATH=./v/
-    if [ -d $SRC_PATH ]; 
+    DES_PATH=~/Downloads/v/
+    if [ -d $DES_PATH ]; 
     then
-        printf "$LIGHT_RED $SRC_PATH folder exist $END"
+        printf "$LIGHT_RED $DES_PATH folder exist $END"
     else
-        echo " $SRC_PATH folder doesn't exist"
+        echo " $DES_PATH folder doesn't exist"
         return
     fi
 
     printf "$LIGHT_GREEN Moving video files type : mkv, mov, mp4, avi to the folder V $END \n" 
-    find . -maxdepth 1 -type f -name "*.mp4" -exec mv {} ./v/ \;
-    find . -maxdepth 1 -type f -name "*.mov" -exec mv {} ./v/ \;
-    find . -maxdepth 1 -type f -name "*.mkv" -exec mv {} ./v/ \;
-    find . -maxdepth 1 -type f -name "*.avi" -exec mv {} ./v/ \;
+    find . -maxdepth 2 -type f -name "*.mp4" -exec mv {} $DES_PATH \;
+    find . -maxdepth 2 -type f -name "*.mov" -exec mv {} $DES_PATH \;
+    find . -maxdepth 2 -type f -name "*.mkv" -exec mv {} $DES_PATH \;
+    find . -maxdepth 2 -type f -name "*.avi" -exec mv {} $DES_PATH \;
+    find . -maxdepth 2 -type f -name "*.ts" -exec mv {} $DES_PATH \;
 }
 
 
@@ -319,6 +321,9 @@ function aex(){
     elif [ "$1" == "h" ] ;
     then
         PASS=hkmmopqqo-eyny
+    elif [ "$1" == "9" ] ;
+    then
+        PASS=9527
     else
         PASS=$1
     fi
@@ -326,16 +331,58 @@ function aex(){
     printf "$LIGHT_GREEN  Advance Extracting Rar files with the Password = $PASS $END \n"
 
     find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+
+
+    if [ "$2" == "s" ] ;
+    then
+        python $OFTENUSED_PATH/Notification/notify.py
+    else
+        osascript -e 'tell application "Terminal" to display alert "script done!"'
+    fi
+
+}
+
+function afc2(){
+    cd ~/Downloads/
+
+    FILENAME=~/Downloads/temp.txt
+    PASSSTR=taiwan88251分享於伊莉論壇fc2ppv-
+
+    find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' > $FILENAME
+
+
+    while read line; do unrar x -p$PASSSTR$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
+
+    osascript -e 'tell application "Terminal" to display alert "script done!"'
+}
+
+
+# New Year Folders
+function nyf(){
+    YEAR=2023
+    cd /Volumes/My\ Book\ Studio/Data/MyDoc/Robert.Lo/Robert\ Personal\ Stuff/Personal\ Bills/
+
+    printf "$LIGHT_PURPLE  New Year Folders Creating on $YEAR \n $END"
+
+
+    if [ -d Network/$YEAR ]; 
+    then
+        printf "$LIGHT_RED Network/$YEAR folder exist \n $END"
+    else
+        printf "$LIGHT_GREEN Creating New Year Folders on $YEAR \n $END"
+        # echo " Network/$YEAR folder doesn't exist "
+        mkdir -p Network/$YEAR/01 Network/$YEAR/02 Network/$YEAR/03 Network/$YEAR/04 Network/$YEAR/05 Network/$YEAR/06 Network/$YEAR/07 Network/$YEAR/08 Network/$YEAR/09 Network/$YEAR/10 Network/$YEAR/11 Network/$YEAR/12
+        mkdir -p Water/$YEAR/01 Water/$YEAR/02 Water/$YEAR/03 Water/$YEAR/04 Water/$YEAR/05 Water/$YEAR/06 Water/$YEAR/07 Water/$YEAR/08 Water/$YEAR/09 Water/$YEAR/10 Water/$YEAR/11 Water/$YEAR/12
+        mkdir -p Expenses/$YEAR/01 Expenses/$YEAR/02 Expenses/$YEAR/03 Expenses/$YEAR/04 Expenses/$YEAR/05 Expenses/$YEAR/06 Expenses/$YEAR/07 Expenses/$YEAR/08 Expenses/$YEAR/09 Expenses/$YEAR/10 Expenses/$YEAR/11 Expenses/$YEAR/12
+        mkdir -p Electricity/$YEAR/01 Electricity/$YEAR/02 Electricity/$YEAR/03 Electricity/$YEAR/04 Electricity/$YEAR/05 Electricity/$YEAR/06 Electricity/$YEAR/07 Electricity/$YEAR/08 Electricity/$YEAR/09 Electricity/$YEAR/10 Electricity/$YEAR/11 Electricity/$YEAR/12
+
+    fi
+
+
 }
 
 function aname(){
-    cd ~/Downloads/
-    
-    rename 's/^(.{14}).*(\.mp4)/$1$2/' *.mp4
+        python $OFTENUSED_PATH/Rename/adv_rename.py
 }
-
-
-
-
 
 
