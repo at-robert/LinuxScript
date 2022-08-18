@@ -294,7 +294,11 @@ function cot(){
     source ~/Google\ 雲端硬碟/Work/Python/collect_jira.sh
     scp ~/Downloads/VizioJIRA.txt robert.lo@192.168.12.87:~
     scp ~/Downloads/VizioJIRA.txt robert.lo@192.168.12.87:~/AmTJIRA.txt
-    scp ~/Downloads/VizioJIRA_rearrge.txt robert.lo@192.168.12.87:~/AmtArrg.txt
+
+    cat ~/Downloads/VizioJIRA_rearrge.txt | grep "ASUSPG48UQ" | sed '/Not Gating/d' > ~/Downloads/tmp.txt
+    scp ~/Downloads/tmp.txt robert.lo@192.168.12.87:~/AmtArrg.txt
+    
+    # scp ~/Downloads/VizioJIRA_rearrge.txt robert.lo@192.168.12.87:~/AmtArrg.txt
     cp ~/Downloads/VizioJIRA.txt ~/Downloads/AmTJIRA.txt
 
 }

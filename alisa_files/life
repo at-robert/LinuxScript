@@ -356,6 +356,18 @@ function afc2(){
     osascript -e 'tell application "Terminal" to display alert "script done!"'
 }
 
+function acpy(){
+    if [ "$1" == "" ] ;
+    then
+        echo "First parameter can't be empty"
+        return 
+    else
+        echo "ok"
+    fi
+
+    scp $1 robert.lo@192.168.12.87:~
+}
+
 
 # New Year Folders
 function nyf(){
