@@ -312,6 +312,10 @@ function amv(){
     find . -maxdepth 2 -type f -name "*.mkv" -exec mv {} $DES_PATH \;
     find . -maxdepth 2 -type f -name "*.avi" -exec mv {} $DES_PATH \;
     find . -maxdepth 2 -type f -name "*.ts" -exec mv {} $DES_PATH \;
+    find ~/Downloads/ -maxdepth 1 -type f -name 'FC2*' -exec rm -rf {} \;
+    find ~/Downloads/ -maxdepth 1 -type d -name 'FC2*' -exec rm -rf {} \;
+    find ~/Downloads/ -maxdepth 1 -type f -name 'fc2*' -exec rm -rf {} \;
+    find ~/Downloads/ -maxdepth 1 -type d -name 'fc2*' -exec rm -rf {} \;
 }
 
 
@@ -343,6 +347,7 @@ function aex(){
         osascript -e 'tell application "Terminal" to display alert "script done!"'
     fi
 
+    clear
 }
 
 function afc2(){
@@ -357,6 +362,7 @@ function afc2(){
     while read line; do unrar x -p$PASSSTR$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
 
     osascript -e 'tell application "Terminal" to display alert "script done!"'
+    clear
 }
 
 function acpy(){
