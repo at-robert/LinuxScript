@@ -57,6 +57,9 @@ function gupdate(){
         path=~/Github
     fi
 
+    cd $path/Amt_work_platform
+    printf "$LIGHT_RED Git Pull Amt_work_platform $END \n" 
+    git pull
     cd $path/LinuxScript
     printf "$LIGHT_RED Git Pull LinuxScript $END \n" 
     git pull
