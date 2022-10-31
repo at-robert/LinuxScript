@@ -23,6 +23,10 @@ alias pppoe_off='poff dsl-provider'
 
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
 OFTENUSED_PATH=~/Documents/Github/OftenUsed/
+V_FOLDER_PATH=D:/\work_platform/\v
+USB_FOLDER_PATH=F:/\
+
+DATE=$(date +"%Y%m%d%H%M")
 
 alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
 
@@ -405,5 +409,32 @@ function nyf(){
 function aname(){
         python $OFTENUSED_PATH/Rename/adv_rename.py
 }
+
+function aback(){
+
+    if [ -d $V_FOLDER_PATH ];
+    then
+        printf "$LIGHT_GREEN V Folder = $V_FOLDER_PATH \n $END"
+    else
+        printf "$LIGHT_RED $V_FOLDER_PATH doesn't exist \n $END"
+        return
+    fi
+
+    if [ -d $USB_FOLDER_PATH ];
+    then
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+    else
+        printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
+        return
+    fi
+
+    mkdir $USB_FOLDER_PATH/\v_$DATE
+
+    # echo $DATE
+
+    find $V_FOLDER_PATH -type f -name "*.*" -exec cp -v {} $USB_FOLDER_PATH/\v_$DATE \;
+
+}
+
 
 
