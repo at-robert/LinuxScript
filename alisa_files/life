@@ -28,13 +28,12 @@ OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 # V_FOLDER_PATH=D:/\work_platform/\v
 # USB_FOLDER_PATH=F:/\
 
+USB_FOLDER_PATH=Default
 # Folder setting for V FOLDER
 V_FOLDER_PATH=~/Downloads/v/
 USB_FOLDER_PATH_2T=/Volumes/HDD_2T/
 USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 
-# USB_FOLDER_PATH=/Volumes/HDD_2T/
-# USB_FOLDER_PATH=/Volumes/HDD_4T/
 ALIST_PATH=~/Downloads/temp.txt
 ALIST_PATH_DUP=~/Downloads/dup.txt
 
@@ -444,12 +443,12 @@ function aback(){
 
     if [ -d $USB_FOLDER_PATH_4T ];
     then
-        USB_FOLDER_PATH=/Volumes/HDD_4T/
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
     
     elif [ -d $USB_FOLDER_PATH_2T ] ;
     then
-        USB_FOLDER_PATH=/Volumes/HDD_2T/
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
@@ -469,12 +468,12 @@ function alist(){
 
     if [ -d $USB_FOLDER_PATH_4T ];
     then
-        USB_FOLDER_PATH=/Volumes/HDD_4T/
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
     
     elif [ -d $USB_FOLDER_PATH_2T ] ;
     then
-        USB_FOLDER_PATH=/Volumes/HDD_2T/
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
