@@ -507,4 +507,6 @@ function aremove(){
 
     cat $1 | sed 's/<p><b>/\n/g' | sed 's/<\/b>//g' | sed 's/<\/p>//g'
 
+    printf " \n "
+
 }
