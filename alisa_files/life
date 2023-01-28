@@ -335,6 +335,8 @@ function amv(){
 
 
 function aex(){
+    FILENAME=~/Downloads/temp.txt
+
     cd ~/Downloads/
 
     if [ "$1" == "" ] ;
@@ -346,13 +348,24 @@ function aex(){
     elif [ "$1" == "9" ] ;
     then
         PASS=9527
+    elif [ "$1" == "fc" ];
+    then
+        PASS=taiwan88251分享於伊莉論壇fc2ppv-
     else
         PASS=$1
     fi
 
     printf "$LIGHT_GREEN  Advance Extracting Rar files with the Password = $PASS $END \n"
 
-    find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+
+    if [ "$1" == "fc" ] ;
+    then
+        find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
+        while read line; do unrar x -p$PASS$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
+        while read line; do unrar x -p$PASS$line -y 'fc2ppv_'$line.rar ; done < $FILENAME
+    else
+        find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+    fi
 
 
     if [ "$2" == "s" ] ;
@@ -417,6 +430,7 @@ function nyf(){
         # echo " Network/$YEAR folder doesn't exist "
         mkdir -p Network/$YEAR/01 Network/$YEAR/02 Network/$YEAR/03 Network/$YEAR/04 Network/$YEAR/05 Network/$YEAR/06 Network/$YEAR/07 Network/$YEAR/08 Network/$YEAR/09 Network/$YEAR/10 Network/$YEAR/11 Network/$YEAR/12
         mkdir -p Water/$YEAR/01 Water/$YEAR/02 Water/$YEAR/03 Water/$YEAR/04 Water/$YEAR/05 Water/$YEAR/06 Water/$YEAR/07 Water/$YEAR/08 Water/$YEAR/09 Water/$YEAR/10 Water/$YEAR/11 Water/$YEAR/12
+        mkdir -p Cell_Phone/$YEAR/01 Cell_Phone/$YEAR/02 Cell_Phone/$YEAR/03 Cell_Phone/$YEAR/04 Cell_Phone/$YEAR/05 Cell_Phone/$YEAR/06 Cell_Phone/$YEAR/07 Cell_Phone/$YEAR/08 Cell_Phone/$YEAR/09 Cell_Phone/$YEAR/10 Cell_Phone/$YEAR/11 Cell_Phone/$YEAR/12
         mkdir -p Expenses/$YEAR/01 Expenses/$YEAR/02 Expenses/$YEAR/03 Expenses/$YEAR/04 Expenses/$YEAR/05 Expenses/$YEAR/06 Expenses/$YEAR/07 Expenses/$YEAR/08 Expenses/$YEAR/09 Expenses/$YEAR/10 Expenses/$YEAR/11 Expenses/$YEAR/12
         mkdir -p Electricity/$YEAR/01 Electricity/$YEAR/02 Electricity/$YEAR/03 Electricity/$YEAR/04 Electricity/$YEAR/05 Electricity/$YEAR/06 Electricity/$YEAR/07 Electricity/$YEAR/08 Electricity/$YEAR/09 Electricity/$YEAR/10 Electricity/$YEAR/11 Electricity/$YEAR/12
         mkdir -p Credit/Fubon富邦/$YEAR/01 Credit/Fubon富邦/$YEAR/02 Credit/Fubon富邦/$YEAR/03 Credit/Fubon富邦/$YEAR/04 Credit/Fubon富邦/$YEAR/05 Credit/Fubon富邦/$YEAR/06 Credit/Fubon富邦/$YEAR/07 Credit/Fubon富邦/$YEAR/08 Credit/Fubon富邦/$YEAR/09 Credit/Fubon富邦/$YEAR/10 Credit/Fubon富邦/$YEAR/11 Credit/Fubon富邦/$YEAR/12
