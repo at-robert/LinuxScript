@@ -342,6 +342,8 @@ function aex(){
     if [ "$1" == "" ] ;
     then
         PASS=pennyinlive@eyny
+        printf "$LIGHT_RED -The first parameter should not be empty - $END"
+        return 
     elif [ "$1" == "h" ] ;
     then
         PASS=hkmmopqqo-eyny
@@ -378,28 +380,7 @@ function aex(){
     clear
 }
 
-function afc2(){
-    cd ~/Downloads/
 
-    FILENAME=~/Downloads/temp.txt
-    PASSSTR=taiwan88251分享於伊莉論壇fc2ppv-
-
-    find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
-
-
-    while read line; do unrar x -p$PASSSTR$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
-
-    while read line; do unrar x -p$PASSSTR$line -y 'fc2ppv_'$line.rar ; done < $FILENAME
-
-    if [ "$1" == "s" ] ;
-    then
-        python $OFTENUSED_PATH/Notification/notify.py
-    else
-        osascript -e 'tell application "Terminal" to display alert "script done!"'
-    fi
-
-    clear
-}
 
 function acpy(){
     if [ "$1" == "" ] ;
