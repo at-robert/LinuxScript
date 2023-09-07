@@ -34,6 +34,8 @@ V_FOLDER_PATH=~/Downloads/v/
 USB_FOLDER_PATH_2T=/Volumes/HDD_2T/
 USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 
+USB_FOLDER_PATH_ROB_SANDISK=/Volumes/RobSanDisk
+
 ALIST_PATH=~/Downloads/temp.txt
 ALIST_PATH_DUP=~/Downloads/dup.txt
 
@@ -51,6 +53,10 @@ function chk_srt_order(){
 
 function envy(){
     python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+}
+
+function stock(){
+    python $OFTENUSED_PATH/StockTW/get_divined_date.py
 }
 
 function supdate(){
@@ -424,6 +430,20 @@ function nyf(){
 
 function aname(){
         python $OFTENUSED_PATH/Rename/adv_rename.py
+}
+
+function sdata(){
+
+    if [ -d $USB_FOLDER_PATH_ROB_SANDISK ];
+    then
+        printf "$LIGHT_GREEN SData Folder = $USB_FOLDER_PATH_ROB_SANDISK \n $END"
+        code '/Volumes/RobSanDisk/Data/MyDoc/Robert.Lo/S Data'
+    else
+        printf "$LIGHT_RED SData Folder = My Book Studio \n $END"
+        code '/Volumes/My Book Studio/Data/MyDoc/Robert.Lo/S Data'
+        return
+    fi
+
 }
 
 function aback(){
