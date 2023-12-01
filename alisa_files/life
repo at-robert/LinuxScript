@@ -36,12 +36,12 @@ USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 
 USB_FOLDER_PATH_ROB_SANDISK=/Volumes/RobSanDisk
 
-
 USB_FOLDER_PATH_MyBook="/Volumes/My Book Studio"
-
 
 ALIST_PATH=~/Downloads/temp.txt
 ALIST_PATH_DUP=~/Downloads/dup.txt
+
+SCPF_FODLER_PATH=~/Downloads/scp_folder
 
 DATE=$(date +"%Y%m%d%H%M")
 
@@ -56,7 +56,8 @@ function chk_srt_order(){
 }
 
 function envy(){
-    python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+    # python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+    python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
 function stock(){
@@ -533,3 +534,36 @@ function aremove(){
     printf " \n "
 
 }
+
+function wechats(){
+
+    if [ "$1" == "c" ] ;
+    then
+    killall 企业微信
+    killall WeChat
+    else
+    open -n /Applications/企业微信.app
+    open -n /Applications/WeChat.app
+    fi
+
+    cd $HOME/Google\ 雲端硬碟/Work/Python/
+}
+
+function scpf(){
+
+    if [ -d $SCPF_FODLER_PATH ];
+    then
+        scp -r $SCPF_FODLER_PATH robert.lo@192.168.12.87:~/scp_folder 
+    else
+        printf "SCPF path doesn't exist !!"
+    fi
+}
+
+
+
+
+
+
+
+
+

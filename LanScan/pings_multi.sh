@@ -55,7 +55,7 @@ if [[ ! -z ${IP_START} && ! -z ${IP_END} ]]; then
  
 	for opt in $(seq ${IP_START} ${IP_END})
 	do 
-		if [ ${opt} == '87' ] || [ ${opt} == '113' ] || [ ${opt} == '116' ]; then 
+		if [ ${opt} == '87' ] || [ ${opt} == '116' ]; then 
             ping -c 1 -W 1 ${NETWORK}.${opt} &> /dev/null && result=0 || result=1
     
             if [ "${result}" == 0 ]; then
