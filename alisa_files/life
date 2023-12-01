@@ -30,9 +30,14 @@ OFTENUSED_PATH=~/Documents/Github/OftenUsed/
 
 USB_FOLDER_PATH=Default
 # Folder setting for V FOLDER
+T_PATH=/Volumes/Transcend/
+DOWNLOAD_PATH=~/Downloads/
 V_FOLDER_PATH=~/Downloads/v/
+V_FOLDER_T_PATH=/Volumes/Transcend/v
 USB_FOLDER_PATH_2T=/Volumes/HDD_2T/
 USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
+USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
+
 
 USB_FOLDER_PATH_ROB_SANDISK=/Volumes/RobSanDisk
 
@@ -56,7 +61,8 @@ function chk_srt_order(){
 }
 
 function envy(){
-    python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+    # python $HOME/Google\ 雲端硬碟/Work/Python/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+    pyenv exec python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
 function stock(){
@@ -64,8 +70,11 @@ function stock(){
 }
 
 function supdate(){
-    cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
-    python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
+    # cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
+    # python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
+
+    cd /Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython
+    python3 get_current_year_spend.py
 }
 
 function gupdate(){
@@ -321,8 +330,18 @@ function mount_win_vm_disk(){
 
 # To move video files to a certain folder V
 function amv(){
-    cd ~/Downloads/
-    DES_PATH=~/Downloads/v/
+    
+    if [ -d $T_PATH ];
+    then
+        DES_PATH=$V_FOLDER_T_PATH
+        DOWNLOAD_PATH=$T_PATH
+    else
+        DES_PATH=~/Downloads/v/
+        DOWNLOAD_PATH=~/Downloads/
+    fi
+
+    cd $DOWNLOAD_PATH
+
     if [ -d $DES_PATH ]; 
     then
         printf "$LIGHT_RED $DES_PATH folder exist $END"
@@ -337,17 +356,24 @@ function amv(){
     find . -maxdepth 2 -type f -name "*.mkv" -exec mv {} $DES_PATH \;
     find . -maxdepth 2 -type f -name "*.avi" -exec mv {} $DES_PATH \;
     find . -maxdepth 2 -type f -name "*.ts" -exec mv {} $DES_PATH \;
-    find ~/Downloads/ -maxdepth 1 -type f -name 'FC2*' -exec rm -rf {} \;
-    find ~/Downloads/ -maxdepth 1 -type d -name 'FC2*' -exec rm -rf {} \;
-    find ~/Downloads/ -maxdepth 1 -type f -name 'fc2*' -exec rm -rf {} \;
-    find ~/Downloads/ -maxdepth 1 -type d -name 'fc2*' -exec rm -rf {} \;
+
+    find $DOWNLOAD_PATH -maxdepth 1 -type f -name 'FC2*' -exec rm -rf {} \;
+    find $DOWNLOAD_PATH -maxdepth 1 -type d -name 'FC2*' -exec rm -rf {} \;
+    find $DOWNLOAD_PATH -maxdepth 1 -type f -name 'fc2*' -exec rm -rf {} \;
+    find $DOWNLOAD_PATH -maxdepth 1 -type d -name 'fc2*' -exec rm -rf {} \;
 }
 
 
 function aex(){
     FILENAME=~/Downloads/temp.txt
 
-    cd ~/Downloads/
+    if [ -d $T_PATH ];
+    then
+        cd $T_PATH
+    else
+        cd ~/Downloads/
+    fi
+
 
     if [ "$1" == "" ] ;
     then
@@ -464,7 +490,13 @@ function aback(){
         return
     fi
 
-    if [ -d $USB_FOLDER_PATH_4T ];
+
+    if [ -d $USB_FOLDER_PATH_8T ];
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_8T
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+    
+    elif [ -d $USB_FOLDER_PATH_4T ];
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_4T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
@@ -482,14 +514,25 @@ function aback(){
 
     # echo $DATE
 
-    find $V_FOLDER_PATH -type f -name "*.*" -exec cp -v {} $USB_FOLDER_PATH/\v_$DATE \;
+    if [ -d $V_FOLDER_T_PATH ];
+    then
+        find $V_FOLDER_T_PATH -type f -name "*.*" -exec cp -v {} $USB_FOLDER_PATH/\v_$DATE \;
+    else
+        find $V_FOLDER_PATH -type f -name "*.*" -exec cp -v {} $USB_FOLDER_PATH/\v_$DATE \;
+    fi
 
 }
 
 
 function alist(){
 
-    if [ -d $USB_FOLDER_PATH_4T ];
+
+    if [ -d $USB_FOLDER_PATH_8T ];
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_8T
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
+    elif [ -d $USB_FOLDER_PATH_4T ];
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_4T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
