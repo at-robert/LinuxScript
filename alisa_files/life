@@ -583,14 +583,14 @@ function wechats(){
 
     if [ "$1" == "c" ] ;
     then
-    killall 企业微信
-    killall WeChat
+        killall 企业微信
+        killall WeChat
     else
-    open -n /Applications/企业微信.app
-    open -n /Applications/WeChat.app
+        open -n /Applications/企业微信.app
+        open -n /Applications/WeChat.app
     fi
 
-    cd $HOME/Google\ 雲端硬碟/Work/Python/
+    # cd $HOME/Google\ 雲端硬碟/Work/Python/
 }
 
 function scpf(){
@@ -604,7 +604,10 @@ function scpf(){
 }
 
 
-
+function collect_jira(){
+    python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_2020_analyzer.py > ~/Downloads/AmTRAN_JIRA.txt
+    cat ~/Downloads/AmTRAN_JIRA.txt | grep "JIRA Statistics" | sed 's/.*\[JIRA Statistics\]//g'
+}
 
 
 
