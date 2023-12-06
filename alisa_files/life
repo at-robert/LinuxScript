@@ -427,8 +427,7 @@ function nyf(){
         mkdir -p Electricity/$YEAR/01 Electricity/$YEAR/02 Electricity/$YEAR/03 Electricity/$YEAR/04 Electricity/$YEAR/05 Electricity/$YEAR/06 Electricity/$YEAR/07 Electricity/$YEAR/08 Electricity/$YEAR/09 Electricity/$YEAR/10 Electricity/$YEAR/11 Electricity/$YEAR/12
         mkdir -p Credit/Fubon富邦/$YEAR/01 Credit/Fubon富邦/$YEAR/02 Credit/Fubon富邦/$YEAR/03 Credit/Fubon富邦/$YEAR/04 Credit/Fubon富邦/$YEAR/05 Credit/Fubon富邦/$YEAR/06 Credit/Fubon富邦/$YEAR/07 Credit/Fubon富邦/$YEAR/08 Credit/Fubon富邦/$YEAR/09 Credit/Fubon富邦/$YEAR/10 Credit/Fubon富邦/$YEAR/11 Credit/Fubon富邦/$YEAR/12
         mkdir -p Credit/ChinaTrust中信/$YEAR/01 Credit/ChinaTrust中信/$YEAR/02 Credit/ChinaTrust中信/$YEAR/03 Credit/ChinaTrust中信/$YEAR/04 Credit/ChinaTrust中信/$YEAR/05 Credit/ChinaTrust中信/$YEAR/06 Credit/ChinaTrust中信/$YEAR/07 Credit/ChinaTrust中信/$YEAR/08 Credit/ChinaTrust中信/$YEAR/09 Credit/ChinaTrust中信/$YEAR/10 Credit/ChinaTrust中信/$YEAR/11 Credit/ChinaTrust中信/$YEAR/12
-        mkdir -p Credit/CityGroup花旗/$YEAR/01 Credit/CityGroup花旗/$YEAR/02 Credit/CityGroup花旗/$YEAR/03 Credit/CityGroup花旗/$YEAR/04 Credit/CityGroup花旗/$YEAR/05 Credit/CityGroup花旗/$YEAR/06 Credit/CityGroup花旗/$YEAR/07 Credit/CityGroup花旗/$YEAR/08 Credit/CityGroup花旗/$YEAR/09 Credit/CityGroup花旗/$YEAR/10 Credit/CityGroup花旗/$YEAR/11 Credit/CityGroup花旗/$YEAR/12
-
+        mkdir -p Credit/Rakuten樂天/$YEAR/01 Credit/Rakuten樂天/$YEAR/02 Credit/Rakuten樂天/$YEAR/03 Credit/Rakuten樂天/$YEAR/04 Credit/Rakuten樂天/$YEAR/05 Credit/Rakuten樂天/$YEAR/06 Credit/Rakuten樂天/$YEAR/07 Credit/Rakuten樂天/$YEAR/08 Credit/Rakuten樂天/$YEAR/09 Credit/Rakuten樂天/$YEAR/10 Credit/Rakuten樂天/$YEAR/11 Credit/Rakuten樂天/$YEAR/12
     fi
 
 }
@@ -539,11 +538,11 @@ function wechats(){
 
     if [ "$1" == "c" ] ;
     then
-    killall 企业微信
-    killall WeChat
+        killall 企业微信
+        killall WeChat
     else
-    open -n /Applications/企业微信.app
-    open -n /Applications/WeChat.app
+        open -n /Applications/企业微信.app
+        open -n /Applications/WeChat.app
     fi
 
     cd $HOME/Google\ 雲端硬碟/Work/Python/
