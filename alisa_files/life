@@ -435,7 +435,7 @@ function acpy(){
 
 # New Year Folders
 function nyf(){
-    YEAR=2024
+    YEAR=2025
     cd /Volumes/My\ Book\ Studio/Data/MyDoc/Robert.Lo/Robert\ Personal\ Stuff/Personal\ Bills/
 
     printf "$LIGHT_PURPLE  New Year Folders Creating on $YEAR \n $END"
