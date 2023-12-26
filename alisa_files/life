@@ -72,11 +72,17 @@ function stock(){
 }
 
 function supdate(){
-    # cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
-    # python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
+    echo " The current hot word env = $HOTWORD_ENV"
 
-    cd /Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython
-    python3 get_current_year_spend.py
+    if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
+        echo "This hot function would be working on Mac book pro"
+        cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
+        python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
+    else
+        cd /Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython
+        python3 get_current_year_spend.py
+    fi
+
 }
 
 function gupdate(){
