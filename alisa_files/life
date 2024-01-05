@@ -68,7 +68,12 @@ function envy(){
 }
 
 function stock(){
-    python $OFTENUSED_PATH/StockTW/get_divined_date.py
+
+    if [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
+        python3 $OFTENUSED_PATH/StockTW/get_divined_date.py
+    else
+        python $OFTENUSED_PATH/StockTW/get_divined_date.py
+    fi
 }
 
 function supdate(){
@@ -92,6 +97,9 @@ function gupdate(){
         echo "This hot function would be working on Mac book pro"
         path=~/Documents/Github
     elif [[ $HOTWORD_ENV == 'IMAC_5K' ]]; then
+        echo "This hot function would be working on IMac 5K"
+        path=~/Documents/Github
+    elif [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
         echo "This hot function would be working on IMac 5K"
         path=~/Documents/Github
     else
