@@ -622,7 +622,7 @@ function scpf(){
 
     if [ -d $SCPF_FODLER_PATH ];
     then
-        scp -r $SCPF_FODLER_PATH robert.lo@192.168.12.87:~/scp_folder 
+        scp -r $SCPF_FODLER_PATH robert.lo@192.168.12.5:~/scp_folder 
     else
         printf "SCPF path doesn't exist !!"
     fi
@@ -634,6 +634,12 @@ function collect_jira(){
     cat ~/Downloads/AmTRAN_JIRA.txt | grep "JIRA Statistics" | sed 's/.*\[JIRA Statistics\]//g'
 }
 
+function covert_jira_csv(){
+
+    mv ~/Downloads/Amtran.csv ~/Documents/Github/Amt_work_platform/Jira/
+    cd ~/Documents/Github/Amt_work_platform/Jira/
+    python jira_to_csv.py
+}
 
 
 
