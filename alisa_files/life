@@ -631,7 +631,16 @@ function scpf(){
 
 function collect_jira(){
     python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_2020_analyzer.py > ~/Downloads/AmTRAN_JIRA.txt
+    TIMESTAMP=$(date "+%Y/%m/%d - %H:%M:%S")
+
+    echo "Time Stamp : $TIMESTAMP"
     cat ~/Downloads/AmTRAN_JIRA.txt | grep "JIRA Statistics" | sed 's/.*\[JIRA Statistics\]//g'
+    echo " "
+    echo "Opening Issues"
+    cat ~/Downloads/AmTRAN_JIRA.txt | grep "Opening Issues" | sed 's/.*\[Opening Issues\]//g'
+    echo " "
+    echo "Resolved Issues"
+    cat ~/Downloads/AmTRAN_JIRA.txt | grep "Resolved Issues" | sed 's/.*\[Resolved Issues\]//g'
 }
 
 function covert_jira_csv(){
