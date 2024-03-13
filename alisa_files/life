@@ -402,9 +402,16 @@ function aex(){
     elif [ "$1" == "9" ] ;
     then
         PASS=9527
+    elif [ "$1" == "a" ] ;
+    then
+        PASS=andy741026分享於伊莉論壇
     elif [ "$1" == "fc" ];
     then
         PASS=taiwan88251分享於伊莉論壇fc2ppv-
+    elif [ "$1" == "fc1" ];
+    then
+        PASS=taiwan88251分享fc2ppv-
+        TAIL=於伊莉論壇
     else
         PASS=$1
     fi
@@ -417,6 +424,11 @@ function aex(){
         find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
         while read line; do unrar x -p$PASS$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
         while read line; do unrar x -p$PASS$line -y 'fc2ppv_'$line.rar ; done < $FILENAME
+    elif [ "$1" == "fc1" ] ;
+    then
+        find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
+        while read line; do unrar x -p$PASS$line$TAIL -y 'FC2PPV-'$line.rar ; done < $FILENAME
+        while read line; do unrar x -p$PASS$line$TAIL -y 'fc2ppv_'$line.rar ; done < $FILENAME
     else
         find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
     fi
