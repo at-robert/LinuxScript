@@ -47,6 +47,7 @@ USB_FOLDER_PATH_MyBook="/Volumes/My Book Studio"
 
 ALIST_PATH=~/Downloads/temp.txt
 ALIST_PATH_DUP=~/Downloads/dup.txt
+ALIST_PATH_DUP_OUT=~/Downloads/dup_out.txt
 
 SCPF_FODLER_PATH=~/Downloads/scp_folder
 
@@ -583,6 +584,14 @@ function alist(){
     sort $ALIST_PATH | uniq -d > $ALIST_PATH_DUP
 
     echo $ALIST_PATH_DUP
+
+    echo " " > $ALIST_PATH_DUP_OUT
+
+    while read line; do
+        # Do what you want to $name
+        find . -type f -name $line >> $ALIST_PATH_DUP_OUT
+    done < $ALIST_PATH_DUP
+    cat $ALIST_PATH_DUP_OUT
 }
 
 
