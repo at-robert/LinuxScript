@@ -407,7 +407,7 @@ function aex(){
         PASS=andy741026分享於伊莉論壇
     elif [ "$1" == "fc" ];
     then
-        PASS=taiwan88251分享於伊莉論壇fc2ppv-
+        PASS=taiwan88251分享於伊莉論壇FC2PPV-
     elif [ "$1" == "fc1" ];
     then
         PASS=taiwan88251分享fc2ppv-
@@ -650,7 +650,10 @@ function covert_jira_csv(){
     python jira_to_csv.py
 }
 
-
+function covert_jira_ppt(){
+    cd ~/Documents/Github/Amt_work_platform/Jira/
+    python jira_to_ppt.py
+}
 
 
 
