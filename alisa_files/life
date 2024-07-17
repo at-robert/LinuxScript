@@ -406,6 +406,9 @@ function aex(){
     elif [ "$1" == "a" ] ;
     then
         PASS=andy741026分享於伊莉論壇
+    elif [ "$1" == "m" ] ;
+    then
+        PASS=mpoop@eyny
     elif [ "$1" == "fc" ];
     then
         PASS=taiwan88251分享於伊莉論壇FC2PPV-
@@ -662,6 +665,38 @@ function covert_jira_csv(){
 function covert_jira_ppt(){
     cd ~/Documents/Github/Amt_work_platform/Jira/
     python jira_to_ppt.py
+}
+
+function aeven(){
+    if [ "$1" == "" ] ;
+    then 
+        echo " parameter can't be empty "
+        return
+    fi
+
+    # Get the filename from the arguments
+    filename="$1"
+
+    # Check if the file exists
+    if [ ! -f "$filename" ]; then
+      echo "File not found!"
+      exit 1
+    fi
+
+    # Create a temporary file to store the result
+    tempfile=$(mktemp)
+
+    # Remove even-numbered lines and save the result in the temporary file
+    awk 'NR % 2 == 1' "$filename" > "$tempfile"
+
+    # Remove empty lines from the temporary file and save the result back to the original file
+    grep -v '^\s*$' "$tempfile" > "$filename"
+
+    # Remove the temporary file
+    rm "$tempfile"
+
+    echo "Even lines and empty lines have been removed from $filename"
+
 }
 
 
