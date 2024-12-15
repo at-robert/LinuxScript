@@ -247,6 +247,15 @@ function amk(){
         mkdir -p $2/SCH/EVT $2/SCH/DVT $2/SCH/PVT $2/SCH/PMP
         mkdir -p $2/EDID/EVT $2/EDID/DVT $2/EDID/PVT $2/EDID/PMP
         mkdir -p $2/DATA_SHEET/Panel $2/DATA_SHEET/SOC $2/DATA_SHEET/Amp
+    elif [ "$1" == "trip" ] && [ "$2" == "" ] ;
+    then
+        echo " second parameter can't be empty"
+        return
+    elif [ "$1" == "trip" ] && [ "$2" != "" ] ;
+    then
+        echo " Making Project Folder = $2"
+        mkdir $2
+        mkdir -p $2/機票 $2/機場接送 $2/餐廳 $2/E_Flight_tickets $2/Hotel $2/Insurance
     else
         mkdir $(printf "$STR%02i " $(seq 1 $NUM))
     fi
