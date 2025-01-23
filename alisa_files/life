@@ -50,6 +50,7 @@ ALIST_PATH_DUP=~/Downloads/dup.txt
 ALIST_PATH_DUP_OUT=~/Downloads/dup_out.txt
 
 SCPF_FODLER_PATH=~/Downloads/scp_folder
+LOCAL_SERVER=robert.lo@192.168.13.9
 
 DATE=$(date +"%Y%m%d%H%M")
 
@@ -641,11 +642,11 @@ function wechats(){
 
 function scpf(){
 
-    if [ -d $SCPF_FODLER_PATH ];
+    if [ "$1" == "r" ];
     then
-        scp -r $SCPF_FODLER_PATH robert.lo@192.168.12.5:~/scp_folder 
+        scp -r $LOCAL_SERVER:~/scp_folder/* $SCPF_FODLER_PATH/
     else
-        printf "SCPF path doesn't exist !!"
+        scp -r $SCPF_FODLER_PATH/* $LOCAL_SERVER:~/scp_folder
     fi
 }
 
