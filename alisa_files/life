@@ -64,8 +64,7 @@ function chk_srt_order(){
 }
 
 function envy(){
-    #python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
-    pyenv exec python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
+    python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
 function stock(){
@@ -83,10 +82,9 @@ function supdate(){
     if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
         echo "This hot function would be working on Mac book pro"
         cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
-        python $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/get_current_year_spend.py
     else
-        cd /Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython
-        python3 get_current_year_spend.py
+        cd $HOME/Downloads/GoogleSheetPython/
+        python $HOME/Downloads/GoogleSheetPython/get_current_year_spend.py
     fi
 
 }
@@ -129,15 +127,15 @@ function gupdate(){
     cd $path/Arduino
     printf "$LIGHT_BLUE Git Pull Arduino $END \n"
     git pull
-    cd $path/Plotly-Dashboards-with-Dash
-    printf "$LIGHT_RED Git Pull Plotly and Dashboards $END \n"
-    git pull
-    cd $path/GolangExercise
-    printf "$LIGHT_GREEN Git Golang Exercise $END \n"
-    git pull
-    cd $path/GoogleAssistIOT
-    printf "$LIGHT_CYAN Git GoogleAssistIOT $END \n"
-    git pull
+    # cd $path/Plotly-Dashboards-with-Dash
+    # printf "$LIGHT_RED Git Pull Plotly and Dashboards $END \n"
+    # git pull
+    # cd $path/GolangExercise
+    # printf "$LIGHT_GREEN Git Golang Exercise $END \n"
+    # git pull
+    # cd $path/GoogleAssistIOT
+    # printf "$LIGHT_CYAN Git GoogleAssistIOT $END \n"
+    # git pull
 
     cd $path
 }
@@ -474,7 +472,7 @@ function acpy(){
 
 # New Year Folders
 function nyf(){
-    YEAR=2025
+    YEAR=2026
     cd /Volumes/My\ Book\ Studio/Data/MyDoc/Robert.Lo/Robert\ Personal\ Stuff/Personal\ Bills/
 
     printf "$LIGHT_PURPLE  New Year Folders Creating on $YEAR \n $END"
@@ -489,6 +487,7 @@ function nyf(){
         mkdir -p Network/$YEAR/01 Network/$YEAR/02 Network/$YEAR/03 Network/$YEAR/04 Network/$YEAR/05 Network/$YEAR/06 Network/$YEAR/07 Network/$YEAR/08 Network/$YEAR/09 Network/$YEAR/10 Network/$YEAR/11 Network/$YEAR/12
         mkdir -p Water/$YEAR/01 Water/$YEAR/02 Water/$YEAR/03 Water/$YEAR/04 Water/$YEAR/05 Water/$YEAR/06 Water/$YEAR/07 Water/$YEAR/08 Water/$YEAR/09 Water/$YEAR/10 Water/$YEAR/11 Water/$YEAR/12
         mkdir -p Cell_Phone/$YEAR/01 Cell_Phone/$YEAR/02 Cell_Phone/$YEAR/03 Cell_Phone/$YEAR/04 Cell_Phone/$YEAR/05 Cell_Phone/$YEAR/06 Cell_Phone/$YEAR/07 Cell_Phone/$YEAR/08 Cell_Phone/$YEAR/09 Cell_Phone/$YEAR/10 Cell_Phone/$YEAR/11 Cell_Phone/$YEAR/12
+        mkdir -p Gas/$YEAR/01 Gas/$YEAR/02 Gas/$YEAR/03 Gas/$YEAR/04 Gas/$YEAR/05 Gas/$YEAR/06 Gas/$YEAR/07 Gas/$YEAR/08 Gas/$YEAR/09 Gas/$YEAR/10 Gas/$YEAR/11 Gas/$YEAR/12
         mkdir -p Expenses/$YEAR/01 Expenses/$YEAR/02 Expenses/$YEAR/03 Expenses/$YEAR/04 Expenses/$YEAR/05 Expenses/$YEAR/06 Expenses/$YEAR/07 Expenses/$YEAR/08 Expenses/$YEAR/09 Expenses/$YEAR/10 Expenses/$YEAR/11 Expenses/$YEAR/12
         mkdir -p Electricity/$YEAR/01 Electricity/$YEAR/02 Electricity/$YEAR/03 Electricity/$YEAR/04 Electricity/$YEAR/05 Electricity/$YEAR/06 Electricity/$YEAR/07 Electricity/$YEAR/08 Electricity/$YEAR/09 Electricity/$YEAR/10 Electricity/$YEAR/11 Electricity/$YEAR/12
         mkdir -p Credit/Fubon富邦/$YEAR/01 Credit/Fubon富邦/$YEAR/02 Credit/Fubon富邦/$YEAR/03 Credit/Fubon富邦/$YEAR/04 Credit/Fubon富邦/$YEAR/05 Credit/Fubon富邦/$YEAR/06 Credit/Fubon富邦/$YEAR/07 Credit/Fubon富邦/$YEAR/08 Credit/Fubon富邦/$YEAR/09 Credit/Fubon富邦/$YEAR/10 Credit/Fubon富邦/$YEAR/11 Credit/Fubon富邦/$YEAR/12
