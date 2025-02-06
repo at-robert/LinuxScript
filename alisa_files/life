@@ -49,6 +49,9 @@ ALIST_PATH=~/Downloads/temp.txt
 ALIST_PATH_DUP=~/Downloads/dup.txt
 ALIST_PATH_DUP_OUT=~/Downloads/dup_out.txt
 
+AMT_JIRA_FILE=~/Downloads/AmTRAN_JIRA.txt
+TELLY_JIRA_FILE=~/Downloads/Telly_Jira.txt
+
 SCPF_FODLER_PATH=~/Downloads/scp_folder
 LOCAL_SERVER=robert.lo@192.168.13.9
 
@@ -651,17 +654,26 @@ function scpf(){
 
 
 function collect_jira(){
-    python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_2020_analyzer.py > ~/Downloads/AmTRAN_JIRA.txt
+
+    if [ "$1" == "t" ];
+    then
+        python3 ~/Documents/Github/Amt_work_platform/Jira/jira_2025_analyzer_for_telly.py > $TELLY_JIRA_FILE
+        JIRA_FILE=$TELLY_JIRA_FILE
+    else
+        python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_2020_analyzer.py > $AMT_JIRA_FILE
+        JIRA_FILE=$AMT_JIRA_FILE
+    fi
+
     TIMESTAMP=$(date "+%Y/%m/%d - %H:%M:%S")
 
     echo "Time Stamp : $TIMESTAMP"
-    cat ~/Downloads/AmTRAN_JIRA.txt | grep "JIRA Statistics" | sed 's/.*\[JIRA Statistics\]//g'
+    cat $JIRA_FILE | grep "JIRA Statistics" | sed 's/.*\[JIRA Statistics\]//g'
     echo " "
     echo "Opening Issues"
-    cat ~/Downloads/AmTRAN_JIRA.txt | grep "Opening Issues" | sed 's/.*\[Opening Issues\]//g'
+    cat $JIRA_FILE | grep "Opening Issues" | sed 's/.*\[Opening Issues\]//g'
     echo " "
     echo "Resolved Issues"
-    cat ~/Downloads/AmTRAN_JIRA.txt | grep "Resolved Issues" | sed 's/.*\[Resolved Issues\]//g'
+    cat $JIRA_FILE | grep "Resolved Issues" | sed 's/.*\[Resolved Issues\]//g'
 }
 
 function covert_jira_csv(){
