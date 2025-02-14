@@ -86,11 +86,16 @@ function supdate(){
     if [ $HOTWORD_ENV == 'MACB_PRO' ]; then
         echo "This hot function would be working on Mac book pro"
         cd $HOME/Google\ 雲端硬碟/Work/Python/GoogleSheetPython/
-    else
+
+    elif [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
+        echo "This hot function would be working on Mac Mini M2"
         cd $HOME/Downloads/GoogleSheetPython/
-        python $HOME/Downloads/GoogleSheetPython/get_current_year_spend.py
+    else
+        echo "This Hot word can't be found!!"
+        cd $HOME/Downloads/GoogleSheetPython/
     fi
 
+    python get_current_year_spend.py
 }
 
 function gupdate(){
