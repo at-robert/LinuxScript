@@ -56,6 +56,8 @@ MACMINI_CERT="/Users/kuochihlo/Documents/CERT/"
 APPLE_1T_DRIVE="/Volumes/Apple_1T/Data/MyDoc/"
 APPLE_1T_CERT="/Volumes/Apple_1T/CERT/"
 
+LOCAL_GOOGLE="/Users/kuochihlo/Downloads/GoogleSheetPython/"
+CLOUD_GOOGLE="/Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython/"
 
 
 ALIST_PATH=~/Downloads/temp.txt
@@ -71,6 +73,8 @@ LOCAL_SERVER=robert.lo@192.168.13.9
 DATE=$(date +"%Y%m%d%H%M")
 
 alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
+
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
 function dayoff(){
     python $OFTENUSED_PATH/Dayoff/fw5_day_off.py
@@ -109,6 +113,11 @@ function supdate(){
     fi
 
     python get_current_year_spend.py
+
+    if [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
+        echo "This hot function would be working on Mac Mini M2"
+        rsync -av --update -P --log-file=sync_A_to_B.log "$LOCAL_GOOGLE" "$CLOUD_GOOGLE"
+    fi
 }
 
 function gupdate(){
@@ -760,6 +769,46 @@ function backsync(){
     else
         printf "All Backup Disks are Not detected !! \n $END"
     fi
+
+}
+
+function find_similar(){
+
+
+    # 設定目標目錄為當前工作目錄
+    TARGET_DIR="$(pwd)"
+
+    # 建立一個臨時檔案來存儲結果
+    TMP_FILE=$(mktemp)
+
+    # 使用 find 找出所有檔案並處理
+    find "$TARGET_DIR" -type f | while read -r file; do
+        filename=$(basename "$file")
+        ext="${filename##*.}"  # 取得副檔名
+        key=$(echo "$filename" | grep -o '[0-9]\+' | tr -d '\n')  # 取得數字部分
+        
+        if [[ -n "$key" && "$filename" != "$ext" ]]; then
+            echo "$key.$ext $file" >> "$TMP_FILE"
+        fi
+    done
+
+    # 依照數字+副檔名分組，計算每組的檔案數量
+    sort -k1,1 "$TMP_FILE" | awk '
+    {
+        count[$1]++
+        files[$1] = files[$1] "\n  " $2
+    }
+    END {
+        for (key in count) {
+            if (count[key] > 1) {
+                print "Group " key ":" files[key] "\n"
+            }
+        }
+    }'
+
+    # 清除暫存檔案
+    rm "$TMP_FILE"
+
 
 }
 
