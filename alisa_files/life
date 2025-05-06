@@ -752,19 +752,19 @@ function backsync(){
     if [ -d "$WORK_BACK_DRIVE" ] && [ -d "$MYBOOKSTUDIO_WORK" ];
     then
         printf "$LIGHT_GREEN From $WORK_BACK_DRIVE to $MYBOOKSTUDIO_WORK !! \n $END"
-        rsync -av --update -P --log-file=sync_A_to_B.log "$WORK_BACK_DRIVE" "$MYBOOKSTUDIO_WORK"
+        rsync -av --update --delete -P --log-file=sync_A_to_B.log "$WORK_BACK_DRIVE" "$MYBOOKSTUDIO_WORK"
 
     elif [ -d "$SANDISK_DRIVE" ] && [ -d "$MYBOOKSTUDIO_LIFE" ];
     then 
         printf "$LIGHT_GREEN From $MYBOOKSTUDIO_LIFE to $SANDISK_DRIVE !! \n $END"
-        rsync -av --update -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$SANDISK_DRIVE"
-        rsync -av --update -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$SANDISK_CERT"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$SANDISK_DRIVE"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$SANDISK_CERT"
 
     elif [ -d "$APPLE_1T_DRIVE" ] && [ -d "$MYBOOKSTUDIO_LIFE" ];
     then 
         printf "$LIGHT_GREEN From $MYBOOKSTUDIO_LIFE to $APPLE_1T_DRIVE !! \n $END"
-        rsync -av --update -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$APPLE_1T_DRIVE"
-        rsync -av --update -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$APPLE_1T_CERT"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$APPLE_1T_DRIVE"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$APPLE_1T_CERT"
 
     else
         printf "All Backup Disks are Not detected !! \n $END"
@@ -812,9 +812,20 @@ function find_similar(){
 
 }
 
+function avsync(){
+    # 指定第一層資料夾的路徑，預設為當前資料夾
+    top_dir="."
+
+    # 找出所有第二層資料夾中的 .mp4 檔案並移動到第一層
+    find "$top_dir" -mindepth 2 -maxdepth 2 -type f -name "*.mp4" -exec mv {} "$top_dir" \;
+
+    echo "所有第二層資料夾中的 .mp4 檔案已移動到 $top_dir"
+}
 
 
-
+function sysinfo(){
+    open -a "system information"
+}
 
 
 
