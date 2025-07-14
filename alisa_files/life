@@ -37,6 +37,10 @@ V_FOLDER_T_PATH=/Volumes/Transcend/v
 USB_FOLDER_PATH_2T=/Volumes/HDD_2T/
 USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
+USB_FOLDER_PATH_2T_V2=/Volumes/HDD_2TB_V2/
+
+MEGA_CERT_FILE=~/Documents/CERT/auth_mega
+
 
 
 USB_FOLDER_PATH_ROB_SANDISK=/Volumes/RobSanDisk
@@ -117,6 +121,7 @@ function supdate(){
     if [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
         echo "This hot function would be working on Mac Mini M2"
         rsync -av --update -P --log-file=sync_A_to_B.log "$LOCAL_GOOGLE" "$CLOUD_GOOGLE"
+        conda activate supdate
     fi
 }
 
@@ -454,6 +459,9 @@ function aex(){
     then
         PASS=taiwan88251分享fc2ppv-
         TAIL=於伊莉論壇
+    elif [ "$1" == "g" ];
+    then
+        PASS=graypanther_by_eyny_hungya
     else
         PASS=$1
     fi
@@ -575,6 +583,12 @@ function aback(){
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_2T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
+    elif [ -d $USB_FOLDER_PATH_2T_V2 ] ;
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T_V2
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
         return
@@ -611,6 +625,12 @@ function alist(){
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_2T
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
+    elif [ -d $USB_FOLDER_PATH_2T_V2 ] ;
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T_V2
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+        
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
         return
@@ -827,6 +847,34 @@ function sysinfo(){
     open -a "system information"
 }
 
+
+function mega-start(){
+    # 設定檔案路徑
+    file_path=$MEGA_CERT_FILE
+
+    # 讀取檔案的前兩列，分別存入變數
+    read -r account < "$file_path"
+    read -r pass < <(sed -n '2p' "$file_path")
+
+    # 輸出變數內容
+    echo "account = $account , pass = $pass"
+
+    if [ "$1" == "x" ];
+    then
+        mega-logout
+        > ~/.megaCmd/megacmdserver.log
+    else
+        export PATH=/Applications/MEGAcmd.app/Contents/MacOS:$PATH
+        source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
+        cd $T_PATH
+        mega-login $account $pass
+    fi
+}
+
+function mge(){
+    mega-logout
+    > ~/.megaCmd/megacmdserver.log
+}
 
 function chk_hr(){
     python $OFTENUSED_PATH/GoogleDrive/get_sheet_to_excel.py
