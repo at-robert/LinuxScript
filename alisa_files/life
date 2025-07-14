@@ -828,6 +828,11 @@ function sysinfo(){
 }
 
 
-
-
+function chk_hr(){
+    python $OFTENUSED_PATH/GoogleDrive/get_sheet_to_excel.py
+    python $OFTENUSED_PATH/SRT_Check/check_ch_str.py '/Users/kuochihlo/Downloads/2025 FW_HR_List.xlsx' > '/Users/kuochihlo/Downloads/comp2.txt'
+    diff -w '/Users/kuochihlo/Downloads/comp1.txt' '/Users/kuochihlo/Downloads/comp2.txt'
+    cat '/Users/kuochihlo/Downloads/comp2.txt' > '/Users/kuochihlo/Downloads/comp1.txt'
+    echo "" > '/Users/kuochihlo/Downloads/comp2.txt'        
+}
 
