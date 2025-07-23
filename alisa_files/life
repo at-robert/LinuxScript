@@ -884,3 +884,46 @@ function chk_hr(){
     echo "" > '/Users/kuochihlo/Downloads/comp2.txt'        
 }
 
+function secure_back(){
+    # 檢查參數：至少要提供一個要壓縮的資料夾或檔案
+    if [ $# -lt 1 ]; then
+      echo "用法: $0 <要壓縮的檔案或資料夾>"
+      exit 1
+    fi
+
+    # 取得目標路徑與名稱
+    TARGET="$1"
+    BASENAME=$(basename "$TARGET")
+    DATE=$(date +"%Y%m%d_%H%M%S")
+
+    # 壓縮檔案輸出到執行指令的目前工作目錄
+    ARCHIVE_NAME="$(pwd)/${BASENAME}_backup_${DATE}.rar"
+
+    # 確認 rar 是否安裝
+    if ! command -v rar &> /dev/null; then
+      echo "錯誤：請先安裝 'rar' 工具（可使用 'brew install rar'）"
+      exit 1
+    fi
+
+    # 安全輸入密碼
+    read -s -p "請輸入密碼（會用來加密備份檔）: " PASSWORD
+    echo
+    read -s -p "再次輸入密碼確認: " PASSWORD_CONFIRM
+    echo
+
+    # 密碼驗證
+    if [ "$PASSWORD" != "$PASSWORD_CONFIRM" ]; then
+      echo "❌ 密碼不一致，請重新執行。"
+      exit 1
+    fi
+
+    # 壓縮並加密（使用 AES 加密檔案內容＋檔名）
+    rar a -hp"$PASSWORD" "$ARCHIVE_NAME" "$TARGET"
+
+    # 顯示結果
+    if [ $? -eq 0 ]; then
+      echo "✅ 備份完成：$ARCHIVE_NAME"
+    else
+      echo "❌ 壓縮過程中發生錯誤"
+    fi
+}
