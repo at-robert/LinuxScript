@@ -461,7 +461,7 @@ function aex(){
         TAIL=於伊莉論壇
     elif [ "$1" == "g" ];
     then
-        PASS=graypanther_by_eyny_hungya
+        PASS=gkd2143@eyny
     else
         PASS=$1
     fi
@@ -480,7 +480,10 @@ function aex(){
         while read line; do unrar x -p$PASS$line$TAIL -y 'FC2PPV-'$line.rar ; done < $FILENAME
         while read line; do unrar x -p$PASS$line$TAIL -y 'fc2ppv_'$line.rar ; done < $FILENAME
     else
-        find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+        # find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+        find . -maxdepth 1 -type f \
+    \( -name "*.part1.rar" -o -name "*.rar" ! -name "*.part*.rar" \) \
+    -exec unrar x -p"$PASS" -y {} \;
     fi
 
 
