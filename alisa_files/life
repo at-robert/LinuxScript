@@ -60,6 +60,10 @@ MACMINI_CERT="/Users/kuochihlo/Documents/CERT/"
 APPLE_1T_DRIVE="/Volumes/Apple_1T/Data/MyDoc/"
 APPLE_1T_CERT="/Volumes/Apple_1T/CERT/"
 
+
+APPLE_4T_DRIVE="/Volumes/Apple_4T/Data/MyDoc/"
+APPLE_4T_CERT="/Volumes/Apple_4T/CERT/"
+
 LOCAL_GOOGLE="/Users/kuochihlo/Downloads/GoogleSheetPython/"
 CLOUD_GOOGLE="/Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython/"
 
@@ -452,6 +456,9 @@ function aex(){
     elif [ "$1" == "m" ] ;
     then
         PASS=mpoop@eyny
+    elif [ "$1" == "k" ] ;
+    then
+        PASS=kszai@eyny
     elif [ "$1" == "fc" ];
     then
         PASS=taiwan88251分享於伊莉論壇FC2PPV-
@@ -710,7 +717,7 @@ function collect_jira(){
         python3 ~/Documents/Github/Amt_work_platform/Jira/jira_2025_analyzer_for_telly.py > $TELLY_JIRA_FILE
         JIRA_FILE=$TELLY_JIRA_FILE
     else
-        python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_2020_analyzer.py > $AMT_JIRA_FILE
+        python3 ~/Documents/Github/Amt_work_platform/Jira/Jira_202X_analyzer.py > $AMT_JIRA_FILE
         JIRA_FILE=$AMT_JIRA_FILE
     fi
 
@@ -788,6 +795,12 @@ function backsync(){
         printf "$LIGHT_GREEN From $MYBOOKSTUDIO_LIFE to $APPLE_1T_DRIVE !! \n $END"
         rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$APPLE_1T_DRIVE"
         rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$APPLE_1T_CERT"
+
+    elif [ -d "$APPLE_4T_DRIVE" ] && [ -d "$MYBOOKSTUDIO_LIFE" ];
+    then 
+        printf "$LIGHT_GREEN From $MYBOOKSTUDIO_LIFE to $APPLE_4T_DRIVE !! \n $END"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MYBOOKSTUDIO_LIFE" "$APPLE_4T_DRIVE"
+        rsync -av --update  --delete -P --log-file=sync_A_to_B.log "$MACMINI_CERT" "$APPLE_4T_CERT"
 
     else
         printf "All Backup Disks are Not detected !! \n $END"
