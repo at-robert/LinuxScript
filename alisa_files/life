@@ -892,6 +892,17 @@ function mge(){
     > ~/.megaCmd/megacmdserver.log
 }
 
+function mgg(){
+    
+    if [ "$1" == "" ] ;
+    then 
+        echo " parameter can't be empty "
+        return
+    fi
+
+    mega-get $1
+}
+
 function chk_hr(){
     python $OFTENUSED_PATH/GoogleDrive/get_sheet_to_excel.py
     python $OFTENUSED_PATH/SRT_Check/check_ch_str.py '/Users/kuochihlo/Downloads/2025 FW_HR_List.xlsx' > '/Users/kuochihlo/Downloads/comp2.txt'
