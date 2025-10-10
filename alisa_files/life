@@ -954,3 +954,21 @@ function secure_back(){
       echo "❌ 壓縮過程中發生錯誤"
     fi
 }
+
+
+function lego(){
+
+    if [ "$1" == "" ] ;
+    then 
+        echo " parameter can't be empty "
+        return
+    fi
+
+    python $OFTENUSED_PATH/PytubeFix/lego_video_pic.py $1 $2 $3 $4
+    cd $OFTENUSED_PATH/PytubeFix/
+    code .
+
+}
+
+
+
