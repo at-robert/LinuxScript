@@ -24,6 +24,8 @@ MAC_DOWNLOAD_PATH=/media/psf/Home/Downloads/
 
 TARGET_PATH=/media/psf/Home/Documents/Work_platforms/2020_Gaming_Monitors/Code/
 
+WORK_PLATFORM_PATH=/d/work_platform/
+
 alias rasp_power_off='python ~/Documents/Github/GoogleAssistIOT/mqtt_projects/mqtt_publish_poweroff.py'
 
 alias goto_giga_ad27qd='cd $GIGA_AD27QD_PATH/'
@@ -324,3 +326,11 @@ function up_svn_subfolders(){
     done
 }
 
+function jira_sort(){
+    grep -r "^\[SYS\]" $WORK_PLATFORM_PATH/blackboard3.txt > $WORK_PLATFORM_PATH/arrange.txt
+    grep -r "^\[OSD\]" $WORK_PLATFORM_PATH/blackboard3.txt >> $WORK_PLATFORM_PATH/arrange.txt
+    grep -r "^\[VIDEO\]" $WORK_PLATFORM_PATH/blackboard3.txt >> $WORK_PLATFORM_PATH/arrange.txt
+    grep -r "^\[SPEC\]" $WORK_PLATFORM_PATH/blackboard3.txt >> $WORK_PLATFORM_PATH/arrange.txt
+    grep -r "^\[AUDIO\]" $WORK_PLATFORM_PATH/blackboard3.txt >> $WORK_PLATFORM_PATH/arrange.txt
+    grep -r "^\[PQ\]" $WORK_PLATFORM_PATH/blackboard3.txt >> $WORK_PLATFORM_PATH/arrange.txt
+}
