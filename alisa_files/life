@@ -152,9 +152,9 @@ function gupdate(){
     cd $path/LinuxScript
     printf "$LIGHT_RED Git Pull LinuxScript $END \n" 
     git pull
-    cd $path/Taiwan_Stock
-    printf "$LIGHT_GREEN Git Pull Taiwan_Stock $END \n"
-    git pull
+    # cd $path/Taiwan_Stock
+    # printf "$LIGHT_GREEN Git Pull Taiwan_Stock $END \n"
+    # git pull
     cd $path/GitTips
     printf "$LIGHT_CYAN Git Pull GitTips $END \n"
     git pull
@@ -480,12 +480,12 @@ function aex(){
     then
         find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
         while read line; do unrar x -p$PASS$line -y 'FC2PPV-'$line.rar ; done < $FILENAME
-        while read line; do unrar x -p$PASS$line -y 'fc2ppv_'$line.rar ; done < $FILENAME
+        while read line; do unrar x -p$PASS$line -y 'fc2ppv-'$line.rar ; done < $FILENAME
     elif [ "$1" == "fc1" ] ;
     then
         find . -maxdepth 1 -type f -name "*.rar" -exec basename {} \; | sed 's/.rar//' | sed 's/FC2PPV-//' | sed 's/fc2ppv_//' > $FILENAME
         while read line; do unrar x -p$PASS$line$TAIL -y 'FC2PPV-'$line.rar ; done < $FILENAME
-        while read line; do unrar x -p$PASS$line$TAIL -y 'fc2ppv_'$line.rar ; done < $FILENAME
+        while read line; do unrar x -p$PASS$line$TAIL -y 'fc2ppv-'$line.rar ; done < $FILENAME
     else
         # find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
         find . -maxdepth 1 -type f \
@@ -737,7 +737,7 @@ function covert_jira_csv(){
 
     mv ~/Downloads/Amtran.csv ~/Documents/Github/Amt_work_platform/Jira/
     cd ~/Documents/Github/Amt_work_platform/Jira/
-    python jira_to_csv.py
+    python jira_list.py
 }
 
 function covert_jira_ppt(){
@@ -969,6 +969,51 @@ function lego(){
     code .
 
 }
+
+function chk_gd_list(){
+    python $OFTENUSED_PATH/GoogleDrive/chk_google_drive.py
+}
+
+
+function get_links(){
+
+    OUT_FILE=~/Downloads/temp.txt
+
+    # 判斷環境 (macOS 或 Linux)
+    if command -v pbpaste &>/dev/null; then
+        CLIP_CMD="pbpaste"
+    elif command -v xclip &>/dev/null; then
+        CLIP_CMD="xclip -selection clipboard -o"
+    elif command -v xsel &>/dev/null; then
+        CLIP_CMD="xsel --clipboard --output"
+    else
+        echo " 無法取得剪貼簿內容，請安裝 pbpaste（mac）或 xclip/xsel（Linux）"
+        exit 1
+    fi
+
+    # 取得剪貼簿中的所有網址
+    ALL_LINKS=$(eval "$CLIP_CMD" | grep -Eo '(https?://[^"'"'"'<> ]+)' | sort -u)
+
+    # 如果有參數 a，則篩選 katfile 或 mega
+    if [[ "$1" == "a" ]]; then
+        echo "$ALL_LINKS" | grep -E '^https://(katfile|mega)' > "$OUT_FILE"
+    else
+        echo "$ALL_LINKS" > "$OUT_FILE"
+    fi
+
+    echo " 網址已輸出至 $OUT_FILE"
+
+    # 若有結果，顯示部分內容供確認
+    if [[ -s "$OUT_FILE" ]]; then
+        echo "以下為擷取結果："
+        head -n 10 "$OUT_FILE"
+    else
+        echo "⚠ 沒有擷取到符合條件的網址"
+    fi
+
+}
+
+
 
 
 
