@@ -735,7 +735,12 @@ function collect_jira(){
 
 function covert_jira_csv(){
 
-    mv ~/Downloads/Amtran.csv ~/Documents/Github/Amt_work_platform/Jira/
+    if [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
+        mv $T_PATH/Amtran.csv ~/Documents/Github/Amt_work_platform/Jira/
+    else
+        mv ~/Downloads/Amtran.csv ~/Documents/Github/Amt_work_platform/Jira/
+    fi
+
     cd ~/Documents/Github/Amt_work_platform/Jira/
     python jira_list.py
 }
@@ -995,10 +1000,10 @@ function get_links(){
     ALL_LINKS=$(eval "$CLIP_CMD" | grep -Eo '(https?://[^"'"'"'<> ]+)' | sort -u)
 
     # 如果有參數 a，則篩選 katfile 或 mega
-    if [[ "$1" == "a" ]]; then
-        echo "$ALL_LINKS" | grep -E '^https://(katfile|mega)' > "$OUT_FILE"
-    else
+    if [[ "$1" == "" ]]; then
         echo "$ALL_LINKS" > "$OUT_FILE"
+    else
+        echo "$ALL_LINKS" | grep -E '^https://(katfile|mega)' > "$OUT_FILE"
     fi
 
     echo " 網址已輸出至 $OUT_FILE"
@@ -1006,7 +1011,11 @@ function get_links(){
     # 若有結果，顯示部分內容供確認
     if [[ -s "$OUT_FILE" ]]; then
         echo "以下為擷取結果："
-        head -n 10 "$OUT_FILE"
+        if [[ "$1" == "" ]]; then
+            cat $OUT_FILE
+        else
+            cat $OUT_FILE | grep "$1"
+        fi
     else
         echo "⚠ 沒有擷取到符合條件的網址"
     fi
