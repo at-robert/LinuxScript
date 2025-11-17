@@ -963,13 +963,21 @@ function secure_back(){
 
 function lego(){
 
-    if [ "$1" == "" ] ;
+    if [ "$4" == "" ] ;
     then 
-        echo " parameter can't be empty "
+        echo " parameter1-4 can't be empty "
         return
     fi
 
-    python $OFTENUSED_PATH/PytubeFix/lego_video_pic.py $1 $2 $3 $4
+    IFS=':' read -r min sec <<< "$3"
+    START_TIME=$((min*60 + sec))
+    echo "Start time = $START_TIME "
+
+    IFS=':' read -r min sec <<< "$4"
+    END_TIME=$((min*60 + sec))
+    echo "End time = $END_TIME "
+
+    python $OFTENUSED_PATH/PytubeFix/lego_video_pic.py $1 $2 $START_TIME $END_TIME
     cd $OFTENUSED_PATH/PytubeFix/
     code .
 
@@ -1021,7 +1029,6 @@ function get_links(){
     fi
 
 }
-
 
 
 
