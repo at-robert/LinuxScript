@@ -96,6 +96,10 @@ function envy(){
     python $OFTENUSED_PATH/Selenium/Envy_SE.py http://www81.eyny.com/forum-576-1.html
 }
 
+function kat(){
+    python $OFTENUSED_PATH/Selenium/kat_se.py
+}
+
 function stock(){
 
     if [[ $HOTWORD_ENV == 'MAC_MINI_M2' ]]; then
@@ -469,6 +473,12 @@ function aex(){
     elif [ "$1" == "g" ];
     then
         PASS=gkd2143@eyny
+    elif [ "$1" == "f" ];
+    then
+        PASS=fang757@eyny
+    elif [ "$1" == "l" ];
+    then
+        PASS=lonelyq@eyny
     else
         PASS=$1
     fi
@@ -731,6 +741,8 @@ function collect_jira(){
     echo " "
     echo "Resolved Issues"
     cat $JIRA_FILE | grep "Resolved Issues" | sed 's/.*\[Resolved Issues\]//g'
+
+    cd ~/Documents/Github/Amt_work_platform/Jira
 }
 
 function covert_jira_csv(){
