@@ -982,10 +982,14 @@ function lego(){
     fi
 
     IFS=':' read -r min sec <<< "$3"
+    min=${min#0}
+    sec=${sec#0}
     START_TIME=$((min*60 + sec))
     echo "Start time = $START_TIME "
 
     IFS=':' read -r min sec <<< "$4"
+    min=${min#0}
+    sec=${sec#0}
     END_TIME=$((min*60 + sec))
     echo "End time = $END_TIME "
 
@@ -1042,6 +1046,8 @@ function get_links(){
 
 }
 
-
+function tmp_find(){
+    cat ~/Downloads/temp.txt | grep "$1"
+}
 
 
