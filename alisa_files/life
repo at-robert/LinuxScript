@@ -21,6 +21,7 @@ END='\e[0m'
 alias jupy='jupyter notebook'
 alias pppoe_on='pon dsl-provider'
 alias pppoe_off='poff dsl-provider'
+alias openb='open -na "Google Chrome" --args --profile-directory="Default"'
 
 LINUXSCRIPT_PATH=~/Documents/Github/LinuxScript/
 OFTENUSED_PATH=~/Documents/Github/OftenUsed/
@@ -38,6 +39,7 @@ USB_FOLDER_PATH_2T=/Volumes/HDD_2T/
 USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
 USB_FOLDER_PATH_2T_V2=/Volumes/HDD_2TB_V2/
+USB_FOLDER_PATH_4T_V2=/Volumes/HDD_4T_V2/
 
 MEGA_CERT_FILE=~/Documents/CERT/auth_mega
 
@@ -434,6 +436,8 @@ function amv(){
 
 function aex(){
     FILENAME=~/Downloads/temp.txt
+    DOWNLOAD_PATH=~/Downloads
+    PASS_FILE=$DOWNLOAD_PATH/output_log/pass_hotkey.txt
 
     if [ -d $T_PATH ];
     then
@@ -443,44 +447,18 @@ function aex(){
     fi
 
 
-    if [ "$1" == "" ] ;
-    then
-        PASS=pennyinlive@eyny
-        printf "$LIGHT_RED -The first parameter should not be empty - $END"
-        return 
-    elif [ "$1" == "h" ] ;
-    then
-        PASS=hkmmopqqo-eyny
-    elif [ "$1" == "9" ] ;
-    then
-        PASS=9527
-    elif [ "$1" == "a" ] ;
-    then
-        PASS=andy741026分享於伊莉論壇
-    elif [ "$1" == "m" ] ;
-    then
-        PASS=mpoop@eyny
-    elif [ "$1" == "k" ] ;
-    then
-        PASS=kszai@eyny
-    elif [ "$1" == "fc" ];
-    then
-        PASS=taiwan88251分享於伊莉論壇FC2PPV-
-    elif [ "$1" == "fc1" ];
-    then
-        PASS=taiwan88251分享fc2ppv-
-        TAIL=於伊莉論壇
-    elif [ "$1" == "g" ];
-    then
-        PASS=gkd2143@eyny
-    elif [ "$1" == "f" ];
-    then
-        PASS=fang757@eyny
-    elif [ "$1" == "l" ];
-    then
-        PASS=lonelyq@eyny
-    else
-        PASS=$1
+    if [ -z "$1" ]; then
+        PASS="pennyinlive@eyny"
+        printf "$LIGHT_RED -The first parameter should not be empty - $END\n"
+        return
+    fi
+
+    # 嘗試從 pass_hotkey.txt 查 hotkey
+    PASS=$(grep -E "^$1=" "$PASS_FILE" 2>/dev/null | head -n1 | cut -d'=' -f2-)
+
+    # 如果找不到，直接使用原本輸入值
+    if [ -z "$PASS" ]; then
+        PASS="$1"
     fi
 
     printf "$LIGHT_GREEN  Advance Extracting Rar files with the Password = $PASS $END \n"
@@ -501,6 +479,9 @@ function aex(){
         find . -maxdepth 1 -type f \
     \( -name "*.part1.rar" -o -name "*.rar" ! -name "*.part*.rar" \) \
     -exec unrar x -p"$PASS" -y {} \;
+
+        # to extract .7z files
+        find . -maxdepth 1 -type f -name "*.7z" -exec 7z x {} -p$PASS \;
     fi
 
 
@@ -531,7 +512,7 @@ function acpy(){
 
 # New Year Folders
 function nyf(){
-    YEAR=2026
+    YEAR=2027
     cd /Volumes/My\ Book\ Studio/Data/MyDoc/Robert.Lo/Robert\ Personal\ Stuff/Personal\ Bills/
 
     printf "$LIGHT_PURPLE  New Year Folders Creating on $YEAR \n $END"
@@ -609,6 +590,11 @@ function aback(){
         USB_FOLDER_PATH=$USB_FOLDER_PATH_2T_V2
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
 
+    elif [ -d $USB_FOLDER_PATH_4T_V2 ] ;
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V2
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
         return
@@ -649,6 +635,11 @@ function alist(){
     elif [ -d $USB_FOLDER_PATH_2T_V2 ] ;
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_2T_V2
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+
+    elif [ -d $USB_FOLDER_PATH_4T_V2 ] ;
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V2
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
         
     else
@@ -993,9 +984,9 @@ function lego(){
     END_TIME=$((min*60 + sec))
     echo "End time = $END_TIME "
 
-    python $OFTENUSED_PATH/PytubeFix/lego_video_pic.py $1 $2 $START_TIME $END_TIME
-    cd $OFTENUSED_PATH/PytubeFix/
-    code .
+    python $OFTENUSED_PATH/PytubeFix/lego_video_pic_1.py $1 $2 $START_TIME $END_TIME
+    # cd $OFTENUSED_PATH/PytubeFix/
+    # code .
 
 }
 
@@ -1004,7 +995,16 @@ function chk_gd_list(){
 }
 
 
-function get_links(){
+function getlinks(){
+
+    echo "Usage : getlinks XXX-0123 -t or getlinks XXX-0123"
+
+    if [ "$2" == "-t" ] ;
+    then 
+        echo "To fetch message from temp.txt "
+        cat ~/Downloads/temp.txt | grep -i "$1"
+        return
+    fi
 
     OUT_FILE=~/Downloads/temp.txt
 
@@ -1038,7 +1038,7 @@ function get_links(){
         if [[ "$1" == "" ]]; then
             cat $OUT_FILE
         else
-            cat $OUT_FILE | grep "$1"
+            cat $OUT_FILE | grep -i "$1"
         fi
     else
         echo "⚠ 沒有擷取到符合條件的網址"
@@ -1049,5 +1049,7 @@ function get_links(){
 function tmp_find(){
     cat ~/Downloads/temp.txt | grep "$1"
 }
+
+
 
 
