@@ -40,6 +40,7 @@ USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
 USB_FOLDER_PATH_2T_V2=/Volumes/HDD_2TB_V2/
 USB_FOLDER_PATH_4T_V2=/Volumes/HDD_4T_V2/
+T7_DRIVE=/Volumes/T7/
 
 MEGA_CERT_FILE=~/Documents/CERT/auth_mega
 
@@ -476,8 +477,11 @@ function aex(){
         while read line; do unrar x -p$PASS$line$TAIL -y 'fc2ppv-'$line.rar ; done < $FILENAME
     else
         # find . -maxdepth 1 -type f -name "*.rar" -exec unrar x -p$PASS -y {} \;
+    #     find . -maxdepth 1 -type f \
+    # \( -name "*.part1.rar" -o -name "*.rar" ! -name "*.part*.rar" \) \
+    # -exec unrar x -p"$PASS" -y {} \;
         find . -maxdepth 1 -type f \
-    \( -name "*.part1.rar" -o -name "*.rar" ! -name "*.part*.rar" \) \
+    \( -name "*.part1.rar" -o -name "*.part01.rar" -o -name "*.part001.rar" -o \( -name "*.rar" ! -name "*.part*.rar" \) \) \
     -exec unrar x -p"$PASS" -y {} \;
 
         # to extract .7z files
@@ -1050,6 +1054,47 @@ function tmp_find(){
     cat ~/Downloads/temp.txt | grep "$1"
 }
 
+function aclean(){
+
+    if [ -d "$T7_DRIVE" ];
+    then
+        echo "$T7_DRIVE found!!"
+        cd $T7_DRIVE
+
+    elif [ -d "$USB_FOLDER_PATH_4T_V2" ];
+    then
+        echo "$USB_FOLDER_PATH_4T_V2 found!!"
+        cd $USB_FOLDER_PATH_4T_V2
+
+    else
+        echo "No drive found"
+        return 
+    fi
 
 
+    INFILE='._*'
 
+    find . -type f -name "$INFILE" -exec ls -la {} \;
+    count=$(find . -type f -name "$INFILE" -exec ls -la {} \; | wc -l | sed 's/^[ \t]*//g')
+
+    echo "Found $count files"
+
+    if [ "$count" == "0" ]; then
+        return
+    fi
+
+
+    # Read input.
+    echo "Please input d to delete all found files or exit"
+    read input_char
+
+    # Check input char.
+    if [ "$input_char" == "d" ]; then
+        echo "Delete all $INFILE!"
+        find . -type f -name "$INFILE" -exec rm {} \;
+    else
+        echo "Don't delete anything"
+        echo ""
+        return
+    fi
+}
