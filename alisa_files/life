@@ -78,7 +78,7 @@ AMT_JIRA_FILE=~/Downloads/AmTRAN_JIRA.txt
 TELLY_JIRA_FILE=~/Downloads/Telly_Jira.txt
 
 SCPF_FODLER_PATH=~/Downloads/scp_folder
-LOCAL_SERVER=robert.lo@192.168.13.9
+LOCAL_SERVER=robert.lo@192.168.13.7
 
 DATE=$(date +"%Y%m%d%H%M")
 
