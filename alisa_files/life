@@ -756,6 +756,19 @@ function covert_jira_csv(){
     cd ~/Documents/Github/Amt_work_platform/Jira/
     python jira_list.py
 
+
+    if [ "$1" == "n" ];
+    then
+        cp amtran_out.csv nova_jira.csv
+        echo "To generate to Nova JIRA"
+    elif [ "$1" == "g" ];
+    then
+        cp amtran_out.csv fo27u24gp_jira.csv
+        echo "To generate to FO27U24GP JIRA"
+    else
+        echo "No specific amtran_out.csv!!!"
+    fi
+
 }
 
 function covert_jira_ppt(){
