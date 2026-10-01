@@ -40,6 +40,7 @@ USB_FOLDER_PATH_4T=/Volumes/HDD_4T/
 USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
 USB_FOLDER_PATH_2T_V2=/Volumes/HDD_2TB_V2/
 USB_FOLDER_PATH_4T_V2=/Volumes/HDD_4T_V2/
+USB_FOLDER_PATH_4T_V3=/Volumes/HDD_4T_V3/
 T7_DRIVE=/Volumes/T7/
 
 MEGA_CERT_FILE=~/Documents/CERT/auth_mega
@@ -645,6 +646,10 @@ function alist(){
     then
         USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V2
         printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+    elif [ -d $USB_FOLDER_PATH_4T_V3 ] ;
+    then
+        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V3
+        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
         
     else
         printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
@@ -751,17 +756,6 @@ function covert_jira_csv(){
     cd ~/Documents/Github/Amt_work_platform/Jira/
     python jira_list.py
 
-    if [ "$1" == "n" ];
-    then
-        cp amtran_out.csv nova_jira.csv
-        echo "To generate to Nova JIRA"
-    elif [ "$1" == "g" ];
-    then
-        cp amtran_out.csv fo27u24gp_jira.csv
-        echo "To generate to FO27U24GP JIRA"
-    else
-        echo "No specific amtran_out.csv!!!"
-    fi
 }
 
 function covert_jira_ppt(){
@@ -1078,6 +1072,10 @@ function aclean(){
         echo "$USB_FOLDER_PATH_4T_V2 found!!"
         cd $USB_FOLDER_PATH_4T_V2
 
+    elif [ -d "$USB_FOLDER_PATH_4T_V3" ];
+    then
+        echo "$USB_FOLDER_PATH_4T_V3 found!!"
+        cd $USB_FOLDER_PATH_4T_V3
     else
         echo "No drive found"
         return 
