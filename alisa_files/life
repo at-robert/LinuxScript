@@ -41,6 +41,7 @@ USB_FOLDER_PATH_8T=/Volumes/HDD_8T/
 USB_FOLDER_PATH_2T_V2=/Volumes/HDD_2TB_V2/
 USB_FOLDER_PATH_4T_V2=/Volumes/HDD_4T_V2/
 USB_FOLDER_PATH_4T_V3=/Volumes/HDD_4T_V3/
+USB_FOLDER_PATH_500G=/Volumes/HDD_500G/
 T7_DRIVE=/Volumes/T7/
 
 MEGA_CERT_FILE=~/Documents/CERT/auth_mega
@@ -72,9 +73,9 @@ LOCAL_GOOGLE="/Users/kuochihlo/Downloads/GoogleSheetPython/"
 CLOUD_GOOGLE="/Users/kuochihlo/Library/CloudStorage/GoogleDrive-atttrobert@gmail.com/我的雲端硬碟/Work/Python/GoogleSheetPython/"
 
 
-ALIST_PATH=~/Downloads/temp.txt
-ALIST_PATH_DUP=~/Downloads/dup.txt
-ALIST_PATH_DUP_OUT=~/Downloads/dup_out.txt
+ALIST_PATH=~/Downloads/output_log/temp.txt
+ALIST_PATH_DUP=~/Downloads/output_log/dup.txt
+ALIST_PATH_DUP_OUT=~/Downloads/output_log/dup_out.txt
 
 AMT_JIRA_FILE=~/Downloads/AmTRAN_JIRA.txt
 TELLY_JIRA_FILE=~/Downloads/Telly_Jira.txt
@@ -87,6 +88,29 @@ DATE=$(date +"%Y%m%d%H%M")
 alias tw_lottery_chk='python $OFTENUSED_PATH/TW_Lottery/taiwanlottery.py'
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+get_usb_folder() {
+    local paths=(
+        "$USB_FOLDER_PATH_8T"
+        "$USB_FOLDER_PATH_4T"
+        "$USB_FOLDER_PATH_2T"
+        "$USB_FOLDER_PATH_2T_V2"
+        "$USB_FOLDER_PATH_4T_V2"
+        "$USB_FOLDER_PATH_4T_V3"
+        "$USB_FOLDER_PATH_500G"
+        "$T7_DRIVE"
+    )
+    for path in "${paths[@]}"; do
+        if [ -n "$path" ] && [ -d "$path" ]; then
+            # 把提示文字印到 >&2 (stderr)，就不會被 $() capture 進變數裡面
+            printf "${LIGHT_GREEN}USB Folder = %s\n${END}" "$path" >&2
+            # 只把乾淨的路徑印到 stdout 回傳
+            echo "$path"
+            return 0
+        fi
+    done
+    printf "${LIGHT_RED}USB Folder doesn't exist\n${END}" >&2
+    return 1
+}
 
 function dayoff(){
     python $OFTENUSED_PATH/Dayoff/fw5_day_off.py
@@ -621,42 +645,16 @@ function aback(){
 
 function alist(){
 
+    # 透過指令替換取得找到的路徑
 
-    if [ -d $USB_FOLDER_PATH_8T ];
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_8T
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
-
-    elif [ -d $USB_FOLDER_PATH_4T ];
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+    local USB_FOLDER_PATH
     
-    elif [ -d $USB_FOLDER_PATH_2T ] ;
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
+    USB_FOLDER_PATH=$(get_usb_folder) || return 1
 
-    elif [ -d $USB_FOLDER_PATH_2T_V2 ] ;
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_2T_V2
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
 
-    elif [ -d $USB_FOLDER_PATH_4T_V2 ] ;
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V2
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
-    elif [ -d $USB_FOLDER_PATH_4T_V3 ] ;
-    then
-        USB_FOLDER_PATH=$USB_FOLDER_PATH_4T_V3
-        printf "$LIGHT_GREEN USB Folder = $USB_FOLDER_PATH \n $END"
         
-    else
-        printf "$LIGHT_RED $USB_FOLDER_PATH doesn't exist \n $END"
-        return
-    fi
 
-    cd $USB_FOLDER_PATH
+    cd "$USB_FOLDER_PATH" || return 1
     echo "Switch to the folder $USB_FOLDER_PATH"
     find . -type f -name "*.mp4" -exec basename {} \;  > $ALIST_PATH
     find . -type f -name "*.mkv" -exec basename {} \;  >> $ALIST_PATH
@@ -841,6 +839,11 @@ function backsync(){
 
 function find_similar(){
 
+    # 透過指令替換取得找到的路徑
+    local USB_FOLDER_PATH
+    USB_FOLDER_PATH=$(get_usb_folder) || return 1
+    cd "$USB_FOLDER_PATH" || return 1
+    echo "Switch to the folder $USB_FOLDER_PATH"
 
     # 設定目標目錄為當前工作目錄
     TARGET_DIR="$(pwd)"
@@ -1069,55 +1072,46 @@ function getlinks(){
 
 }
 
-function tmp_find(){
-    cat ~/Downloads/temp.txt | grep "$1"
-}
 
 function aclean(){
 
-    if [ -d "$T7_DRIVE" ];
-    then
-        echo "$T7_DRIVE found!!"
-        cd $T7_DRIVE
+    # 透過指令替換取得找到的路徑
 
-    elif [ -d "$USB_FOLDER_PATH_4T_V2" ];
-    then
-        echo "$USB_FOLDER_PATH_4T_V2 found!!"
-        cd $USB_FOLDER_PATH_4T_V2
+    local USB_FOLDER_PATH
+    USB_FOLDER_PATH=$(get_usb_folder) || return 1
 
-    elif [ -d "$USB_FOLDER_PATH_4T_V3" ];
-    then
-        echo "$USB_FOLDER_PATH_4T_V3 found!!"
-        cd $USB_FOLDER_PATH_4T_V3
-    else
-        echo "No drive found"
-        return 
-    fi
+    cd "$USB_FOLDER_PATH" || return 1
+    echo "Switch to the folder $USB_FOLDER_PATH"
 
 
     INFILE='._*'
 
-    find . -type f -name "$INFILE" -exec ls -la {} \;
-    count=$(find . -type f -name "$INFILE" -exec ls -la {} \; | wc -l | sed 's/^[ \t]*//g')
+    # 1. 自動跳過 macOS 系統資料夾 (.Spotlight-V100, .Trashes, .fseventsd)
+    # 2. 將 find 的權限報錯導向 /dev/null (2>/dev/null)
+    # 3. 改用 while 迴圈存入陣列，相容 macOS 舊版 Bash 3.2
+    local files=()
+    while IFS= read -r line; do
+        files+=("$line")
+    done < <(find . \( -name ".Spotlight-V100" -o -name ".Trashes" -o -name ".fseventsd" \) -prune -o -type f -name "$INFILE" -print 2>/dev/null)
 
+    local count=${#files[@]}
     echo "Found $count files"
 
-    if [ "$count" == "0" ]; then
+    if [ "$count" -eq 0 ]; then
         return
     fi
 
+    # 列出所有找到的檔案
+    printf '%s\n' "${files[@]}"
 
-    # Read input.
-    echo "Please input d to delete all found files or exit"
-    read input_char
+    # 讀取使用者輸入
+    read -p "Please input d to delete all found files or exit: " input_char
 
-    # Check input char.
     if [ "$input_char" == "d" ]; then
         echo "Delete all $INFILE!"
-        find . -type f -name "$INFILE" -exec rm {} \;
+        find . \( -name ".Spotlight-V100" -o -name ".Trashes" -o -name ".fseventsd" \) -prune -o -type f -name "$INFILE" -exec rm -f {} + 2>/dev/null
     else
-        echo "Don't delete anything"
-        echo ""
+        echo -e "Don't delete anything\n"
         return
     fi
 }
